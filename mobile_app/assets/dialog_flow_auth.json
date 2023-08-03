@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "heartbot-ksha",
+  "private_key_id": "98ec5027f9197d3d023b45abc92b9ac71be6e980",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQChQjvuAqjKYe8W\n0u3p+s+dayYiYpmricYoHFvTDzFMH3iQd6QvAJtP6QYXFZHqkP9y+N7Z+DE8t9TG\nj/VtWi+4YtlHF1mq0qJCTPD33xCQ1pvhb4iAOWqzdEB7XGiPDY73bJDGy3wvFyo7\nHeLceUKB3OR7oC1r0ICBtDzA9FjrqhG6hnhPJbh4iAvb2Rb5H3GSu0W9JNTXYXG0\njQ7QJixEdHIXn0oBjQnZaXgzf7XGy/GFWjBPbFRUXLSHzdFoR0nzQ1GlHzVWLWvC\n+yRG1SGXOv0gpkYNu1fcXAkpo8eFILdAuVSY+3Of+NZKNHziQkUOz9YIrdkN9SEG\nCsnUkwcdAgMBAAECggEAErZx5+OtHJcSvI5Lh2xQbU8CxNi2Rl6dfQgVa7+Gk/PO\n9My9Y6rpWvOKfmFFZnfe/MN+cMLJS+d1LHmGHGNryDTIS+ScxiLdK15sVAcxj+0n\nd5iOuXpwNFTYKriFdZw4K+QQRNFWHszMXMHSEo2LtzAf32yt+KXgU6zLpAR20Rni\ntrlXMorAqYfzf2hn0tDOIKopljZ8nT18j/zj5PTH7wrNSWpt6tVwTkcG7GChqRNB\nHSwWxMZ7OaTXcQcLJG/HYM1WlsY963S52rA5neI16GHvqI3t9rdJvtGAy9wE2sqd\ndBD/gx/1P5xj4zgkpnIkqD/FTekfAZqYw2HIzfkwIQKBgQDiqmRBSK7Biz+t3EX/\naQvb9hohQ2B2Bgq2NXDK/XZ8f5pDrmaV0t+HlNOc4/eorOPh9IQCMFje/Rb8dH02\nwB1QxCqrEuBwvijvTplgDsdMvGOt4f+TDb90Hro7zSWuSCMcAKfSCQy+GEcRIZki\nHdduk0IRNUuKXlXcueBdOpkVdQKBgQC2INyjWo3hrTQAK4pdo8gD1trl6z1KU6Qp\na71O5ynq0XNmYjq2XIwT5klnQ5APvJkd7NQHHJOcHYomsYKex/ot8k/pHgynyg0g\nedUduQTrBKeTSvxAMMkT+ZNoZYUtX+Hk8n7tB/09EWsHhQq2izuBZ8edhOdGe1Mc\nYAIGAfVuCQKBgH7Y5Go0hrgBeY2OrA2Xd++M9mqPDjh+gRgfKBQxbFGYB3jA7OAD\nttxlSVePrFVVC+Kzt/yRmeqQsIBvoHM3aDB+13INilUN1lK2Jdc/7gDfnNj+lMxy\n8SXG3GoDEIdMD3noVAKS1fK8G2lW6B/Tm3BiMKL4tGGnEV4JF6qU1H7RAoGBAJnO\nssY5iSyXCx1Bp/5gfF/RqNcWjJIihLZ+SEdELUAjViOWvSKYkauUhVTx182SZnTB\nNmYzGe1zfOIkcr0JARygUB/8wo9IsUFF4lbRk3euXJ6latYC3S1DTduSMKAbIzgo\nGkyuvIxAE3UsQ9nZR42HSSqbvHznVU7XPZ45NT2RAoGAY/DpXKoW1rV5Kk/H01nz\nKY2aqEASqIhl53hF4sFUXJ4ujG/e8qB0gtmrWxt6meqFsaYhcEk3kbr0KJf9wftN\n6KWXEFpljbZic4OGEHSNrTGD12mFp78z0/VQjvtAFzkitqVOypg3R0v/r+YqwOhl\nIPnWf/wEbaKDVSnkmkmrG9E=\n-----END PRIVATE KEY-----\n",
+  "client_email": "heartbot@heartbot-ksha.iam.gserviceaccount.com",
+  "client_id": "112080317091373892937",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/heartbot%40heartbot-ksha.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
