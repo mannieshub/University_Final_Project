@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+
+//firebase authentication
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobile_app/auth.dart';
+
+//page
 import 'package:mobile_app/before_assessment_page.dart';
 import 'package:mobile_app/before_chatbot_page.dart';
+
+//UI
 import 'package:mobile_app/ui/goTobefore.dart';
 import 'package:mobile_app/ui/user_info_card.dart';
 
