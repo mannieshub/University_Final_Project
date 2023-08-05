@@ -1,5 +1,6 @@
+import 'package:mobile_app/before_chatbot_page.dart';
 import 'package:mobile_app/home_page.dart';
-import 'package:mobile_app/ui/Messages.dart';
+import 'package:mobile_app/ui/chatbotpage/Messages.dart';
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/material.dart';
 
@@ -59,7 +60,7 @@ class _HomeState extends State<Home> {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
+                      MaterialPageRoute(builder: (context) => before_Chatbot()),
                     );
                   },
                   child: Text(

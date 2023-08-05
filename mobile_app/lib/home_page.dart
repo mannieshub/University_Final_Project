@@ -9,8 +9,8 @@ import 'package:mobile_app/before_assessment_page.dart';
 import 'package:mobile_app/before_chatbot_page.dart';
 
 //UI
-import 'package:mobile_app/ui/goTobefore.dart';
-import 'package:mobile_app/ui/user_info_card.dart';
+import 'package:mobile_app/ui/navigatebutton/homepage_ui.dart';
+import 'package:mobile_app/ui/homepage/user_info_card.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -88,7 +88,7 @@ class HomePage extends StatelessWidget {
                 ),
                 NextPageButton(
                   imgPath: 'images/icon1.png',
-                  message1: 'CHD 10 years risk score',
+                  message1: 'Q&A',
                   message2: 'สอบถามเกี่ยวกับโรคหลอดเลือดหัวใจ',
                   destination:
                       before_Chatbot(), // Replace with your desired destination widget.

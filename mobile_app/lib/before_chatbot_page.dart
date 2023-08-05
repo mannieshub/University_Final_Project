@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/chatbot_page.dart';
+import 'package:mobile_app/home_page.dart';
 
 class before_Chatbot extends StatefulWidget {
   const before_Chatbot({super.key});
@@ -27,8 +28,11 @@ class _before_ChatbotState extends State<before_Chatbot> {
                   textStyle: TextStyle(fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
-                  // รหัสที่ต้องการให้ทำเมื่อปุ่มถูกกด
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => HomePage()), // เปิดหน้า chatbot
+                  );
                 },
                 child: Text(
                   'Back',
@@ -92,77 +96,6 @@ class _before_ChatbotState extends State<before_Chatbot> {
                         fontSize: 17,
                       ),
                     )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                child: Wrap(
-                  children: <Widget>[
-                    Text(
-                      '● โรคหลอดเลือดหัวใจ คืออะไร ?',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                    Text(
-                      '● อาการของโรคหลอดเลือดหัวใจ มีอะไรบ้าง ?',
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                    Text(
-                      '● โรคหลอดเลือดหัวใจ เกิดจากอะไร ?',
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                    Text(
-                      '● ปัจจัยเสี่ยงโรคหลอดเลือดหัวใจ มีอะไรบ้าง ?',
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                    Text(
-                      '● ทำไมฉันจึงเสี่ยงเป็นโรคหลอดเลือดหัวใจ ?',
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                    Text(
-                      '● วิธีการดูแลตัวเองเพื่อเลี่ยงการเป็นโรคหลอดเลือดหัวใจ',
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                    Text(
-                      '● วิธีการดูแลตัวเองเมื่อเป็นโรคหลอดเลือดหัวใจ',
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                    Text(
-                      '● คำถามทั้งหมดที่สามารถถามได้',
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                    Text(
-                      '● ทีมพัฒนาใช้อะไรในการประเมินความเสี่ยงของผู้ใช้',
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
                   ],
                 ),
               ),
