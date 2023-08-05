@@ -5,15 +5,17 @@ import 'package:mobile_app/auth.dart';
 //UI
 import 'package:mobile_app/ui/authenpage/UI1.dart';
 import 'package:mobile_app/ui/authenpage/authen_toggle.dart';
+import 'package:mobile_app/ui/authenpage/input.dart';
+import 'package:mobile_app/ui/authenpage/welcome_screen.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class testAuthenPage extends StatefulWidget {
+  const testAuthenPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<testAuthenPage> createState() => _testAuthenPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _testAuthenPageState extends State<testAuthenPage> {
   String? errorMessage = '';
   bool isLogin = true;
 
@@ -87,6 +89,7 @@ class _LoginPageState extends State<LoginPage> {
         title: _title(),
       ),
       body: Container(
+        color: Color(0xFF24B6A4),
         height: double.infinity,
         width: double.infinity,
         padding: const EdgeInsets.all(20),
@@ -94,8 +97,25 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            _entryField('email', _controllerEmail),
-            _entryField('password', _controllerPassword),
+            Container(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+              margin: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 30),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                  ),
+                ],
+              ),
+            ),
+            //signIn or signUp
+            positioned1(description: 'HeartRisk Assessment'),
+            AuthenticationToggle(), WelcomeScreen(),
+            Input(),
+
+            // _entryField('email', _controllerEmail),
+            // _entryField('password', _controllerPassword),
             _errorMessage(),
             _submitButton(),
             _loginOrRegisterButton(),

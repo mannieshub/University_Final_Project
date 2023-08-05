@@ -7,6 +7,7 @@ import 'package:mobile_app/auth.dart';
 //page
 import 'package:mobile_app/before_assessment_page.dart';
 import 'package:mobile_app/before_chatbot_page.dart';
+import 'package:mobile_app/test.dart';
 
 //UI
 import 'package:mobile_app/ui/navigatebutton/homepage_ui.dart';
@@ -50,15 +51,19 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+        //Display AppName with green background
         appBar: AppBar(
           title: _title(),
           automaticallyImplyLeading: false,
           backgroundColor: Color(0xFF4FCCBD),
         ),
+
+        //Display Content
         body: Container(
-          color: Color(0XFFF1F4F8),
+          color: Color(0xFFD5B79F),
           child: Container(
-            color: Color(0XFFF1F4F8),
+            color: Color(0xFFD5B79F),
             margin: EdgeInsetsDirectional.fromSTEB(10, 30, 10, 30),
             child: Column(
               children: <Widget>[
@@ -86,12 +91,19 @@ class HomePage extends StatelessWidget {
                   destination:
                       before_As(), // Replace with your desired destination widget.
                 ),
+                // NextPageButton(
+                //   imgPath: 'images/icon1.png',
+                //   message1: 'Q&A',
+                //   message2: 'สอบถามเกี่ยวกับโรคหลอดเลือดหัวใจ',
+                //   destination:
+                //       before_Chatbot(), // Replace with your desired destination widget.
+                // ),
                 NextPageButton(
-                  imgPath: 'images/icon1.png',
-                  message1: 'Q&A',
-                  message2: 'สอบถามเกี่ยวกับโรคหลอดเลือดหัวใจ',
+                  imgPath: 'images/debug.png',
+                  message1: 'Debug',
+                  message2: 'status : AuthenPage merge',
                   destination:
-                      before_Chatbot(), // Replace with your desired destination widget.
+                      testAuthenPage(), // Replace with your desired destination widget.
                 ),
                 // _userUid(),
                 _signOutButton(),
