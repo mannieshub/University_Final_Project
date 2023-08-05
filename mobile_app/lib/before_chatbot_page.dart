@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/chatbot_page.dart';
 
 class before_Chatbot extends StatefulWidget {
   const before_Chatbot({super.key});
@@ -202,7 +203,12 @@ class _before_ChatbotState extends State<before_Chatbot> {
                             TextStyle(fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
                       ),
                       onPressed: () {
-                        // รหัสที่ต้องการให้ทำเมื่อปุ่มถูกกด
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  chatbot()), // เปิดหน้า chatbot
+                        );
                       },
                       child: Text(
                         'เริ่มสอบถาม',
