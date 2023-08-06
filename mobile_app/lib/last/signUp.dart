@@ -3,7 +3,7 @@ import 'package:mobile_app/home_page.dart';
 import 'package:mobile_app/login_register_page.dart';
 import 'package:mobile_app/ui/authenpage/appname.dart';
 import 'package:mobile_app/ui/authenpage/login_button.dart';
-import 'package:mobile_app/ui/authenpage/toggle.dart';
+import 'package:mobile_app/ui/authenpage/toggle_in.dart';
 import 'package:mobile_app/ui/authenpage/heart_icon.dart';
 import 'package:mobile_app/ui/authenpage/input.dart';
 import 'package:mobile_app/ui/authenpage/robot.dart';
@@ -12,12 +12,12 @@ import 'package:mobile_app/ui/authenpage/welcome_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobile_app/auth.dart';
 
-class signup extends StatefulWidget {
+class signUp extends StatefulWidget {
   @override
-  _signupState createState() => _signupState();
+  _signUpState createState() => _signUpState();
 }
 
-class _signupState extends State<signup> {
+class _signUpState extends State<signUp> {
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
   String? errorMessage = '';
@@ -90,7 +90,7 @@ class _signupState extends State<signup> {
                                     child: Column(
                                       children: [
                                         //ปุ่ม
-                                        AuthenticationToggle(),
+                                        signUp(),
 
                                         //welcome screen
                                         WelcomeScreen(),

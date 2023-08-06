@@ -3,7 +3,7 @@ import 'package:mobile_app/home_page.dart';
 import 'package:mobile_app/login_register_page.dart';
 import 'package:mobile_app/ui/authenpage/appname.dart';
 import 'package:mobile_app/ui/authenpage/login_button.dart';
-import 'package:mobile_app/ui/authenpage/toggle.dart';
+import 'package:mobile_app/ui/authenpage/toggle_in.dart';
 import 'package:mobile_app/ui/authenpage/heart_icon.dart';
 import 'package:mobile_app/ui/authenpage/input.dart';
 import 'package:mobile_app/ui/authenpage/robot.dart';

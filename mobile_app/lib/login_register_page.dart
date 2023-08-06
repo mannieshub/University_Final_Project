@@ -4,7 +4,7 @@ import 'package:mobile_app/auth.dart';
 
 //UI
 import 'package:mobile_app/ui/authenpage/appname.dart';
-import 'package:mobile_app/ui/authenpage/toggle.dart';
+import 'package:mobile_app/ui/authenpage/toggle_in.dart';
 import 'package:mobile_app/ui/authenpage/input.dart';
 
 class LoginPage extends StatefulWidget {
