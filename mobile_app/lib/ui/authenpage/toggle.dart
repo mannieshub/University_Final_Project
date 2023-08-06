@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/login_register_page.dart';
+import 'package:mobile_app/signUp.dart';
 
 class AuthenticationToggle extends StatefulWidget {
   @override
@@ -60,7 +61,7 @@ class _AuthenticationToggleState extends State<AuthenticationToggle> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => LoginPage(),
+                      builder: (context) => signup(),
                     ),
                   );
                 }

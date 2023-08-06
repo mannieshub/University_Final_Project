@@ -4,7 +4,7 @@ import 'package:mobile_app/auth.dart';
 
 //UI
 import 'package:mobile_app/ui/authenpage/appname.dart';
-import 'package:mobile_app/ui/authenpage/authen_toggle.dart';
+import 'package:mobile_app/ui/authenpage/toggle.dart';
 import 'package:mobile_app/ui/authenpage/input.dart';
 
 class LoginPage extends StatefulWidget {
@@ -98,10 +98,12 @@ class _LoginPageState extends State<LoginPage> {
           children: <Widget>[
             // _entryField('email', _controllerEmail),
             // _entryField('password', _controllerPassword),
+
+            //export from external
             Input('email', _controllerEmail),
             Input('password', _controllerPassword),
 
-            //in fil
+            //Widget in file
             _errorMessage(),
             _submitButton(),
             _loginOrRegisterButton(),
