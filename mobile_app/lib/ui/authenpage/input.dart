@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Input extends StatelessWidget {
-  final TextEditingController _emailcontroller = TextEditingController();
+  final TextEditingController controller;
+  final String title;
+
   bool checkErrorEditUsername = false;
+
+  Input(this.title, this.controller);
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +35,10 @@ class Input extends StatelessWidget {
                       ),
                       width: 270,
                       child: TextFormField(
-                        validator: (value) {
-                          //ตัวแปร value คือ ค่าที่ input เข้ามาอยากใช้ input(ของแมน) ให้ value = input ส่วนของอีเมลนะ ***
-                          //ใส่บรรทัดข้างล่างนี้เลย ใส่ input บรรณทัด 261
-                          value = 'Inputของแมน ส่วนของอีเมล';
-                        },
-                        controller: _emailcontroller,
+                        controller: controller,
                         decoration: InputDecoration(
                           border: InputBorder.none,
-                          hintText: 'Email'.toString(),
+                          labelText: title,
                           contentPadding:
                               EdgeInsetsDirectional.fromSTEB(20, 14, 0, 14),
                         ),

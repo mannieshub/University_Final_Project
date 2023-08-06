@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class positioned1 extends StatelessWidget {
+class Appname extends StatelessWidget {
   final String description;
 
-  positioned1({
+  Appname({
     required this.description,
   });
 

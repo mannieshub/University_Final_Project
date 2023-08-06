@@ -3,8 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobile_app/auth.dart';
 
 //UI
-import 'package:mobile_app/ui/authenpage/UI1.dart';
+import 'package:mobile_app/ui/authenpage/appname.dart';
 import 'package:mobile_app/ui/authenpage/authen_toggle.dart';
+import 'package:mobile_app/ui/authenpage/input.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -83,10 +84,11 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: _title(),
-      ),
+      // appBar: AppBar(
+      //   title: _title(),
+      // ),
       body: Container(
+        color: Color(0xFF24B6A4),
         height: double.infinity,
         width: double.infinity,
         padding: const EdgeInsets.all(20),
@@ -94,8 +96,12 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            _entryField('email', _controllerEmail),
-            _entryField('password', _controllerPassword),
+            // _entryField('email', _controllerEmail),
+            // _entryField('password', _controllerPassword),
+            Input('email', _controllerEmail),
+            Input('password', _controllerPassword),
+
+            //in fil
             _errorMessage(),
             _submitButton(),
             _loginOrRegisterButton(),
