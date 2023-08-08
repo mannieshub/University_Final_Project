@@ -3,12 +3,13 @@ import 'package:mobile_app/home_page.dart';
 import 'package:mobile_app/login_register_page.dart';
 import 'package:mobile_app/ui/authenpage/appname.dart';
 import 'package:mobile_app/ui/authenpage/login_button.dart';
-import 'package:mobile_app/ui/authenpage/toggle_in.dart';
+import 'package:mobile_app/ui/authenpage/signIn_toggle.dart';
 import 'package:mobile_app/ui/authenpage/heart_icon.dart';
 import 'package:mobile_app/ui/authenpage/input.dart';
 import 'package:mobile_app/ui/authenpage/robot.dart';
-import 'package:mobile_app/ui/authenpage/welcome_screen.dart';
+import 'package:mobile_app/ui/authenpage/welcome_text.dart';
 
+//firebase authentication
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobile_app/auth.dart';
 
@@ -20,7 +21,9 @@ class signIn extends StatefulWidget {
 class _signInState extends State<signIn> {
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
+
   String? errorMessage = '';
+  bool isLogin = true;
 
   List<bool> _SelectSign_Up = <bool>[true, false];
   Color color = Color(0xFFD9D9D9);
@@ -41,6 +44,10 @@ class _signInState extends State<signIn> {
         errorMessage = e.message;
       });
     }
+  }
+
+  Widget _errorMessage() {
+    return Text(errorMessage == '' ? '' : 'Humm ? $errorMessage');
   }
 
   @override
@@ -90,7 +97,7 @@ class _signInState extends State<signIn> {
                                     child: Column(
                                       children: [
                                         //ปุ่ม
-                                        AuthenticationToggle(),
+                                        signInToggle(),
 
                                         //welcome screen
                                         WelcomeScreen(),
@@ -103,7 +110,8 @@ class _signInState extends State<signIn> {
                                         LoginButton(
                                             title: 'sign in',
                                             sFunction:
-                                                signInWithEmailAndPassword)
+                                                signInWithEmailAndPassword),
+                                        _errorMessage()
                                       ],
                                     ),
                                   )),

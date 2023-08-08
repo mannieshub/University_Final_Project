@@ -109,6 +109,7 @@ class HomePage extends StatelessWidget {
                       signIn(), // Replace with your desired destination widget.
                 ),
                 // _userUid(),
+
                 _signOutButton(),
               ],
             ),

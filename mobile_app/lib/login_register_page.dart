@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+
+//firebase authentication
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobile_app/auth.dart';
 
 //UI
 import 'package:mobile_app/ui/authenpage/appname.dart';
-import 'package:mobile_app/ui/authenpage/toggle_in.dart';
+import 'package:mobile_app/ui/authenpage/createAcc_text.dart';
+import 'package:mobile_app/ui/authenpage/signIn_toggle.dart';
 import 'package:mobile_app/ui/authenpage/input.dart';
+import 'package:mobile_app/ui/authenpage/register_button.dart';
+import 'package:mobile_app/ui/authenpage/welcome_text.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -18,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
   String? errorMessage = '';
   bool isLogin = true;
 
+  //Email and Password from input
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
 
@@ -43,22 +49,23 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  Widget _title() {
-    return const Text('Firebase Auth');
-  }
+  // Widget _title() {
+  //   return const Text('Firebase Auth');
+  // }
 
-  Widget _entryField(
-    String title,
-    TextEditingController controller,
-  ) {
-    return TextField(
-      controller: controller,
-      decoration: InputDecoration(
-        labelText: title,
-      ),
-    );
-  }
+  // Widget _entryField(
+  //   String title,
+  //   TextEditingController controller,
+  // ) {
+  //   return TextField(
+  //     controller: controller,
+  //     decoration: InputDecoration(
+  //       labelText: title,
+  //     ),
+  //   );
+  // }
 
+  //when Input wrong format
   Widget _errorMessage() {
     return Text(errorMessage == '' ? '' : 'Humm ? $errorMessage');
   }
@@ -81,6 +88,10 @@ class _LoginPageState extends State<LoginPage> {
         child: Text(isLogin ? 'Register instead' : 'Login instead'));
   }
 
+  Widget _createOrSignIn() {
+    return isLogin ? WelcomeScreen() : createAccText();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,10 +111,14 @@ class _LoginPageState extends State<LoginPage> {
             // _entryField('password', _controllerPassword),
 
             //export from external
+
+            _createOrSignIn(),
+
             Input('email', _controllerEmail),
             Input('password', _controllerPassword),
 
             //Widget in file
+
             _errorMessage(),
             _submitButton(),
             _loginOrRegisterButton(),

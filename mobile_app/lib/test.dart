@@ -4,9 +4,9 @@ import 'package:mobile_app/auth.dart';
 
 //UI
 import 'package:mobile_app/ui/authenpage/appname.dart';
-import 'package:mobile_app/ui/authenpage/toggle_in.dart';
+import 'package:mobile_app/ui/authenpage/signIn_toggle.dart';
 import 'package:mobile_app/ui/authenpage/input.dart';
-import 'package:mobile_app/ui/authenpage/welcome_screen.dart';
+import 'package:mobile_app/ui/authenpage/welcome_text.dart';
 
 class testAuthenPage extends StatefulWidget {
   const testAuthenPage({super.key});
@@ -111,7 +111,7 @@ class _testAuthenPageState extends State<testAuthenPage> {
             ),
             //signIn or signUp
             Appname(description: 'HeartRisk Assessment'),
-            AuthenticationToggle(), WelcomeScreen(),
+            signInToggle(), WelcomeScreen(),
             Input('email', _controllerEmail),
             Input('password', _controllerPassword),
             // _entryField('email', _controllerEmail),

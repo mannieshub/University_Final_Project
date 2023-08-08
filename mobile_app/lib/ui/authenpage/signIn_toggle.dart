@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/home_page.dart';
 import 'package:mobile_app/last/signIn.dart';
 import 'package:mobile_app/last/signUp.dart';
 import 'package:mobile_app/login_register_page.dart';
 import 'package:mobile_app/last/signUp.dart';
 
-class AuthenticationToggle extends StatefulWidget {
+class signInToggle extends StatefulWidget {
   @override
-  _AuthenticationToggleState createState() => _AuthenticationToggleState();
+  _signInToggleState createState() => _signInToggleState();
 }
 
-class _AuthenticationToggleState extends State<AuthenticationToggle> {
+class _signInToggleState extends State<signInToggle> {
   List<bool> _selectSign_Up = [true, false];
 
   @override
@@ -63,7 +64,7 @@ class _AuthenticationToggleState extends State<AuthenticationToggle> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => signUp(),
+                      builder: (context) => signUpPage(),
                     ),
                   );
                 }

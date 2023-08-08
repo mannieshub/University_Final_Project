@@ -2,22 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app/home_page.dart';
 import 'package:mobile_app/login_register_page.dart';
 import 'package:mobile_app/ui/authenpage/appname.dart';
+import 'package:mobile_app/ui/authenpage/createAcc_text.dart';
 import 'package:mobile_app/ui/authenpage/login_button.dart';
-import 'package:mobile_app/ui/authenpage/toggle_in.dart';
+import 'package:mobile_app/ui/authenpage/signIn_toggle.dart';
 import 'package:mobile_app/ui/authenpage/heart_icon.dart';
 import 'package:mobile_app/ui/authenpage/input.dart';
 import 'package:mobile_app/ui/authenpage/robot.dart';
-import 'package:mobile_app/ui/authenpage/welcome_screen.dart';
+import 'package:mobile_app/ui/authenpage/signUp_toggle.dart';
+import 'package:mobile_app/ui/authenpage/welcome_text.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobile_app/auth.dart';
 
-class signUp extends StatefulWidget {
+class signUpPage extends StatefulWidget {
   @override
-  _signUpState createState() => _signUpState();
+  _signUpPageState createState() => _signUpPageState();
 }
 
-class _signUpState extends State<signUp> {
+class _signUpPageState extends State<signUpPage> {
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
   String? errorMessage = '';
@@ -90,10 +92,10 @@ class _signUpState extends State<signUp> {
                                     child: Column(
                                       children: [
                                         //ปุ่ม
-                                        signUp(),
+                                        signUptoggle(),
 
                                         //welcome screen
-                                        WelcomeScreen(),
+                                        createAccText(),
 
                                         //input
                                         Input('email', _controllerEmail),

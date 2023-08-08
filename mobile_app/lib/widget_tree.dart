@@ -3,6 +3,8 @@ import 'package:mobile_app/home_page.dart';
 import 'package:mobile_app/login_register_page.dart';
 import 'package:flutter/material.dart';
 
+import 'last/signIn.dart';
+
 class WidgetTree extends StatefulWidget {
   const WidgetTree({Key? key}) : super(key: key);
 
@@ -19,7 +21,7 @@ class _WidgetTreeState extends State<WidgetTree> {
         if (snapshot.hasData) {
           return HomePage();
         } else {
-          return const LoginPage();
+          return signIn();
         }
       },
     );
