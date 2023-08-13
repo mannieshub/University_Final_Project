@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>CHD_Assessment web-server test</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="number" step="any" name="gender" placeholder="เพศ" required="required" />
+<input type="number" step="any" name="age" placeholder="อายุ" required="required" />
+<input type="number" step="any" name="education" placeholder="ระดับการศึกษา" required="required" />
+<input type="number" step="any" name="currentSmoker" placeholder="ประวัติการสูบบุหรี่" required="required" />
+<input type="number" step="any" name="cigsPerDay" placeholder="ปริมาณบุหรี่ที่สูบต่อวัน" required="required" />
+<input type="number" step="any" name="BPMeds" placeholder="ประวัติการรับยาลดความดัน" required="required" />
+<input type="number" step="any" name="prevalentStroke" placeholder="ประวัติการเป็นโรคหลอดเลือดสมอง" required="required" />
+<input type="number" step="any" name="prevalentHyp" placeholder="ประวัติการเป็นโรคความดันโลหิตสูง" required="required" />
+<input type="number" step="any" name="diabetes" placeholder="ประวัติการเป็นโรคเบาหวาน" required="required" />
+<input type="number" step="any" name="totChol" placeholder="ปริมาณคอเลสเตอรอล" required="required" />
+<input type="number" step="any" name="sysBP" placeholder="ความดันหัวใจห้องบน" required="required" />
+<input type="number" step="any" name="diaBP" placeholder="ความดันหัวใจห้องล่าง" required="required" />
+<input type="number" step="any" name="BMI" placeholder="ดัชนีมวลกาย" required="required" />
+<input type="number" step="any" name="heartRate" placeholder="อัตราการเต้นของหัวใจ" required="required" />
+<input type="number" step="any" name="glucose" placeholder="ระดับกลูโคส" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+   <br>
+   <br>
+   {{accuracy}}
+
+ </div>
+
+
+</body>
+</html>
