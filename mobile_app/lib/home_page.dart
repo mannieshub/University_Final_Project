@@ -11,7 +11,7 @@ import 'package:mobile_app/test.dart';
 import 'package:mobile_app/last/signIn.dart';
 
 //UI
-import 'package:mobile_app/ui/navigatebutton/homepage_ui.dart';
+import 'package:mobile_app/ui/authenpage/homepage_ui.dart';
 import 'package:mobile_app/ui/homepage/user_info_card.dart';
 
 import 'last/signIn.dart';

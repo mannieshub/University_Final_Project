@@ -7,9 +7,11 @@ import 'package:mobile_app/auth.dart';
 //UI
 import 'package:mobile_app/ui/authenpage/appname.dart';
 import 'package:mobile_app/ui/authenpage/createAcc_text.dart';
-import 'package:mobile_app/ui/authenpage/signIn_toggle.dart';
+
 import 'package:mobile_app/ui/authenpage/input.dart';
 import 'package:mobile_app/ui/authenpage/register_button.dart';
+import 'package:mobile_app/ui/authenpage/signIn_toggle.dart';
+import 'package:mobile_app/ui/authenpage/signUp_toggle.dart';
 import 'package:mobile_app/ui/authenpage/welcome_text.dart';
 
 class LoginPage extends StatefulWidget {
@@ -88,8 +90,12 @@ class _LoginPageState extends State<LoginPage> {
         child: Text(isLogin ? 'Register instead' : 'Login instead'));
   }
 
-  Widget _createOrSignIn() {
+  Widget _createOrSignInText() {
     return isLogin ? WelcomeScreen() : createAccText();
+  }
+
+  Widget _SignInOrSignUpToggle() {
+    return isLogin ? signInToggle() : signUptoggle();
   }
 
   @override
@@ -111,8 +117,8 @@ class _LoginPageState extends State<LoginPage> {
             // _entryField('password', _controllerPassword),
 
             //export from external
-
-            _createOrSignIn(),
+            _SignInOrSignUpToggle(),
+            _createOrSignInText(),
 
             Input('email', _controllerEmail),
             Input('password', _controllerPassword),
