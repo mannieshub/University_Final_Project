@@ -55,7 +55,7 @@ class _signUptoggleState extends State<signUptoggle> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => signIn(),
+                        builder: (context) => signInPage(),
                       ),
                     );
                   }

@@ -33,9 +33,12 @@ dependencies:
 
   
   
-  #firebase
+  #Firebase Authentication
   firebase_core: ^2.14.0
   firebase_auth: ^4.6.3
+
+  #Firebase Cloud Firestore
+  cloud_firestore: ^4.8.4
 
   #chatbot
   dialog_flowtter:
@@ -43,6 +46,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  
 
 dev_dependencies:
   flutter_test:

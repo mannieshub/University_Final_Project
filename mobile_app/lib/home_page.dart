@@ -7,6 +7,7 @@ import 'package:mobile_app/auth.dart';
 //page
 import 'package:mobile_app/before_assessment_page.dart';
 import 'package:mobile_app/before_chatbot_page.dart';
+import 'package:mobile_app/debug_page.dart';
 import 'package:mobile_app/test.dart';
 import 'package:mobile_app/last/signIn.dart';
 
@@ -106,7 +107,7 @@ class HomePage extends StatelessWidget {
                   message1: 'Debug',
                   message2: 'status : AuthenPage merge',
                   destination:
-                      signIn(), // Replace with your desired destination widget.
+                      debugPage(), // Replace with your desired destination widget.
                 ),
                 // _userUid(),
 

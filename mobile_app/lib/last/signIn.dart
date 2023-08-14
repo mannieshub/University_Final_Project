@@ -13,12 +13,12 @@ import 'package:mobile_app/ui/authenpage/welcome_text.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobile_app/auth.dart';
 
-class signIn extends StatefulWidget {
+class signInPage extends StatefulWidget {
   @override
-  _signInState createState() => _signInState();
+  _signInPageState createState() => _signInPageState();
 }
 
-class _signInState extends State<signIn> {
+class _signInPageState extends State<signInPage> {
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
 
