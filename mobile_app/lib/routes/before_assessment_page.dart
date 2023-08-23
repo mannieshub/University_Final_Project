@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
-import '/routes/assessment_demo.dart';
-import '/routes/home_page.dart';
+import 'package:mobile_app/routes/assessment_demo.dart';
 
-//ยังไม่ได้กำหนดหน้าที่กดแล้วจะไปต่อ
-
-class before_As extends StatefulWidget {
-  const before_As({super.key});
-
+class beforeAs extends StatefulWidget {
   @override
-  State<before_As> createState() => _before_AsState();
+  _beforeAsState createState() => _beforeAsState();
 }
 
-class _before_AsState extends State<before_As> {
+class _beforeAsState extends State<beforeAs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,9 +25,7 @@ class _before_AsState extends State<before_As> {
                   textStyle: TextStyle(fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
                 ),
                 onPressed: () {
-                  //back
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
+                  Navigator.pop(context);
                   // รหัสที่ต้องการให้ทำเมื่อปุ่มถูกกด
                 },
                 child: Text(
@@ -56,7 +49,9 @@ class _before_AsState extends State<before_As> {
         ),
       ),
       body: Container(
+        color: Color(0XFFFFEEDD),
         child: Container(
+          color: Color(0XFFFFEEDD),
           padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
           margin: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 30),
           child: Column(
@@ -122,7 +117,7 @@ class _before_AsState extends State<before_As> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 45, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -139,10 +134,12 @@ class _before_AsState extends State<before_As> {
                             TextStyle(fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
                       ),
                       onPressed: () {
+                        // รหัสที่ต้องการให้ทำเมื่อปุ่มถูกกด
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => asP()), // เปิดหน้า chatbot
+                            builder: (context) => asP(),
+                          ),
                         );
                       },
                       child: Text(

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:mobile_app/authentication/auth.dart';
+import 'package:mobile_app/routes/before_assessment_page.dart';
 
 //routes
 import '/routes/assessment_demo.dart';
@@ -90,7 +91,7 @@ class HomePage extends StatelessWidget {
                   message2:
                       'ประเมินความเสี่ยงการเป็นโรคหลอดเลือดหัวใจภายใน 10 ปี',
                   destination:
-                      asP(), // Replace with your desired destination widget.
+                      beforeAs(), // Replace with your desired destination widget.
                 ),
 
                 NextPageButton(
@@ -98,7 +99,7 @@ class HomePage extends StatelessWidget {
                   message1: 'Q&A',
                   message2: 'สอบถามเกี่ยวกับโรคหลอดเลือดหัวใจ',
                   destination:
-                      before_Chatbot(), // Replace with your desired destination widget.
+                      beforeChat(), // Replace with your desired destination widget.
                 ),
 
                 _userUid(),

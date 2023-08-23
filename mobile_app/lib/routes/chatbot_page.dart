@@ -64,10 +64,7 @@ class _chatUIState extends State<chatUI> {
                         TextStyle(fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
                   ),
                   onPressed: () {
-                    Navigator.pop(
-                      context,
-                      MaterialPageRoute(builder: (context) => before_Chatbot()),
-                    );
+                    Navigator.pop(context);
                   },
                   child: Text(
                     'Back',

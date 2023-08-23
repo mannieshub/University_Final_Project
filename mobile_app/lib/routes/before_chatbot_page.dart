@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/routes/chatbot_page.dart';
 
-//routes
-import '/routes/chatbot_page.dart';
-import '/routes/home_page.dart';
-
-class before_Chatbot extends StatefulWidget {
-  const before_Chatbot({super.key});
-
+class beforeChat extends StatefulWidget {
   @override
-  State<before_Chatbot> createState() => _before_ChatbotState();
+  _beforeChatState createState() => _beforeChatState();
 }
 
-class _before_ChatbotState extends State<before_Chatbot> {
+class _beforeChatState extends State<beforeChat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Color(0xFF4FCCBD),
@@ -30,11 +26,8 @@ class _before_ChatbotState extends State<before_Chatbot> {
                   textStyle: TextStyle(fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
                 ),
                 onPressed: () {
-                  Navigator.pop(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => HomePage()), // เปิดหน้า chatbot
-                  );
+                  Navigator.pop(context);
+                  // รหัสที่ต้องการให้ทำเมื่อปุ่มถูกกด
                 },
                 child: Text(
                   'Back',
@@ -88,7 +81,88 @@ class _before_ChatbotState extends State<before_Chatbot> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                 child: Wrap(
-                  children: <Widget>[],
+                  children: <Widget>[
+                    Text(
+                      'นี่คือสิ่งที่คุณสามารถสอบถามเราได้ โดยจะตอบกลับโดยแชทบอทที่เราได้สร้างขึ้นมา และนี่คือสิ่งที่คุณสามารถถามแชทบอทของเราได้',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontFamily: 'Kanit',
+                        color: Color(0XFF5A5959),
+                        fontSize: 17,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                child: Wrap(
+                  children: <Widget>[
+                    Text(
+                      '● โรคหลอดเลือดหัวใจ คืออะไร ?',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontFamily: 'Kanit',
+                        color: Color(0XFF5A5959),
+                      ),
+                    ),
+                    Text(
+                      '● อาการของโรคหลอดเลือดหัวใจ มีอะไรบ้าง ?',
+                      style: TextStyle(
+                        fontFamily: 'Kanit',
+                        color: Color(0XFF5A5959),
+                      ),
+                    ),
+                    Text(
+                      '● โรคหลอดเลือดหัวใจ เกิดจากอะไร ?',
+                      style: TextStyle(
+                        fontFamily: 'Kanit',
+                        color: Color(0XFF5A5959),
+                      ),
+                    ),
+                    Text(
+                      '● ปัจจัยเสี่ยงโรคหลอดเลือดหัวใจ มีอะไรบ้าง ?',
+                      style: TextStyle(
+                        fontFamily: 'Kanit',
+                        color: Color(0XFF5A5959),
+                      ),
+                    ),
+                    Text(
+                      '● ทำไมฉันจึงเสี่ยงเป็นโรคหลอดเลือดหัวใจ ?',
+                      style: TextStyle(
+                        fontFamily: 'Kanit',
+                        color: Color(0XFF5A5959),
+                      ),
+                    ),
+                    Text(
+                      '● วิธีการดูแลตัวเองเพื่อเลี่ยงการเป็นโรคหลอดเลือดหัวใจ',
+                      style: TextStyle(
+                        fontFamily: 'Kanit',
+                        color: Color(0XFF5A5959),
+                      ),
+                    ),
+                    Text(
+                      '● วิธีการดูแลตัวเองเมื่อเป็นโรคหลอดเลือดหัวใจ',
+                      style: TextStyle(
+                        fontFamily: 'Kanit',
+                        color: Color(0XFF5A5959),
+                      ),
+                    ),
+                    Text(
+                      '● คำถามทั้งหมดที่สามารถถามได้',
+                      style: TextStyle(
+                        fontFamily: 'Kanit',
+                        color: Color(0XFF5A5959),
+                      ),
+                    ),
+                    Text(
+                      '● ทีมพัฒนาใช้อะไรในการประเมินความเสี่ยงของผู้ใช้',
+                      style: TextStyle(
+                        fontFamily: 'Kanit',
+                        color: Color(0XFF5A5959),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Padding(
@@ -131,9 +205,10 @@ class _before_ChatbotState extends State<before_Chatbot> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  chatbot()), // เปิดหน้า chatbot
+                            builder: (context) => chatbot(),
+                          ),
                         );
+                        // รหัสที่ต้องการให้ทำเมื่อปุ่มถูกกด
                       },
                       child: Text(
                         'เริ่มสอบถาม',
