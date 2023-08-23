@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/home_page.dart';
+import '/routes/home_page.dart';
 
 class signUpButton extends StatelessWidget {
   const signUpButton({super.key});

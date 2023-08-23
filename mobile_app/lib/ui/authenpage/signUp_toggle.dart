@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/last/signIn.dart';
 
-class signUptoggle extends StatefulWidget {
-  const signUptoggle({super.key});
+class signUpToggle extends StatefulWidget {
+  final Function(bool) callbackFunction;
+  final Function(bool) isLoginState;
+
+  signUpToggle({required this.callbackFunction, required this.isLoginState});
 
   @override
-  State<signUptoggle> createState() => _signUptoggleState();
+  _signUpToggleState createState() => _signUpToggleState();
 }
 
-class _signUptoggleState extends State<signUptoggle> {
+class _signUpToggleState extends State<signUpToggle> {
   List<bool> _selectSign_Up = [false, true];
 
   @override
@@ -18,7 +20,6 @@ class _signUptoggleState extends State<signUptoggle> {
         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           Container(
               padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 0),
-              //color: Color(0xFFD9D9D9),
               decoration: BoxDecoration(
                 color: Color(0xFFD9D9D9),
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -52,12 +53,9 @@ class _signUptoggleState extends State<signUptoggle> {
                     }
                   });
                   if (_selectSign_Up[0]) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => signInPage(),
-                      ),
-                    );
+                    widget.isLoginState(false); // ตั้งค่า isLogin เป็น false
+                    widget.callbackFunction(
+                        false); // เรียกใช้งาน callback function ใน LoginPage
                   }
                 },
                 borderRadius: const BorderRadius.all(Radius.circular(10)),

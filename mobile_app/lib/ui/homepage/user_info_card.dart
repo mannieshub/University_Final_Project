@@ -1,6 +1,22 @@
 import 'package:flutter/material.dart';
 
+//firebase authentication
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:mobile_app/authentication/auth.dart';
+
 class UserInfoCard extends StatelessWidget {
+  final User? user = Auth().currentUser;
+
+  Widget _userUid() {
+    return Text(
+      user?.email ?? 'user email',
+      style: TextStyle(
+        fontFamily: 'Kanit',
+        fontSize: 17,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,13 +46,8 @@ class UserInfoCard extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                     fontFamily: 'Inter'),
                               ),
-                              Text(
-                                "ชิมมินกยู",
-                                style: TextStyle(
-                                  fontFamily: 'Kanit',
-                                  fontSize: 17,
-                                ),
-                              )
+                              //display user email
+                              _userUid(),
                             ],
                           ),
                         ),

@@ -11,7 +11,7 @@ class Input extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
       child: Column(
         children: [
           Padding(
@@ -30,10 +30,11 @@ class Input extends StatelessWidget {
                               : Color(0xFFD9D9D9), // สีขอบ
                           width: 1.5, // ความกว้างของเส้นขอบ
                         ),
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(10),
                         color: Colors.white,
                       ),
-                      width: 270,
+                      height: 63,
+                      width: 290,
                       child: TextFormField(
                         controller: controller,
                         decoration: InputDecoration(

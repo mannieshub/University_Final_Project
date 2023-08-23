@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../home_page.dart';
+import '/routes/home_page.dart';
 
 class LoginButton extends StatelessWidget {
   final String title;

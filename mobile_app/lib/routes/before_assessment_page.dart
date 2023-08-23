@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/chatbot_page.dart';
-import 'package:mobile_app/home_page.dart';
+import '/routes/assessment_demo.dart';
+import '/routes/home_page.dart';
 
-class before_Chatbot extends StatefulWidget {
-  const before_Chatbot({super.key});
+//ยังไม่ได้กำหนดหน้าที่กดแล้วจะไปต่อ
+
+class before_As extends StatefulWidget {
+  const before_As({super.key});
 
   @override
-  State<before_Chatbot> createState() => _before_ChatbotState();
+  State<before_As> createState() => _before_AsState();
 }
 
-class _before_ChatbotState extends State<before_Chatbot> {
+class _before_AsState extends State<before_As> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,26 +30,25 @@ class _before_ChatbotState extends State<before_Chatbot> {
                   textStyle: TextStyle(fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => HomePage()), // เปิดหน้า chatbot
-                  );
+                  //back
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => HomePage()));
+                  // รหัสที่ต้องการให้ทำเมื่อปุ่มถูกกด
                 },
                 child: Text(
                   'Back',
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, fontFamily: 'Inter'),
+                      fontFamily: 'Inter', fontWeight: FontWeight.bold),
                 ),
               ),
               Text(
-                "Q&A",
+                "CHD 10 years risk score",
                 textAlign: TextAlign.center,
                 style:
-                    TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Inter'),
+                    TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.bold),
               ),
               Text(
-                "     ",
+                "",
                 textAlign: TextAlign.center,
               ),
             ],
@@ -56,24 +57,25 @@ class _before_ChatbotState extends State<before_Chatbot> {
       ),
       body: Container(
         child: Container(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-          margin: EdgeInsetsDirectional.fromSTEB(30, 10, 30, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+          margin: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 30),
           child: Column(
             children: <Widget>[
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Image.asset('images/DocPics1.png')],
+                  children: [Image.asset('images/DocPics.png')],
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                child: Wrap(
-                  children: [
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
                     Text(
-                      "สอบถามสิ่งที่คุณสงสัยเกี่ยวกับโรคหลอดเลือดหัวใจ ?",
-                      textAlign: TextAlign.start,
+                      "คุณเสี่ยงหรือไม่ ?",
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
@@ -88,28 +90,29 @@ class _before_ChatbotState extends State<before_Chatbot> {
                 child: Wrap(
                   children: <Widget>[
                     Text(
-                      'นี่คือสิ่งที่คุณสามารถสอบถามเราได้ โดยจะตอบกลับโดยแชทบอทที่เราได้สร้างขึ้นมา และนี่คือสิ่งที่คุณสามารถถามแชทบอทของเราได้',
+                      'AI ประเมินความเสี่ยงเกี่ยวกับโรคหลอดเลือดหัวใจใน 10 ปี จากข้อมูลผู้ป่วยและปัจจัยเสี่ยง ทำให้สามารถระบุกลุ่มผู้ที่มีความเสี่ยงสูงและนำไปใช้ในการป้องกันและรักษาโรคได้อย่างมีประสิทธิภาพ',
                       textAlign: TextAlign.start,
                       style: TextStyle(
-                        fontFamily: 'Kanit',
                         color: Color(0XFF5A5959),
+                        fontFamily: 'Kanit',
                         fontSize: 17,
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                 child: Column(
                   children: <Widget>[
                     Row(
                       children: [
                         Text(
-                          'หมายเหตุ : ไม่ได้ตอบคำถามโดยแพทย์',
+                          'หมายเหตุ : ไม่ได้มีแพทย์ในการประเมินความเสี่ยง',
+                          textAlign: TextAlign.start,
                           style: TextStyle(
-                            fontFamily: 'Kanit',
                             color: Color(0XFF5A5959),
+                            fontFamily: 'Kanit',
                             fontSize: 17,
                           ),
                         ),
@@ -119,14 +122,14 @@ class _before_ChatbotState extends State<before_Chatbot> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 45, 0, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFF4FCCBD),
-                        padding: EdgeInsetsDirectional.fromSTEB(45, 15, 45, 15),
+                        padding: EdgeInsetsDirectional.fromSTEB(25, 15, 25, 15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(
                               20), // กำหนดความโค้งของมุมปุ่ม
@@ -139,12 +142,11 @@ class _before_ChatbotState extends State<before_Chatbot> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  chatbot()), // เปิดหน้า chatbot
+                              builder: (context) => asP()), // เปิดหน้า chatbot
                         );
                       },
                       child: Text(
-                        'เริ่มสอบถาม',
+                        'เริ่มประเมินความเสี่ยง',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Kanit',

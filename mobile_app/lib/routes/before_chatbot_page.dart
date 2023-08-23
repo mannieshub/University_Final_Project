@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
-//ยังไม่ได้กำหนดหน้าที่กดแล้วจะไปต่อ
+//routes
+import '/routes/chatbot_page.dart';
+import '/routes/home_page.dart';
 
-class before_As extends StatefulWidget {
-  const before_As({super.key});
+class before_Chatbot extends StatefulWidget {
+  const before_Chatbot({super.key});
 
   @override
-  State<before_As> createState() => _before_AsState();
+  State<before_Chatbot> createState() => _before_ChatbotState();
 }
 
-class _before_AsState extends State<before_As> {
+class _before_ChatbotState extends State<before_Chatbot> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,23 +30,26 @@ class _before_AsState extends State<before_As> {
                   textStyle: TextStyle(fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
-                  // รหัสที่ต้องการให้ทำเมื่อปุ่มถูกกด
+                  Navigator.pop(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => HomePage()), // เปิดหน้า chatbot
+                  );
                 },
                 child: Text(
                   'Back',
                   style: TextStyle(
-                      fontFamily: 'Inter', fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.bold, fontFamily: 'Inter'),
                 ),
               ),
               Text(
-                "CHD 10 years risk score",
+                "Q&A",
                 textAlign: TextAlign.center,
                 style:
-                    TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.bold),
+                    TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Inter'),
               ),
               Text(
-                "",
+                "     ",
                 textAlign: TextAlign.center,
               ),
             ],
@@ -53,25 +58,24 @@ class _before_AsState extends State<before_As> {
       ),
       body: Container(
         child: Container(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
-          margin: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 30),
+          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+          margin: EdgeInsetsDirectional.fromSTEB(30, 10, 30, 0),
           child: Column(
             children: <Widget>[
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Image.asset('images/DocPics.png')],
+                  children: [Image.asset('images/DocPics1.png')],
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
+                child: Wrap(
+                  children: [
                     Text(
-                      "คุณเสี่ยงหรือไม่ ?",
-                      textAlign: TextAlign.center,
+                      "สอบถามสิ่งที่คุณสงสัยเกี่ยวกับโรคหลอดเลือดหัวใจ ?",
+                      textAlign: TextAlign.start,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
@@ -84,31 +88,20 @@ class _before_AsState extends State<before_As> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                 child: Wrap(
-                  children: <Widget>[
-                    Text(
-                      'AI ประเมินความเสี่ยงเกี่ยวกับโรคหลอดเลือดหัวใจใน 10 ปี จากข้อมูลผู้ป่วยและปัจจัยเสี่ยง ทำให้สามารถระบุกลุ่มผู้ที่มีความเสี่ยงสูงและนำไปใช้ในการป้องกันและรักษาโรคได้อย่างมีประสิทธิภาพ',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        color: Color(0XFF5A5959),
-                        fontFamily: 'Kanit',
-                        fontSize: 17,
-                      ),
-                    ),
-                  ],
+                  children: <Widget>[],
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                 child: Column(
                   children: <Widget>[
                     Row(
                       children: [
                         Text(
-                          'หมายเหตุ : ไม่ได้มีแพทย์ในการประเมินความเสี่ยง',
-                          textAlign: TextAlign.start,
+                          'หมายเหตุ : ไม่ได้ตอบคำถามโดยแพทย์',
                           style: TextStyle(
-                            color: Color(0XFF5A5959),
                             fontFamily: 'Kanit',
+                            color: Color(0XFF5A5959),
                             fontSize: 17,
                           ),
                         ),
@@ -118,14 +111,14 @@ class _before_AsState extends State<before_As> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 45, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFF4FCCBD),
-                        padding: EdgeInsetsDirectional.fromSTEB(25, 15, 25, 15),
+                        padding: EdgeInsetsDirectional.fromSTEB(45, 15, 45, 15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(
                               20), // กำหนดความโค้งของมุมปุ่ม
@@ -135,10 +128,15 @@ class _before_AsState extends State<before_As> {
                             TextStyle(fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
                       ),
                       onPressed: () {
-                        // รหัสที่ต้องการให้ทำเมื่อปุ่มถูกกด
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  chatbot()), // เปิดหน้า chatbot
+                        );
                       },
                       child: Text(
-                        'เริ่มประเมินความเสี่ยง',
+                        'เริ่มสอบถาม',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Kanit',

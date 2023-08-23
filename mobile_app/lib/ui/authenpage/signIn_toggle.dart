@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/home_page.dart';
-import 'package:mobile_app/last/signIn.dart';
-import 'package:mobile_app/last/signUp.dart';
-import 'package:mobile_app/login_register_page.dart';
-import 'package:mobile_app/last/signUp.dart';
 
 class signInToggle extends StatefulWidget {
+  final Function(bool) callbackFunction;
+  final Function(bool) isLoginState;
+
+  signInToggle({required this.callbackFunction, required this.isLoginState});
+
   @override
   _signInToggleState createState() => _signInToggleState();
 }
@@ -61,12 +61,9 @@ class _signInToggleState extends State<signInToggle> {
                   }
                 });
                 if (_selectSign_Up[1]) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => signUpPage(),
-                    ),
-                  );
+                  widget.isLoginState(true); // แก้ไขค่า isLogin ใน LoginPage
+                  widget.callbackFunction(
+                      true); // เรียกใช้ callback function ใน LoginPage
                 }
               },
               borderRadius: const BorderRadius.all(Radius.circular(10)),

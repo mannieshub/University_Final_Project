@@ -1,13 +1,18 @@
-import 'package:mobile_app/before_chatbot_page.dart';
-import 'package:mobile_app/home_page.dart';
+//routes
+import '/routes/before_chatbot_page.dart';
+
+//chatbot + dialogflow
 import 'package:mobile_app/ui/chatbotpage/Messages.dart';
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(chatbot());
+//firebase authentication
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:mobile_app/authentication/auth.dart';
 
+//โรคหลอดเลือดหัวใจคืออะไร
 class chatbot extends StatelessWidget {
-  const chatbot({super.key});
+  final User? user = Auth().currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -17,19 +22,19 @@ class chatbot extends StatelessWidget {
         brightness: Brightness.dark,
         scaffoldBackgroundColor: Color(0xFFF1F4F8),
       ),
-      home: Home(),
+      home: chatUI(),
     );
   }
 }
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class chatUI extends StatefulWidget {
+  const chatUI({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<chatUI> createState() => _chatUIState();
 }
 
-class _HomeState extends State<Home> {
+class _chatUIState extends State<chatUI> {
   late DialogFlowtter dialogFlowtter;
   final TextEditingController _controller = TextEditingController();
 
@@ -55,10 +60,11 @@ class _HomeState extends State<Home> {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFF7EDCD1),
-                    textStyle: TextStyle(fontSize: 15),
+                    textStyle:
+                        TextStyle(fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
                   ),
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    Navigator.pop(
                       context,
                       MaterialPageRoute(builder: (context) => before_Chatbot()),
                     );
@@ -66,18 +72,19 @@ class _HomeState extends State<Home> {
                   child: Text(
                     'Back',
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Inter',
-                    ),
+                        fontWeight: FontWeight.bold, fontFamily: 'Inter'),
                   ),
                 ),
                 Text(
-                  "Heartbot",
+                  "HeartBot",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, fontFamily: 'Inter'),
                 ),
-                Text("           ")
+                Text(
+                  "     ",
+                  textAlign: TextAlign.center,
+                ),
               ],
             ),
           ),

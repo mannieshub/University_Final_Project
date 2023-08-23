@@ -1,9 +1,7 @@
-import 'package:mobile_app/auth.dart';
-import 'package:mobile_app/home_page.dart';
-import 'package:mobile_app/login_register_page.dart';
+import 'package:mobile_app/authentication/auth.dart';
+import 'package:mobile_app/routes/home_page.dart';
+import 'package:mobile_app/authentication/login_register_page.dart';
 import 'package:flutter/material.dart';
-
-import 'last/signIn.dart';
 
 class WidgetTree extends StatefulWidget {
   const WidgetTree({Key? key}) : super(key: key);

@@ -2,20 +2,16 @@ import 'package:flutter/material.dart';
 
 //firebase authentication
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:mobile_app/auth.dart';
 
-//page
-import 'package:mobile_app/before_assessment_page.dart';
-import 'package:mobile_app/before_chatbot_page.dart';
-import 'package:mobile_app/debug_page.dart';
-import 'package:mobile_app/test.dart';
-import 'package:mobile_app/last/signIn.dart';
+import 'package:mobile_app/authentication/auth.dart';
+
+//routes
+import '/routes/assessment_demo.dart';
+import '/routes/before_chatbot_page.dart';
 
 //UI
 import 'package:mobile_app/ui/authenpage/homepage_ui.dart';
 import 'package:mobile_app/ui/homepage/user_info_card.dart';
-
-import 'last/signIn.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -23,7 +19,8 @@ class HomePage extends StatelessWidget {
   final User? user = Auth().currentUser;
 
   Future<void> signOut() async {
-    await Auth().signOut();
+    await FirebaseAuth.instance.signOut();
+    //Navigator.pushReplacement(context, LoginPage());
   }
 
   Widget _title() {
@@ -55,7 +52,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
         //Display AppName with green background
         appBar: AppBar(
           title: _title(),
@@ -87,30 +83,25 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 ),
+                //Button
                 NextPageButton(
                   imgPath: 'images/icon.png',
                   message1: 'CHD 10 years risk score',
                   message2:
                       'ประเมินความเสี่ยงการเป็นโรคหลอดเลือดหัวใจภายใน 10 ปี',
                   destination:
-                      before_As(), // Replace with your desired destination widget.
+                      asP(), // Replace with your desired destination widget.
                 ),
-                // NextPageButton(
-                //   imgPath: 'images/icon1.png',
-                //   message1: 'Q&A',
-                //   message2: 'สอบถามเกี่ยวกับโรคหลอดเลือดหัวใจ',
-                //   destination:
-                //       before_Chatbot(), // Replace with your desired destination widget.
-                // ),
-                NextPageButton(
-                  imgPath: 'images/debug.png',
-                  message1: 'Debug',
-                  message2: 'status : AuthenPage merge',
-                  destination:
-                      debugPage(), // Replace with your desired destination widget.
-                ),
-                // _userUid(),
 
+                NextPageButton(
+                  imgPath: 'images/icon1.png',
+                  message1: 'Q&A',
+                  message2: 'สอบถามเกี่ยวกับโรคหลอดเลือดหัวใจ',
+                  destination:
+                      before_Chatbot(), // Replace with your desired destination widget.
+                ),
+
+                _userUid(),
                 _signOutButton(),
               ],
             ),

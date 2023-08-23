@@ -1,5 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:mobile_app/widget_tree.dart';
+import 'package:mobile_app/authentication/widget_tree.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        primarySwatch: Colors.green, //เปลี่ยนสีปุ่ม
       ),
       home: const WidgetTree(),
     );

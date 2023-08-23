@@ -24,6 +24,8 @@ def predict():
     probabilities  = model.predict_proba(features)
     probabilities_percent = probabilities* 100
 
+    percent = probabilities_percent[0][1];
+
 
     result = {
         "prediction_text": "ความเสี่ยงที่คุณจะเป็นโรคหลอดเลือดหัวใจใน 10 ปีข้างหน้า : {:.2f}%".format(probabilities_percent[0][1])
