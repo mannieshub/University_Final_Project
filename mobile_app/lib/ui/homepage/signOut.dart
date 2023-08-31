@@ -1,17 +1,21 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class MenuButton extends StatelessWidget {
+class signOutButton extends StatelessWidget {
   final String text;
-  final Widget destination;
   final String imgPath;
   final Color color;
 
-  const MenuButton({
+  const signOutButton({
     required this.text,
-    required this.destination,
     required this.imgPath,
     required this.color,
   });
+
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
+    //Navigator.pushReplacement(context, LoginPage());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +29,7 @@ class MenuButton extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => destination,
-                          //ตรงนี้ส่วนของลิ้งไปหน้าผลการประเมิน
-                          //ตอนนี้ยังไม่มีหน้านั้นเลยลิ้งหน้าเดิมไปก่อน
-                        ),
-                      );
+                      signOut();
                     },
                     child: Card(
                       shape: RoundedRectangleBorder(

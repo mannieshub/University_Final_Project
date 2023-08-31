@@ -50,9 +50,11 @@ class _beforeChatState extends State<beforeChat> {
         ),
       ),
       body: Container(
+        color: Color(0XFFFFEEDD),
         child: Container(
+          color: Color(0XFFFFEEDD),
           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-          margin: EdgeInsetsDirectional.fromSTEB(30, 10, 30, 0),
+          margin: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 0),
           child: Column(
             children: <Widget>[
               Padding(
@@ -83,7 +85,7 @@ class _beforeChatState extends State<beforeChat> {
                 child: Wrap(
                   children: <Widget>[
                     Text(
-                      'นี่คือสิ่งที่คุณสามารถสอบถามเราได้ โดยจะตอบกลับโดยแชทบอทที่เราได้สร้างขึ้นมา และนี่คือสิ่งที่คุณสามารถถามแชทบอทของเราได้',
+                      'นี่คือสิ่งที่คุณสามารถสอบถามเราได้ โดยจะตอบกลับโดยแชทบอทที่เราได้สร้างขึ้นมา',
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         fontFamily: 'Kanit',
@@ -95,78 +97,7 @@ class _beforeChatState extends State<beforeChat> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                child: Wrap(
-                  children: <Widget>[
-                    Text(
-                      '● โรคหลอดเลือดหัวใจ คืออะไร ?',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                    Text(
-                      '● อาการของโรคหลอดเลือดหัวใจ มีอะไรบ้าง ?',
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                    Text(
-                      '● โรคหลอดเลือดหัวใจ เกิดจากอะไร ?',
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                    Text(
-                      '● ปัจจัยเสี่ยงโรคหลอดเลือดหัวใจ มีอะไรบ้าง ?',
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                    Text(
-                      '● ทำไมฉันจึงเสี่ยงเป็นโรคหลอดเลือดหัวใจ ?',
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                    Text(
-                      '● วิธีการดูแลตัวเองเพื่อเลี่ยงการเป็นโรคหลอดเลือดหัวใจ',
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                    Text(
-                      '● วิธีการดูแลตัวเองเมื่อเป็นโรคหลอดเลือดหัวใจ',
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                    Text(
-                      '● คำถามทั้งหมดที่สามารถถามได้',
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                    Text(
-                      '● ทีมพัฒนาใช้อะไรในการประเมินความเสี่ยงของผู้ใช้',
-                      style: TextStyle(
-                        fontFamily: 'Kanit',
-                        color: Color(0XFF5A5959),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                 child: Column(
                   children: <Widget>[
                     Row(
@@ -185,7 +116,7 @@ class _beforeChatState extends State<beforeChat> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[

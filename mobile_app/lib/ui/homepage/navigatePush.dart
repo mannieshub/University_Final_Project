@@ -19,7 +19,7 @@ class NextPageButton extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 10), // Adjust bottom padding
       child: Card(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(10),
         ),
         color: Color(0xFF4FCCBD),
         child: InkWell(

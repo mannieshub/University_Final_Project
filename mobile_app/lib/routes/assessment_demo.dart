@@ -25,7 +25,7 @@ class asP extends StatelessWidget {
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const assessmentPage(title: 'Flutter Demo Home Page'),
+      home: const assessmentPage(title: 'Assessment Demo'),
     );
   }
 }
@@ -138,8 +138,7 @@ class _assessmentPageState extends State<assessmentPage> {
     userData.education = educationController.text;
     userData.currentSmoker = currentSmokerController.text;
     userData.cigsPerDay = cigsPerDayController.text;
-    userData.BPMeds = BPMedsController.text;
-    userData.BMI = BMIController.text;
+    userData.BPMeds = 0.toString(); //BPMedsController.text;
     userData.prevalentStroke = 0.toString();
     userData.prevalentHyp = 0.toString();
     userData.diabetes = 0.toString();

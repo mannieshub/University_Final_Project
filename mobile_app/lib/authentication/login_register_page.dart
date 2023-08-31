@@ -137,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        color: Color(0xFF4FCCBD),
+        color: Color(0xFF4FD0C1), //4FD0C1
         child: Form(
           key: _formKey,
           child: Stack(
@@ -156,44 +156,51 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Appname(description: 'HeartRisk Assessment'),
               Positioned(
-                  child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(30, 140, 30, 0),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(25),
-                              child: Card(
-                                  color: Color.fromARGB(255, 232, 236, 233),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(30, 140, 30, 0),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(25),
+                                child: Card(
+                                  color: Color.fromARGB(
+                                      255, 235, 236, 233), // สีนี้ FFFBFB
+                                  elevation:
+                                      4, // เพิ่มค่า elevation เพื่อเพิ่ม drop shadow
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                        25), // กำหนดความโค้งของมุมปุ่ม
+                                  ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 20, 20, 20),
+                                    padding: EdgeInsets.all(20.0),
                                     child: Column(
                                       children: [
-                                        //_SignInOrSignUpToggle(), มีบัคกดละ isLogin ไม่เปลี่ยนค่า
                                         _createOrSignInText(),
                                         Input('Email', _controllerEmail),
                                         Input('Password', _controllerPassword),
+                                        SizedBox(height: 10),
                                         _errorMessage(),
+                                        SizedBox(height: 10),
                                         _submitButton(),
                                         _loginOrRegisterButton(),
                                       ],
                                     ),
-                                  )),
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    HeartIcon(),
-                  ],
+                    ],
+                  ),
                 ),
-              )),
-              RobotIcon(),
+              ),
             ],
           ),
         ),

@@ -20,25 +20,29 @@ class Appname extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(25),
                   child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                            25), // กำหนดความโค้งของมุมปุ่ม
+                      ),
                       child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 30, 10, 60),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        padding: EdgeInsetsDirectional.fromSTEB(30, 30, 10, 60),
+                        child: Column(
                           children: [
-                            Text(
-                              description,
-                              style: TextStyle(
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  description,
+                                  style: TextStyle(
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                )
+                              ],
                             )
                           ],
-                        )
-                      ],
-                    ),
-                  )),
+                        ),
+                      )),
                 ),
               )
             ],

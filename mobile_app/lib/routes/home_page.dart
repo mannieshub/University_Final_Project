@@ -5,13 +5,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:mobile_app/authentication/auth.dart';
 import 'package:mobile_app/routes/before_assessment_page.dart';
+import 'package:mobile_app/ui/homepage/menu.dart';
+import 'package:mobile_app/ui/homepage/signOut.dart';
 
 //routes
 import '/routes/assessment_demo.dart';
 import '/routes/before_chatbot_page.dart';
 
 //UI
-import 'package:mobile_app/ui/authenpage/homepage_ui.dart';
+import 'package:mobile_app/ui/homepage/navigatePush.dart';
 import 'package:mobile_app/ui/homepage/user_info_card.dart';
 
 class HomePage extends StatelessWidget {
@@ -62,13 +64,43 @@ class HomePage extends StatelessWidget {
 
         //Display Content
         body: Container(
-          color: Color(0xFFD5B79F),
+          color: Color(0XFFFEDBBA),
           child: Container(
-            color: Color(0xFFD5B79F),
+            color: Color(0x000000),
             margin: EdgeInsetsDirectional.fromSTEB(10, 30, 10, 30),
             child: Column(
               children: <Widget>[
                 UserInfoCard(),
+
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      MenuButton(
+                          text: 'Result',
+                          destination: beforeAs(),
+                          imgPath: 'images/Icon_As.png',
+                          color: Color(0xFF4FCCBD)),
+                      MenuButton(
+                          text: 'Advice',
+                          destination: beforeAs(),
+                          imgPath: 'images/Icon_HandHeart.png',
+                          color: Color(0xFF4FCCBD)),
+                      MenuButton(
+                          text: 'Profile',
+                          destination: beforeAs(),
+                          imgPath: 'images/Icon_As.png',
+                          color: Color(0xFF4FCCBD)),
+                      signOutButton(
+                        text: 'SignOut',
+                        imgPath: 'images/Icon_Exit.png',
+                        color: Color(0xFFFF4D4D),
+                      ),
+                    ],
+                  ),
+                ),
+
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(5, 10, 0, 10),
                   child: Row(
