@@ -46,7 +46,6 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  //task: insert UID to cloudstore when activate this function
   Future<void> createUserWithEmailAndPassword() async {
     try {
       await Auth()

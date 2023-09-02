@@ -50,9 +50,9 @@ class _beforeChatState extends State<beforeChat> {
         ),
       ),
       body: Container(
-        color: Color(0XFFFFEEDD),
+        color: Color(0XFFFEDBBA),
         child: Container(
-          color: Color(0XFFFFEEDD),
+          color: Color(0XFFFEDBBA),
           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
           margin: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 0),
           child: Column(

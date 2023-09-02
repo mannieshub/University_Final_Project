@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/routes/assessment_demo.dart';
+import 'package:mobile_app/routes/assessmentPage.dart';
 
 class beforeAs extends StatefulWidget {
   @override
@@ -49,9 +49,9 @@ class _beforeAsState extends State<beforeAs> {
         ),
       ),
       body: Container(
-        color: Color(0XFFFFEEDD),
+        color: Color(0XFFFEDBBA),
         child: Container(
-          color: Color(0XFFFFEEDD),
+          color: Color(0XFFFEDBBA),
           padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
           margin: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 30),
           child: Column(
@@ -138,7 +138,7 @@ class _beforeAsState extends State<beforeAs> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => asP(),
+                            builder: (context) => assessmentPage(),
                           ),
                         );
                       },
