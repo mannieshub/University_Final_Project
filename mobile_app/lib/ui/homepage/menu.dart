@@ -38,7 +38,9 @@ class MenuButton extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                         side: BorderSide(
-                            color: Colors.grey, width: 1.0), // เพิ่มเส้นขอบ
+                            color:
+                                Colors.grey.withOpacity(0.2), //ปรับความเข้มขอบ
+                            width: 1.0), // เพิ่มเส้นขอบ
                       ),
                       color: color,
                       child: Column(
@@ -83,6 +85,7 @@ class MenuButton extends StatelessWidget {
                   Text(
                     text,
                     style: TextStyle(
+                      fontWeight: FontWeight.w500,
                       fontSize: 12,
                       fontFamily: 'Kanit',
                     ),

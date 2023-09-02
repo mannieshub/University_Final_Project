@@ -120,8 +120,7 @@ class HomePage extends StatelessWidget {
                 NextPageButton(
                   imgPath: 'images/icon.png',
                   message1: 'CHD 10 years risk score',
-                  message2:
-                      'ประเมินความเสี่ยงการเป็นโรคหลอดเลือดหัวใจภายใน 10 ปี',
+                  message2: 'ประเมินความเสี่ยงการเป็นโรคหลอดเลือดหัวใจ',
                   destination:
                       beforeAs(), // Replace with your desired destination widget.
                 ),

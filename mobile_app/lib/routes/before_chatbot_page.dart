@@ -136,7 +136,7 @@ class _beforeChatState extends State<beforeChat> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => chatbot(),
+                            builder: (context) => chatUI(),
                           ),
                         );
                         // รหัสที่ต้องการให้ทำเมื่อปุ่มถูกกด

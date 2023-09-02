@@ -80,6 +80,7 @@ class signOutButton extends StatelessWidget {
                   Text(
                     text,
                     style: TextStyle(
+                      fontWeight: FontWeight.w500,
                       fontSize: 12,
                       fontFamily: 'Kanit',
                     ),

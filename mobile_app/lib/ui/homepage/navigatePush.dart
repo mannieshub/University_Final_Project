@@ -36,8 +36,8 @@ class NextPageButton extends StatelessWidget {
               children: [
                 Image.asset(
                   imgPath,
-                  width: 50,
-                  height: 50,
+                  width: 60,
+                  height: 60,
                 ),
                 const SizedBox(width: 10), // Add spacing between image and text
                 Expanded(
@@ -48,6 +48,7 @@ class NextPageButton extends StatelessWidget {
                         message1,
                         style: TextStyle(
                           color: Colors.white,
+                          fontSize: 15,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.bold,
                         ),
@@ -56,7 +57,7 @@ class NextPageButton extends StatelessWidget {
                         message2,
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 11.5,
+                          fontSize: 12.5,
                           fontFamily: 'Kanit',
                         ),
                       ),

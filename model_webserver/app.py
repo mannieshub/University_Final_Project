@@ -2,16 +2,22 @@ import numpy as np
 from flask import Flask , request , jsonify , render_template
 import pickle
 
+#from waitress import serve
+
 #Create flask app
 app = Flask(__name__)
 
 #Load the pickle model
 model = pickle.load(open("model.pkl","rb"))
 
+#mode ="dev"
 
 @app.route("/")
+
+#test on PC
 def Home():
     return render_template("index.html")
+
 
 @app.route("/predict",methods = ["POST"])
 def predict():

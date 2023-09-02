@@ -11,21 +11,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobile_app/authentication/auth.dart';
 
 //โรคหลอดเลือดหัวใจคืออะไร
-class chatbot extends StatelessWidget {
-  final User? user = Auth().currentUser;
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'HeartBot',
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: Color(0xFFF1F4F8),
-      ),
-      home: chatUI(),
-    );
-  }
-}
 
 class chatUI extends StatefulWidget {
   const chatUI({super.key});
