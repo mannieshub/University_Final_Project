@@ -998,7 +998,7 @@ class _assessmentPageState extends State<assessmentPage> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10, 0, 0, 0),
+                                                                  0, 0, 0, 0),
                                                       child: Column(
                                                         children: [
                                                           Text(
