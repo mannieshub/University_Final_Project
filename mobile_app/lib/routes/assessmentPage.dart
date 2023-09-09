@@ -174,6 +174,7 @@ class _assessmentPageState extends State<assessmentPage> {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     User? user = Auth().currentUser;
     UserData userData = UserData();
+
     userData.uid = user!.uid;
     userData.gender = genderController.text;
     userData.age = ageController.text;
