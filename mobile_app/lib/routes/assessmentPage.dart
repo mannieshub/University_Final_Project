@@ -56,14 +56,33 @@ class _assessmentPageState extends State<assessmentPage> {
     });
   }
 
+  //medical history
+  //BPMed
+  List<bool> _SelectPressure = <bool>[true, false];
+  int PressureMedicine = 1;
+
+  //Stroke
+  List<bool> _SelectStroke = <bool>[true, false];
+  int Stroke = 1;
+
+  //Hypertension
+  List<bool> _SelectBloodPressure = <bool>[true, false];
+  int BloodPressure = 1;
+
+  //Diabetes
+  List<bool> _SelectDiabetes = <bool>[true, false];
+  int Diabetes = 1;
+
+  //TextEditingController
   final TextEditingController BPMedsController =
-      TextEditingController(text: '0');
+      TextEditingController(text: '1');
   final TextEditingController prevalentStrokeController =
-      TextEditingController(text: '0');
+      TextEditingController(text: '1');
   final TextEditingController prevalentHypController =
-      TextEditingController(text: '0');
+      TextEditingController(text: '1');
   final TextEditingController diabetesController =
-      TextEditingController(text: '0');
+      TextEditingController(text: '1');
+
   final TextEditingController totCholController =
       TextEditingController(text: '0');
   final TextEditingController sysBPController =
@@ -121,10 +140,10 @@ class _assessmentPageState extends State<assessmentPage> {
         "currentSmoker": currentSmokerController.text,
         "cigsPerDay": cigsPerDayController.text,
 
-        "BPMeds": 0.toString(),
-        "prevalentStroke": 0.toString(),
-        "prevalentHyp": 0.toString(),
-        "diabetes": 0.toString(),
+        "BPMeds": BPMedsController.text,
+        "prevalentStroke": prevalentStrokeController.text,
+        "prevalentHyp": prevalentHypController.text,
+        "diabetes": diabetesController.text,
         "totChol": 195.toString(),
         "sysBP": 106.toString(),
         "diaBP": 70.toString(),
@@ -155,11 +174,11 @@ class _assessmentPageState extends State<assessmentPage> {
     userData.education = educationController.text;
     userData.currentSmoker = currentSmokerController.text;
     userData.cigsPerDay = cigsPerDayController.text;
+    userData.BPMeds = BPMedsController.text;
+    userData.prevalentStroke = prevalentStrokeController.text;
+    userData.prevalentHyp = prevalentHypController.text;
+    userData.diabetes = diabetesController.text;
 
-    userData.BPMeds = 0.toString(); //BPMedsController.text;
-    userData.prevalentStroke = 0.toString();
-    userData.prevalentHyp = 0.toString();
-    userData.diabetes = 0.toString();
     userData.totChol = 195.toString();
     userData.sysBP = 106.toString();
     userData.diaBP = 97.toString();
@@ -1010,11 +1029,522 @@ class _assessmentPageState extends State<assessmentPage> {
                                                           )
                                                         ],
                                                       ),
-                                                    )
+                                                    ),
                                                   ]))
                                         ],
                                       ),
                                     ))))
+                      ],
+                    ),
+                  ),
+
+                  //medical
+                  Padding(
+                    // เริ่ม กล่อง ที่ ปรับเพิ่ม เริ่มตรงนนี้นะ ****
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 0, 0),
+                    child: Row(
+                      children: [
+                        Text(
+                          "ข้อมูลประวัติการแพทย์",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Kanit',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 350,
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(30),
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(
+                                      25), // กำหนดความโค้งของมุมปุ่ม
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10, 10, 10, 10),
+                                  child: Column(
+                                    children: [
+                                      //Padding(padding: EdgeInsetsDirectional.fromSTEB(0, 0,0, 0),)
+
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10, 5, 10, 0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  "ประวัติการรับยาลดความดัน",
+                                                  style: TextStyle(
+                                                      fontFamily: 'Kanit',
+                                                      fontSize: 15),
+                                                ),
+                                              ],
+                                            ),
+                                            Column(
+                                              children: [Text("")],
+                                            ),
+                                            Column(
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(30, 0, 0, 0),
+                                                  child: ToggleButtons(
+                                                    constraints: BoxConstraints(
+                                                        maxWidth: 55,
+                                                        minWidth: 50,
+                                                        minHeight: 35,
+                                                        maxHeight: 35),
+                                                    isSelected: _SelectPressure,
+                                                    children: <Widget>[
+                                                      Container(
+                                                          width: 20,
+                                                          child: new Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: <Widget>[
+                                                              new Text(
+                                                                "มี",
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .red,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontFamily:
+                                                                        'Kanit',
+                                                                    fontSize:
+                                                                        15),
+                                                              )
+                                                            ],
+                                                          )),
+                                                      Container(
+                                                          width: 25,
+                                                          child: new Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: <Widget>[
+                                                              new Text(
+                                                                "ไม่มี",
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .blue,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontFamily:
+                                                                        'Kanit',
+                                                                    fontSize:
+                                                                        15),
+                                                              )
+                                                            ],
+                                                          )),
+                                                    ],
+                                                    onPressed: (int index) {
+                                                      setState(() {
+                                                        for (int i = 0;
+                                                            i <
+                                                                _SelectPressure
+                                                                    .length;
+                                                            i++) {
+                                                          _SelectPressure[i] =
+                                                              i == index;
+                                                        }
+                                                        if (_SelectPressure[
+                                                            0]) {
+                                                          PressureMedicine = 1;
+                                                          prevalentHypController
+                                                              .text = "1";
+                                                          print(
+                                                              "มีประวัติความดันโลหิต = $PressureMedicine");
+                                                        } else {
+                                                          PressureMedicine = 0;
+                                                          prevalentHypController
+                                                              .text = "0";
+                                                          print(
+                                                              "ไม่มีมีประวัติความดันโลหิต = $PressureMedicine");
+                                                        }
+                                                      });
+                                                    },
+                                                    borderRadius:
+                                                        const BorderRadius.all(
+                                                            Radius.circular(
+                                                                20)),
+                                                  ),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10, 5, 10, 0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  "ประวัติโรคหลอดเลือดสมอง",
+                                                  style: TextStyle(
+                                                      fontFamily: 'Kanit',
+                                                      fontSize: 15),
+                                                ),
+                                              ],
+                                            ),
+                                            Column(
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(30, 0, 0, 0),
+                                                  child: ToggleButtons(
+                                                    constraints: BoxConstraints(
+                                                        maxWidth: 55,
+                                                        minWidth: 50,
+                                                        minHeight: 35,
+                                                        maxHeight: 35),
+                                                    isSelected: _SelectStroke,
+                                                    children: <Widget>[
+                                                      Container(
+                                                          width: 20,
+                                                          child: new Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: <Widget>[
+                                                              new Text(
+                                                                "มี",
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .red,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontFamily:
+                                                                        'Kanit',
+                                                                    fontSize:
+                                                                        15),
+                                                              )
+                                                            ],
+                                                          )),
+                                                      Container(
+                                                          width: 25,
+                                                          child: new Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: <Widget>[
+                                                              new Text(
+                                                                "ไม่มี",
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .blue,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontFamily:
+                                                                        'Kanit',
+                                                                    fontSize:
+                                                                        15),
+                                                              )
+                                                            ],
+                                                          )),
+                                                    ],
+                                                    onPressed: (int index) {
+                                                      setState(() {
+                                                        for (int i = 0;
+                                                            i <
+                                                                _SelectStroke
+                                                                    .length;
+                                                            i++) {
+                                                          _SelectStroke[i] =
+                                                              i == index;
+                                                        }
+                                                        if (_SelectStroke[0]) {
+                                                          Stroke = 1;
+                                                          prevalentStrokeController
+                                                              .text = "1";
+                                                          print(
+                                                              "มีประวัติโรคหลอดเลือดสมอง = $Stroke");
+                                                        } else {
+                                                          Stroke = 0;
+                                                          prevalentStrokeController
+                                                              .text = "0";
+                                                          print(
+                                                              "ไม่มีมีประวัติโรดหลอดเลือดสมอง = $Stroke");
+                                                        }
+                                                      });
+                                                    },
+                                                    borderRadius:
+                                                        const BorderRadius.all(
+                                                            Radius.circular(
+                                                                20)),
+                                                  ),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10, 5, 10, 0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  "ประวัติโรคความดันโลหิต     ",
+                                                  style: TextStyle(
+                                                      fontFamily: 'Kanit',
+                                                      fontSize: 15),
+                                                ),
+                                              ],
+                                            ),
+                                            Column(
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(30, 0, 0, 0),
+                                                  child: ToggleButtons(
+                                                    constraints: BoxConstraints(
+                                                        maxWidth: 55,
+                                                        minWidth: 50,
+                                                        minHeight: 35,
+                                                        maxHeight: 35),
+                                                    isSelected:
+                                                        _SelectBloodPressure,
+                                                    children: <Widget>[
+                                                      Container(
+                                                          width: 20,
+                                                          child: new Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: <Widget>[
+                                                              new Text(
+                                                                "มี",
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .red,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontFamily:
+                                                                        'Kanit',
+                                                                    fontSize:
+                                                                        15),
+                                                              )
+                                                            ],
+                                                          )),
+                                                      Container(
+                                                          width: 25,
+                                                          child: new Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: <Widget>[
+                                                              new Text(
+                                                                "ไม่มี",
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .blue,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontFamily:
+                                                                        'Kanit',
+                                                                    fontSize:
+                                                                        15),
+                                                              )
+                                                            ],
+                                                          )),
+                                                    ],
+                                                    onPressed: (int index) {
+                                                      setState(() {
+                                                        for (int i = 0;
+                                                            i <
+                                                                _SelectBloodPressure
+                                                                    .length;
+                                                            i++) {
+                                                          _SelectBloodPressure[
+                                                              i] = i == index;
+                                                        }
+                                                        if (_SelectBloodPressure[
+                                                            0]) {
+                                                          BloodPressure = 1;
+                                                          BPMedsController
+                                                              .text = "1";
+                                                          print(
+                                                              "มีประวัติความดันโลหิตสูง = $BloodPressure");
+                                                        } else {
+                                                          BloodPressure = 0;
+                                                          prevalentStrokeController
+                                                              .text = "0";
+                                                          print(
+                                                              "ไม่มีมีประวัติความดันโลหิตสูง = $BloodPressure");
+                                                        }
+                                                      });
+                                                    },
+                                                    borderRadius:
+                                                        const BorderRadius.all(
+                                                            Radius.circular(
+                                                                20)),
+                                                  ),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10, 5, 10, 0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  "ประวัติการเป็นโรคเบาหวาน",
+                                                  style: TextStyle(
+                                                      fontFamily: 'Kanit',
+                                                      fontSize: 15),
+                                                ),
+                                              ],
+                                            ),
+                                            Column(
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(30, 0, 0, 0),
+                                                  child: ToggleButtons(
+                                                    constraints: BoxConstraints(
+                                                        maxWidth: 55,
+                                                        minWidth: 50,
+                                                        minHeight: 35,
+                                                        maxHeight: 35),
+                                                    isSelected: _SelectDiabetes,
+                                                    children: <Widget>[
+                                                      Container(
+                                                          width: 20,
+                                                          child: new Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: <Widget>[
+                                                              new Text(
+                                                                "มี",
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .red,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontFamily:
+                                                                        'Kanit',
+                                                                    fontSize:
+                                                                        15),
+                                                              )
+                                                            ],
+                                                          )),
+                                                      Container(
+                                                          width: 25,
+                                                          child: new Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: <Widget>[
+                                                              new Text(
+                                                                "ไม่มี",
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .blue,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontFamily:
+                                                                        'Kanit',
+                                                                    fontSize:
+                                                                        15),
+                                                              )
+                                                            ],
+                                                          )),
+                                                    ],
+                                                    onPressed: (int index) {
+                                                      setState(() {
+                                                        for (int i = 0;
+                                                            i <
+                                                                _SelectDiabetes
+                                                                    .length;
+                                                            i++) {
+                                                          _SelectDiabetes[i] =
+                                                              i == index;
+                                                        }
+                                                        if (_SelectDiabetes[
+                                                            0]) {
+                                                          Diabetes = 1;
+                                                          diabetesController
+                                                              .text = "1";
+                                                          print(
+                                                              "มีประวัติโรคเบาหวาน = $Diabetes");
+                                                        } else {
+                                                          Diabetes = 0;
+                                                          diabetesController
+                                                              .text = "0";
+                                                          print(
+                                                              "ไม่มีมีประวัติโรคเบาหวาน = $Diabetes");
+                                                        }
+                                                      });
+                                                    },
+                                                    borderRadius:
+                                                        const BorderRadius.all(
+                                                            Radius.circular(
+                                                                20)),
+                                                  ),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              )),
+                        )
                       ],
                     ),
                   ),
