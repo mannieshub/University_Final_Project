@@ -967,6 +967,9 @@ class _assessmentPageState extends State<assessmentPage> {
                                                               smokeperdayslider,
                                                           onChanged:
                                                               (newRating) {
+                                                            if (smoke == 0) {
+                                                              return null;
+                                                            }
                                                             setState(
                                                               () => smokeperdayslider =
                                                                   newRating, //รับค่าจากslider มาใน agelider
