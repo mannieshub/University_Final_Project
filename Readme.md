@@ -16,13 +16,15 @@ Repository นี้มีไว้สำหรับการจัดเก็
 
 -----------------------------------------------------------------
 #### การใช้งานแอปพลิเคชัน    
-1.ทำการรันไฟล์ model_webserver/app.py ซึ่งทำหน้าที่เป็น web-server  
-2.ทำการรันแอปพลิเคชันโดย f5 ผ่าน flutter emulator
+1. pip install flask  
+2. pip install -U scikit-learn  
+3. ทำการรันไฟล์ model_webserver/app.py ซึ่งทำหน้าที่เป็น web-server  
+4. ทำการรันแอปพลิเคชันโดย f5 ผ่าน flutter emulator
 
 ----------------
 ## About project
   
-1.Firebase Authentication  
-2.Firebase Cloud FireStore  
-3.Flask Python libraries for create web server  
-4.Machine learning using Logistic Regression Algorithm from Scikit learn libraries 
+1. Firebase Authentication  
+2. Firebase Cloud FireStore  
+3. Flask Python libraries for create web server  
+4. Machine learning using Logistic Regression Algorithm from Scikit learn libraries 3

@@ -15,7 +15,7 @@ class UserData {
   String? BMI;
   String? heartRate;
   String? glucose;
-  String? prediction;
+  String? predictionText;
 
   UserData(
       {this.uid,
@@ -34,7 +34,7 @@ class UserData {
       this.BMI,
       this.heartRate,
       this.glucose,
-      this.prediction});
+      this.predictionText});
 
   //data from server
   factory UserData.fromMap(map) {
@@ -55,7 +55,7 @@ class UserData {
         BMI: map['BMI'],
         heartRate: map['heartRate'],
         glucose: map['glucose'],
-        prediction: map['prediction']);
+        predictionText: map['predictionText']);
   }
 
   //sending data to our server
@@ -77,7 +77,7 @@ class UserData {
       'BMI': BMI,
       'heartRate': heartRate,
       'glucose': glucose,
-      'prediction': prediction,
+      'predictionText': predictionText,
     };
   }
 }

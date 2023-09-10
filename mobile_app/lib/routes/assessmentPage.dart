@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
-import '/routes/home_page.dart';
-import 'dart:convert';
+
+//UI
 import 'package:flutter/services.dart';
+
+//function
+import '../services/AdviceInsert.dart';
+import 'package:mobile_app/services/API_services.dart';
 
 //FireStore
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mobile_app/models/user_data.dart'; //user info data
+import '../models/user_advice.dart';
 
 //Firebase Authentication
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobile_app/authentication/auth.dart';
-
-//http
-import 'package:http/http.dart' as http;
 
 class assessmentPage extends StatefulWidget {
   const assessmentPage({super.key});
@@ -103,72 +105,9 @@ class _assessmentPageState extends State<assessmentPage> {
   final TextEditingController glucoseController =
       TextEditingController(text: '0');
 
-  String predictionText = '';
+  String predictionText = 'man';
 
-  void _showPredictionText() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text("Prediction Text"),
-          content: Text(predictionText),
-          actions: [
-            ElevatedButton(
-              onPressed: () {
-                // Close the current AlertDialog
-                Navigator.of(context).pop();
-
-                // Navigate to another page
-                Navigator.pop(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          HomePage()), // Replace with the actual page you want to navigate to
-                );
-              },
-              child: Text("OK"),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  //------------------HTTP part-----------------------------------//
-  Future<void> postData() async {
-    var response = await http.post(
-      //URL web-server
-      Uri.parse("http://10.0.2.2:5000/predict"),
-
-      //http request
-      body: {
-        "gender": genderController.text,
-        "age": ageController.text,
-        "education": educationController.text, //1.toString(),
-        "currentSmoker": currentSmokerController.text,
-        "cigsPerDay": cigsPerDayController.text,
-        "BPMeds": BPMedsController.text,
-        "prevalentStroke": prevalentStrokeController.text,
-        "prevalentHyp": prevalentHypController.text,
-        "diabetes": diabetesController.text,
-        "totChol": totCholController.text,
-        "sysBP": sysBPController.text,
-        "diaBP": diaBPController.text,
-        "BMI": BMIController.text,
-        "heartRate": heartRateController.text,
-        "glucose": glucoseController.text,
-      },
-    );
-
-    if (response.statusCode == 200) {
-      var data = jsonDecode(response.body);
-      predictionText = data['prediction_text'];
-      _showPredictionText(); // เมื่อได้รับค่า predictiontext เสร็จ ให้แสดงผลใน AlertDialog
-    } else {
-      print('Failed to make request. Error code: ${response.statusCode}');
-    }
-  }
-//--------------------------------End HTTP--------------------------------------//
+  //advice
 
   postDataToFireStore() async {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
@@ -191,7 +130,7 @@ class _assessmentPageState extends State<assessmentPage> {
     userData.BMI = BMIController.text;
     userData.heartRate = heartRateController.text;
     userData.glucose = glucoseController.text;
-    //userData.prediction = predictionPercent;
+    userData.predictionText = predictionText;
 
     await firebaseFirestore
         .collection("UserData")
@@ -2180,8 +2119,27 @@ class _assessmentPageState extends State<assessmentPage> {
                               smokeperday =
                                   int.parse(cigsPerDayController.text);
                             }
-                            await postData();
+                            ApiService.postData(
+                              context,
+                              genderController,
+                              ageController,
+                              educationController,
+                              currentSmokerController,
+                              cigsPerDayController,
+                              BPMedsController,
+                              prevalentStrokeController,
+                              prevalentHypController,
+                              diabetesController,
+                              totCholController,
+                              sysBPController,
+                              diaBPController,
+                              BMIController,
+                              heartRateController,
+                              glucoseController,
+                            );
                             await postDataToFireStore();
+                            await postAdviceToFireStore(Cholesterol, SysBP,
+                                DiaBP, BMI, Heartrate, Glucose);
                             //ค่าที่ print ออกมาคือค่าที่ใช้จริง ด้านล่างค่าจะถูกต้องเมื่อกดปุ่มนี้เพราะมีเงื่อนไขด้านบนมาเช็คตัวแปรบางตัวก่อน
                             //หรือก็คือสามารถใช้ ค่าที่เป็น $ชื่อตัวแปร ด้านล่างได้เลย ตัวแปรทั้งหมดนี้เป็นแบบ integer
                             //ส่วนที่ printนี้จะเห็นได้ใน Debug console
