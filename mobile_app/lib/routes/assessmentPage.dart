@@ -2138,8 +2138,14 @@ class _assessmentPageState extends State<assessmentPage> {
                               glucoseController,
                             );
                             await postDataToFireStore();
-                            await postAdviceToFireStore(Cholesterol, SysBP,
-                                DiaBP, BMI, Heartrate, Glucose);
+                            await postAdviceToFireStore(
+                                int.parse(currentSmokerController.text),
+                                double.parse(totCholController.text),
+                                double.parse(sysBPController.text),
+                                double.parse(diaBPController.text),
+                                double.parse(BMIController.text),
+                                double.parse(heartRateController.text),
+                                double.parse(glucoseController.text));
                             //ค่าที่ print ออกมาคือค่าที่ใช้จริง ด้านล่างค่าจะถูกต้องเมื่อกดปุ่มนี้เพราะมีเงื่อนไขด้านบนมาเช็คตัวแปรบางตัวก่อน
                             //หรือก็คือสามารถใช้ ค่าที่เป็น $ชื่อตัวแปร ด้านล่างได้เลย ตัวแปรทั้งหมดนี้เป็นแบบ integer
                             //ส่วนที่ printนี้จะเห็นได้ใน Debug console
