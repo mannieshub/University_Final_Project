@@ -7,7 +7,10 @@ class PredictionDialog {
       builder: (context) {
         return AlertDialog(
           title: Text("Prediction Text"),
-          content: Text(predictionText),
+          content: Text(
+              "ความเสี่ยงที่คุณจะเป็นโรคหลอดเลือดหัวใจใน 10 ปีข้างหน้า : " +
+                  predictionText +
+                  "%"),
           actions: [
             ElevatedButton(
               onPressed: () {

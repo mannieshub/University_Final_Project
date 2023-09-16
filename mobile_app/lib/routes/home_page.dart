@@ -2,19 +2,17 @@ import 'package:flutter/material.dart';
 
 //firebase authentication
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:mobile_app/authentication/auth.dart';
-import 'package:mobile_app/routes/before_assessment_page.dart';
-import 'package:mobile_app/ui/homepage/menu.dart';
-import 'package:mobile_app/ui/homepage/signOut.dart';
 
 //routes
-import '/routes/assessment_demo.dart';
 import '/routes/before_chatbot_page.dart';
+import 'package:mobile_app/routes/before_assessment_page.dart';
 
 //UI
-import 'package:mobile_app/ui/homepage/navigatePush.dart';
-import 'package:mobile_app/ui/homepage/user_info_card.dart';
+import 'package:mobile_app/templates/homepage/navigatePush.dart';
+import 'package:mobile_app/templates/homepage/user_info_card.dart';
+import 'package:mobile_app/templates/homepage/menu.dart';
+import 'package:mobile_app/templates/homepage/signOut.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);

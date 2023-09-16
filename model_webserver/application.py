@@ -5,21 +5,21 @@ import pickle
 #from waitress import serve
 
 #Create flask app
-app = Flask(__name__)
+application = Flask(__name__)
 
 #Load the pickle model
 model = pickle.load(open("model.pkl","rb"))
 
 #mode ="dev"
 
-@app.route("/")
+@application.route("/")
 
 #test on PC
 def Home():
     return render_template("index.html")
 
 
-@app.route("/predict",methods = ["POST"])
+@application.route("/predict",methods = ["POST"])
 def predict():
     #รับค่า request มาแปลงเป็น float
     float_features = [float(x) for x in request.form.values()]
@@ -34,11 +34,13 @@ def predict():
     percent = probabilities_percent[0][1];
 
 
+
     result = {
-        "prediction_text": "ความเสี่ยงที่คุณจะเป็นโรคหลอดเลือดหัวใจใน 10 ปีข้างหน้า : {:.2f}%".format(probabilities_percent[0][1])
+        "prediction_text": "ความเสี่ยงที่คุณจะเป็นโรคหลอดเลือดหัวใจใน 10 ปีข้างหน้า : {:.2f}%".format(probabilities_percent[0][1]),
+        "percent" : str(round(percent,2))
     }
 
     return jsonify(result)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run(debug=True)

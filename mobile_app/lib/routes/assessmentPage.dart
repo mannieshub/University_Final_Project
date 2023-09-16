@@ -11,7 +11,6 @@ import 'package:mobile_app/services/API_services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mobile_app/models/user_data.dart'; //user info data
-import '../models/user_advice.dart';
 
 //Firebase Authentication
 import 'package:firebase_auth/firebase_auth.dart';
@@ -105,7 +104,7 @@ class _assessmentPageState extends State<assessmentPage> {
   final TextEditingController glucoseController =
       TextEditingController(text: '0');
 
-  String predictionText = 'man';
+  String predictionText = '';
 
   //advice
 

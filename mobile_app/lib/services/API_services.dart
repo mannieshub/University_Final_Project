@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:mobile_app/ui/assessmentPage/prediction_dialog.dart';
+import 'package:mobile_app/templates/assessmentPage/prediction_dialog.dart';
 
 class ApiService {
   static Future<void> postData(
@@ -49,7 +49,8 @@ class ApiService {
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body);
       String predictionText = data['prediction_text'];
-      PredictionDialog.show(context, predictionText);
+      String predictionPercent = data['percent'];
+      PredictionDialog.show(context, predictionPercent);
     } else {
       print('Failed to make request. Error code: ${response.statusCode}');
     }

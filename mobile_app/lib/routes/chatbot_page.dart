@@ -1,14 +1,7 @@
-//routes
-import '/routes/before_chatbot_page.dart';
-
 //chatbot + dialogflow
-import 'package:mobile_app/ui/chatbotpage/Messages.dart';
+import 'package:mobile_app/templates/chatbotpage/Messages.dart';
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/material.dart';
-
-//firebase authentication
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:mobile_app/authentication/auth.dart';
 
 //โรคหลอดเลือดหัวใจคืออะไร
 

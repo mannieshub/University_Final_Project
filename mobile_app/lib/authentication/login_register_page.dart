@@ -8,13 +8,14 @@ import 'package:mobile_app/authentication/auth.dart';
 import 'package:mobile_app/models/user_models.dart';
 
 //UI
-import 'package:mobile_app/ui/authenpage/appname.dart';
-import 'package:mobile_app/ui/authenpage/createAcc_text.dart';
-import 'package:mobile_app/ui/authenpage/input.dart';
-import 'package:mobile_app/ui/authenpage/welcome_text.dart';
+import 'package:mobile_app/templates/authenpage/appname.dart';
+import 'package:mobile_app/templates/authenpage/createAcc_text.dart';
+import 'package:mobile_app/templates/authenpage/input.dart';
+import 'package:mobile_app/templates/authenpage/password.dart';
+import 'package:mobile_app/templates/authenpage/welcome_text.dart';
 import '../routes/home_page.dart';
-import '../ui/authenpage/heart_icon.dart';
-import '../ui/authenpage/robot.dart';
+import '../templates/authenpage/heart_icon.dart';
+import '../templates/authenpage/robot.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -181,7 +182,8 @@ class _LoginPageState extends State<LoginPage> {
                                       children: [
                                         _createOrSignInText(),
                                         Input('Email', _controllerEmail),
-                                        Input('Password', _controllerPassword),
+                                        PasswordInput(
+                                            'Password', _controllerPassword),
                                         SizedBox(height: 10),
                                         _errorMessage(),
                                         SizedBox(height: 10),
