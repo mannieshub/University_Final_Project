@@ -24,7 +24,7 @@ class ApiService {
   ) async {
     var response = await http.post(
       // URL web-server
-      Uri.parse("http://10.0.2.2:5000/predict"),
+      Uri.parse("https://chd-server.azurewebsites.net/predict"),
 
       // http request
       body: {
