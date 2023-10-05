@@ -16,6 +16,7 @@ class PredictionDialog {
               onPressed: () {
                 // Close the current AlertDialog
                 Navigator.of(context).pop();
+                Navigator.of(context).pop();
               },
               child: Text("OK"),
             ),

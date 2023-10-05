@@ -14,7 +14,6 @@ class signOutButton extends StatelessWidget {
 
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
-    //Navigator.pushReplacement(context, LoginPage());
   }
 
   @override

@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 //firebase authentication
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobile_app/authentication/auth.dart';
+import 'package:mobile_app/routes/advice.dart';
+import 'package:mobile_app/templates/homepage/card.dart';
+import 'package:mobile_app/templates/homepage/signOutBTN.dart';
 
 //routes
 import '/routes/before_chatbot_page.dart';
@@ -11,8 +14,6 @@ import 'package:mobile_app/routes/before_assessment_page.dart';
 //UI
 import 'package:mobile_app/templates/homepage/navigatePush.dart';
 import 'package:mobile_app/templates/homepage/user_info_card.dart';
-import 'package:mobile_app/templates/homepage/menu.dart';
-import 'package:mobile_app/templates/homepage/signOut.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -58,6 +59,7 @@ class HomePage extends StatelessWidget {
           title: _title(),
           automaticallyImplyLeading: false,
           backgroundColor: Color(0xFF4FCCBD),
+          centerTitle: true,
         ),
 
         //Display Content
@@ -69,36 +71,47 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 UserInfoCard(),
-
+                const SizedBox(height: 10),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      MenuButton(
-                          text: 'Result',
-                          destination: beforeAs(),
-                          imgPath: 'images/Icon_As.png',
-                          color: Color(0xFF4FCCBD)),
-                      MenuButton(
-                          text: 'Advice',
-                          destination: beforeAs(),
-                          imgPath: 'images/Icon_HandHeart.png',
-                          color: Color(0xFF4FCCBD)),
-                      MenuButton(
-                          text: 'Profile',
-                          destination: beforeAs(),
-                          imgPath: 'images/Icon_As.png',
-                          color: Color(0xFF4FCCBD)),
-                      signOutButton(
-                        text: 'SignOut',
-                        imgPath: 'images/Icon_Exit.png',
+                      // MenuButton(
+                      //     text: 'Result',
+                      //     destination: beforeAs(),
+                      //     imgPath: 'images/Icon_As.png',
+                      //     color: Color(0xFF4FCCBD)),
+                      // MenuButton(
+                      //     text: 'Advice',
+                      //     destination: beforeAs(),
+                      //     imgPath: 'images/Icon_HandHeart.png',
+                      //     color: Color(0xFF4FCCBD)),
+                      // MenuButton(
+                      //     text: 'Profile',
+                      //     destination: beforeAs(),
+                      //     imgPath: 'images/Icon_As.png',
+                      //     color: Color(0xFF4FCCBD)),
+
+                      CardWidget(
+                        destinationPage: advicePage(),
+                        imagePath: 'images/Icon_HandHeart.png',
+                        text: 'คำแนะนำ',
+                      ),
+                      // CardWidget(
+                      //   destinationPage: YourWidget(),
+                      //   imagePath: 'images/user-icon1.png',
+                      //   text: 'โปรไฟล์',
+                      // ),
+                      signOutWidget(
+                        imagePath: "images/Icon_Exit.png",
+                        text: "ออกจากระบบ",
                         color: Color(0xFFFF4D4D),
                       ),
                     ],
                   ),
                 ),
-
+                const SizedBox(height: 10),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(5, 10, 0, 10),
                   child: Row(
@@ -131,8 +144,8 @@ class HomePage extends StatelessWidget {
                       beforeChat(), // Replace with your desired destination widget.
                 ),
 
-                _userUid(),
-                _signOutButton(),
+                // _userUid(),
+                // _signOutButton(),
               ],
             ),
           ),

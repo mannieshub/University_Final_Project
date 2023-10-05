@@ -2,8 +2,6 @@ import numpy as np
 from flask import Flask , request , jsonify , render_template
 import pickle
 
-#from waitress import serve
-
 #Create flask app
 application = Flask(__name__)
 

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 //firebase authentication
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mobile_app/authentication/auth.dart';
 import 'package:mobile_app/models/user_models.dart';
 
@@ -33,6 +32,7 @@ class _LoginPageState extends State<LoginPage> {
   //Email and Password from input
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
+  final TextEditingController _controllerConfirmm = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -130,6 +130,12 @@ class _LoginPageState extends State<LoginPage> {
   //Display text under toggle
   Widget _createOrSignInText() {
     return isLogin ? WelcomeScreen() : createAccText();
+  }
+
+  Widget _confirmPassword() {
+    return !isLogin
+        ? PasswordInput('ConfirmPassword', _controllerConfirmm)
+        : SizedBox();
   }
 
   @override

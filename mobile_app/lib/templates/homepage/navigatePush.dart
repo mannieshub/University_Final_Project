@@ -21,7 +21,7 @@ class NextPageButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-        color: Color(0xFF4FCCBD),
+        color: Color(0xFFEBA37A),
         child: InkWell(
           onTap: () {
             Navigator.push(
@@ -47,27 +47,28 @@ class NextPageButton extends StatelessWidget {
                       Text(
                         message1,
                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
+                          color: Colors.black,
+                          fontSize: 16,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      const SizedBox(height: 3),
                       Text(
                         message2,
                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12.5,
+                          color: Colors.black,
+                          fontSize: 13,
                           fontFamily: 'Kanit',
                         ),
                       ),
                       const SizedBox(
-                          height: 5), // Add spacing between text and link
+                          height: 3), // Add spacing between text and link
                       Text(
                         "คลิกเพื่อดูรายละเอียด",
                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 11.5,
+                          color: Colors.black,
+                          fontSize: 12,
                           fontFamily: 'Kanit',
                           decoration: TextDecoration.underline,
                         ),

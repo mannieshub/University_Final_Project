@@ -57,6 +57,109 @@ class _assessmentPageState extends State<assessmentPage> {
     });
   }
 
+  void _showAlertDialogsErrorSaveData(BuildContext context) {
+    //ฟังก์ชันแสดงตัวAlert
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return (Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            AlertDialog(
+              backgroundColor: Color(0XFFD9D9D9),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0)),
+              titlePadding: const EdgeInsets.all(0),
+              title: Container(
+                  padding: EdgeInsets.fromLTRB(10, 15, 10, 15),
+                  decoration: const BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20.0),
+                      topRight: Radius.circular(20.0),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        "แจ้งเตือนผู้ใช้", //ส่วนของ ข้อความ title ที่พิ้นหลังสีแดงๆ
+                        style: TextStyle(
+                            fontFamily: 'kanit',
+                            fontSize: 17,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  )),
+              content: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Wrap(
+                      children: <Widget>[
+                        Text(
+                          "กรุณากรอกข้อมูลให้เรียบร้อยและตรงตามเงื่อนไข",
+                          textAlign: TextAlign
+                              .center, //ส่วนของ ข้อความ title ที่พิ้นหลังสีแดงๆ
+                          style: TextStyle(
+                              fontFamily: 'kanit',
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
+              /*actions: [
+            TextButton(onPressed: () {}, child: Text("yes")),
+            TextButton(onPressed: () {}, child: Text("no"))
+          ],*/
+
+              //elevation: 24,
+              //backgroundColor: Colors.blue,
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFFD9D9D9),
+                      padding: EdgeInsetsDirectional.fromSTEB(35, 10, 35, 10),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                            20), // กำหนดความโค้งของมุมปุ่ม
+                      ),
+
+                      textStyle:
+                          TextStyle(fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      // เอาไว้ลิ้งไปหน้าอื่นอันนี้จะเป็นแบบย้อนกลับไปหน้าก่อนหน้านี้
+                    },
+                    child: Text(
+                      'OK',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Kanit',
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ));
+      },
+    );
+  }
+
   //medical history
   //BPMed
   List<bool> _SelectPressure = <bool>[true, false];
@@ -104,10 +207,15 @@ class _assessmentPageState extends State<assessmentPage> {
   final TextEditingController glucoseController =
       TextEditingController(text: '0');
 
-  String predictionText = '';
+  bool boolCheckSmokingVisible = false;
+  bool boolCheckCholesterolVisible = false;
+  bool boolCheckGlucoseVisible = false;
+  bool boolCheckHeartRateVisible = false;
+  bool boolCheckBMIVisible = false;
+  bool boolCheckSysVisible = false;
+  bool boolCheckDiaVisible = false;
 
   //advice
-
   postDataToFireStore() async {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     User? user = Auth().currentUser;
@@ -129,7 +237,6 @@ class _assessmentPageState extends State<assessmentPage> {
     userData.BMI = BMIController.text;
     userData.heartRate = heartRateController.text;
     userData.glucose = glucoseController.text;
-    userData.predictionText = predictionText;
 
     await firebaseFirestore
         .collection("UserData")
@@ -354,7 +461,7 @@ class _assessmentPageState extends State<assessmentPage> {
                                                               },
                                                               borderRadius:
                                                                   const BorderRadius
-                                                                          .all(
+                                                                      .all(
                                                                       Radius.circular(
                                                                           20)),
                                                             ),
@@ -842,12 +949,28 @@ class _assessmentPageState extends State<assessmentPage> {
                                                             if (_SelectSmoke[
                                                                 0]) {
                                                               smoke = 1;
+
                                                               currentSmokerController
                                                                   .text = "1";
                                                               print(
                                                                   "มีประวัติสูบบุหรี่ = $smoke");
                                                             } else {
                                                               smoke = 0;
+                                                              setState(() {
+                                                                cigsPerDayController
+                                                                    .text = "0";
+                                                                smokeperday =
+                                                                    int.parse(
+                                                                        cigsPerDayController
+                                                                            .text);
+                                                                setState(
+                                                                  () =>
+                                                                      smokeperdayslider =
+                                                                          0,
+                                                                );
+                                                                boolCheckSmokingVisible =
+                                                                    true;
+                                                              });
                                                               currentSmokerController
                                                                   .text = "0";
                                                               print(
@@ -857,7 +980,7 @@ class _assessmentPageState extends State<assessmentPage> {
                                                         },
                                                         borderRadius:
                                                             const BorderRadius
-                                                                    .all(
+                                                                .all(
                                                                 Radius.circular(
                                                                     20)),
                                                       ),
@@ -906,8 +1029,13 @@ class _assessmentPageState extends State<assessmentPage> {
                                                           onChanged:
                                                               (newRating) {
                                                             if (smoke == 0) {
+                                                              setState(() {
+                                                                boolCheckSmokingVisible =
+                                                                    true;
+                                                              });
                                                               return null;
                                                             }
+
                                                             setState(
                                                               () => smokeperdayslider =
                                                                   newRating, //รับค่าจากslider มาใน agelider
@@ -940,6 +1068,8 @@ class _assessmentPageState extends State<assessmentPage> {
                                                           child: TextFormField(
                                                             validator:
                                                                 (value) {},
+                                                            readOnly:
+                                                                boolCheckSmokingVisible,
                                                             controller:
                                                                 cigsPerDayController,
                                                             keyboardType:
@@ -1354,7 +1484,7 @@ class _assessmentPageState extends State<assessmentPage> {
                                                               "มีประวัติความดันโลหิตสูง = $BloodPressure");
                                                         } else {
                                                           BloodPressure = 0;
-                                                          prevalentStrokeController
+                                                          BPMedsController
                                                               .text = "0";
                                                           print(
                                                               "ไม่มีมีประวัติความดันโลหิตสูง = $BloodPressure");
@@ -1590,11 +1720,52 @@ class _assessmentPageState extends State<assessmentPage> {
                                                                               value.toString());
                                                                     });
                                                                   },
+
+                                                                  onChanged:
+                                                                      (value) =>
+                                                                          {
+                                                                    if (value == "" ||
+                                                                        value[0] ==
+                                                                            "." ||
+                                                                        value[0] ==
+                                                                            "0")
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckCholesterolVisible =
+                                                                              true;
+                                                                        })
+                                                                      }
+                                                                    else if (double.parse(totCholController.text) >=
+                                                                            100 &&
+                                                                        double.parse(totCholController.text) <=
+                                                                            350)
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckCholesterolVisible =
+                                                                              false;
+                                                                        })
+                                                                      }
+                                                                    else
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckCholesterolVisible =
+                                                                              true;
+                                                                        })
+                                                                      }
+                                                                  },
                                                                   controller:
                                                                       totCholController,
                                                                   keyboardType:
                                                                       TextInputType
                                                                           .number,
+                                                                  inputFormatters: <TextInputFormatter>[
+                                                                    FilteringTextInputFormatter
+                                                                        .allow(RegExp(
+                                                                            r'[0-9]')),
+                                                                  ],
                                                                   decoration:
                                                                       InputDecoration(
                                                                     hintText:
@@ -1630,6 +1801,26 @@ class _assessmentPageState extends State<assessmentPage> {
                                                     ),
                                                   )
                                                 ])),
+
+                                        Visibility(
+                                            visible:
+                                                boolCheckCholesterolVisible,
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(10, 0, 0, 0),
+                                              child: Row(
+                                                children: [
+                                                  Text(
+                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 100 ถึง 350",
+                                                    style: TextStyle(
+                                                        fontFamily: 'Kanit',
+                                                        fontSize: 15,
+                                                        color: Colors.red),
+                                                  )
+                                                ],
+                                              ),
+                                            )),
+
                                         Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1679,11 +1870,51 @@ class _assessmentPageState extends State<assessmentPage> {
                                                                     TextFormField(
                                                                   validator:
                                                                       (value) {},
+                                                                  onChanged:
+                                                                      (value) =>
+                                                                          {
+                                                                    if (value == "" ||
+                                                                        value[0] ==
+                                                                            "." ||
+                                                                        value[0] ==
+                                                                            "0")
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckSysVisible =
+                                                                              true;
+                                                                        })
+                                                                      }
+                                                                    else if (double.parse(sysBPController.text) >=
+                                                                            80 &&
+                                                                        double.parse(sysBPController.text) <=
+                                                                            300)
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckSysVisible =
+                                                                              false;
+                                                                        })
+                                                                      }
+                                                                    else
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckSysVisible =
+                                                                              true;
+                                                                        })
+                                                                      }
+                                                                  },
                                                                   controller:
                                                                       sysBPController,
                                                                   keyboardType:
                                                                       TextInputType
                                                                           .number,
+                                                                  inputFormatters: <TextInputFormatter>[
+                                                                    FilteringTextInputFormatter
+                                                                        .allow(RegExp(
+                                                                            r'[0-9]')),
+                                                                  ],
                                                                   decoration:
                                                                       InputDecoration(
                                                                     hintText:
@@ -1719,6 +1950,24 @@ class _assessmentPageState extends State<assessmentPage> {
                                                     ),
                                                   )
                                                 ])),
+                                        Visibility(
+                                            visible: boolCheckSysVisible,
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(10, 0, 0, 0),
+                                              child: Row(
+                                                children: [
+                                                  Text(
+                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 80 ถึง 300",
+                                                    style: TextStyle(
+                                                        fontFamily: 'Kanit',
+                                                        fontSize: 15,
+                                                        color: Colors.red),
+                                                  )
+                                                ],
+                                              ),
+                                            )),
+
                                         Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1768,11 +2017,51 @@ class _assessmentPageState extends State<assessmentPage> {
                                                                     TextFormField(
                                                                   validator:
                                                                       (value) {},
+                                                                  onChanged:
+                                                                      (value) =>
+                                                                          {
+                                                                    if (value == "" ||
+                                                                        value[0] ==
+                                                                            "." ||
+                                                                        value[0] ==
+                                                                            "0")
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckDiaVisible =
+                                                                              true;
+                                                                        })
+                                                                      }
+                                                                    else if (double.parse(diaBPController.text) >=
+                                                                            40 &&
+                                                                        double.parse(diaBPController.text) <=
+                                                                            150)
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckDiaVisible =
+                                                                              false;
+                                                                        })
+                                                                      }
+                                                                    else
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckDiaVisible =
+                                                                              true;
+                                                                        })
+                                                                      }
+                                                                  },
                                                                   controller:
                                                                       diaBPController,
                                                                   keyboardType:
                                                                       TextInputType
                                                                           .number,
+                                                                  inputFormatters: <TextInputFormatter>[
+                                                                    FilteringTextInputFormatter
+                                                                        .allow(RegExp(
+                                                                            r'[0-9]')),
+                                                                  ],
                                                                   decoration:
                                                                       InputDecoration(
                                                                     hintText:
@@ -1808,6 +2097,24 @@ class _assessmentPageState extends State<assessmentPage> {
                                                     ),
                                                   )
                                                 ])),
+                                        Visibility(
+                                            visible: boolCheckDiaVisible,
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(10, 0, 0, 0),
+                                              child: Row(
+                                                children: [
+                                                  Text(
+                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 40 ถึง 150",
+                                                    style: TextStyle(
+                                                        fontFamily: 'Kanit',
+                                                        fontSize: 15,
+                                                        color: Colors.red),
+                                                  )
+                                                ],
+                                              ),
+                                            )),
+
                                         Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1857,11 +2164,51 @@ class _assessmentPageState extends State<assessmentPage> {
                                                                     TextFormField(
                                                                   validator:
                                                                       (value) {},
+                                                                  onChanged:
+                                                                      (value) =>
+                                                                          {
+                                                                    if (value == "" ||
+                                                                        value[0] ==
+                                                                            "." ||
+                                                                        value[0] ==
+                                                                            "0")
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckBMIVisible =
+                                                                              true;
+                                                                        })
+                                                                      }
+                                                                    else if (double.parse(BMIController.text) >=
+                                                                            10 &&
+                                                                        double.parse(BMIController.text) <=
+                                                                            40)
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckBMIVisible =
+                                                                              false;
+                                                                        })
+                                                                      }
+                                                                    else
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckBMIVisible =
+                                                                              true;
+                                                                        })
+                                                                      }
+                                                                  },
                                                                   controller:
                                                                       BMIController,
                                                                   keyboardType:
                                                                       TextInputType
                                                                           .number,
+                                                                  inputFormatters: <TextInputFormatter>[
+                                                                    FilteringTextInputFormatter
+                                                                        .allow(RegExp(
+                                                                            r'[0-9]')),
+                                                                  ],
                                                                   decoration:
                                                                       InputDecoration(
                                                                     hintText:
@@ -1897,6 +2244,24 @@ class _assessmentPageState extends State<assessmentPage> {
                                                     ),
                                                   )
                                                 ])),
+                                        Visibility(
+                                            visible: boolCheckBMIVisible,
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(10, 0, 0, 0),
+                                              child: Row(
+                                                children: [
+                                                  Text(
+                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 10 ถึง 40",
+                                                    style: TextStyle(
+                                                        fontFamily: 'Kanit',
+                                                        fontSize: 15,
+                                                        color: Colors.red),
+                                                  )
+                                                ],
+                                              ),
+                                            )),
+
                                         Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1946,11 +2311,51 @@ class _assessmentPageState extends State<assessmentPage> {
                                                                     TextFormField(
                                                                   validator:
                                                                       (value) {},
+                                                                  onChanged:
+                                                                      (value) =>
+                                                                          {
+                                                                    if (value == "" ||
+                                                                        value[0] ==
+                                                                            "." ||
+                                                                        value[0] ==
+                                                                            "0")
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckHeartRateVisible =
+                                                                              true;
+                                                                        })
+                                                                      }
+                                                                    else if (double.parse(heartRateController.text) >=
+                                                                            40 &&
+                                                                        double.parse(heartRateController.text) <=
+                                                                            150)
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckHeartRateVisible =
+                                                                              false;
+                                                                        })
+                                                                      }
+                                                                    else
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckHeartRateVisible =
+                                                                              true;
+                                                                        })
+                                                                      }
+                                                                  },
                                                                   controller:
                                                                       heartRateController,
                                                                   keyboardType:
                                                                       TextInputType
                                                                           .number,
+                                                                  inputFormatters: <TextInputFormatter>[
+                                                                    FilteringTextInputFormatter
+                                                                        .allow(RegExp(
+                                                                            r'[0-9]')),
+                                                                  ],
                                                                   decoration:
                                                                       InputDecoration(
                                                                     hintText:
@@ -1986,6 +2391,24 @@ class _assessmentPageState extends State<assessmentPage> {
                                                     ),
                                                   )
                                                 ])),
+                                        Visibility(
+                                            visible: boolCheckHeartRateVisible,
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(10, 0, 0, 0),
+                                              child: Row(
+                                                children: [
+                                                  Text(
+                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 40 ถึง 150",
+                                                    style: TextStyle(
+                                                        fontFamily: 'Kanit',
+                                                        fontSize: 15,
+                                                        color: Colors.red),
+                                                  )
+                                                ],
+                                              ),
+                                            )),
+
                                         Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -2035,11 +2458,51 @@ class _assessmentPageState extends State<assessmentPage> {
                                                                     TextFormField(
                                                                   validator:
                                                                       (value) {},
+                                                                  onChanged:
+                                                                      (value) =>
+                                                                          {
+                                                                    if (value == "" ||
+                                                                        value[0] ==
+                                                                            "." ||
+                                                                        value[0] ==
+                                                                            "0")
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckGlucoseVisible =
+                                                                              true;
+                                                                        })
+                                                                      }
+                                                                    else if (double.parse(glucoseController.text) >=
+                                                                            40 &&
+                                                                        double.parse(glucoseController.text) <=
+                                                                            400)
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckGlucoseVisible =
+                                                                              false;
+                                                                        })
+                                                                      }
+                                                                    else
+                                                                      {
+                                                                        setState(
+                                                                            () {
+                                                                          boolCheckGlucoseVisible =
+                                                                              true;
+                                                                        })
+                                                                      }
+                                                                  },
                                                                   controller:
                                                                       glucoseController,
                                                                   keyboardType:
                                                                       TextInputType
                                                                           .number,
+                                                                  inputFormatters: <TextInputFormatter>[
+                                                                    FilteringTextInputFormatter
+                                                                        .allow(RegExp(
+                                                                            r'[0-9]')),
+                                                                  ],
                                                                   decoration:
                                                                       InputDecoration(
                                                                     hintText:
@@ -2075,6 +2538,23 @@ class _assessmentPageState extends State<assessmentPage> {
                                                     ),
                                                   )
                                                 ])),
+                                        Visibility(
+                                            visible: boolCheckGlucoseVisible,
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(10, 0, 0, 0),
+                                              child: Row(
+                                                children: [
+                                                  Text(
+                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 40 ถึง 400",
+                                                    style: TextStyle(
+                                                        fontFamily: 'Kanit',
+                                                        fontSize: 15,
+                                                        color: Colors.red),
+                                                  )
+                                                ],
+                                              ),
+                                            )),
                                       ],
                                     ),
                                   ))),
@@ -2102,22 +2582,52 @@ class _assessmentPageState extends State<assessmentPage> {
                                 fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
                           ),
                           onPressed: () async {
-                            /*เงื่อนไขด้านล่างนี้มีไว้เช็ค ค่า age(อายุ) กับ ค่า textEditingControllerAge(ค่าที่userป้อนมา) ถ้าไม่เท่าให้
-                              age = textEditingControllerAge;
-                              ** หรือก็คือ ค่าที่userใส่เข้ามาจะไม่เท่ากับของ slider เลยจะต้องมีเงื่อนไขนี้ไว้เพื่ออัพเดทค่าให้ตรงกับที่userใส่มานั้นเอง
-                            */
+                            if (BMIController.text == "0") {
+                              setState(() {
+                                boolCheckBMIVisible = true;
+                              });
+                            }
+                            if (totCholController.text == "0") {
+                              setState(() {
+                                boolCheckCholesterolVisible = true;
+                              });
+                            }
+                            if (diaBPController.text == "0") {
+                              setState(() {
+                                boolCheckDiaVisible = true;
+                              });
+                            }
+                            if (glucoseController.text == "0") {
+                              setState(() {
+                                boolCheckGlucoseVisible = true;
+                              });
+                            }
+                            if (heartRateController.text == "0") {
+                              setState(() {
+                                boolCheckHeartRateVisible = true;
+                              });
+                            }
+                            if (sysBPController.text == "0") {
+                              setState(() {
+                                boolCheckSysVisible = true;
+                              });
+                            }
                             if (int.parse(ageController.text) != age) {
                               age = int.parse(ageController.text);
                             }
-                            /*เงื่อนไขด้านล่างนี้มีไว้เช็ค ค่า age(อายุ) กับ ค่า textEditingControllerAge(ค่าที่userป้อนมา) ถ้าไม่เท่าให้
-                              age = textEditingControllerAge;
-                              ** หรือก็คือ ค่าที่userใส่เข้ามาจะไม่เท่ากับของ slider เลยจะต้องมีเงื่อนไขนี้ไว้เพื่ออัพเดทค่าให้ตรงกับที่userใส่มานั้นเอง
-                            */
                             if (int.parse(cigsPerDayController.text) !=
                                 smokeperday) {
                               smokeperday =
                                   int.parse(cigsPerDayController.text);
                             }
+                            if (boolCheckBMIVisible ||
+                                boolCheckCholesterolVisible ||
+                                boolCheckDiaVisible ||
+                                boolCheckGlucoseVisible ||
+                                boolCheckHeartRateVisible ||
+                                boolCheckSysVisible) {
+                              _showAlertDialogsErrorSaveData(context);
+                            } else {}
                             ApiService.postData(
                               context,
                               genderController,
@@ -2139,22 +2649,14 @@ class _assessmentPageState extends State<assessmentPage> {
                             await postDataToFireStore();
                             await postAdviceToFireStore(
                                 int.parse(currentSmokerController.text),
+                                int.parse(prevalentStrokeController.text),
+                                int.parse(prevalentHypController.text),
+                                int.parse(diabetesController.text),
                                 double.parse(totCholController.text),
                                 double.parse(sysBPController.text),
-                                double.parse(diaBPController.text),
                                 double.parse(BMIController.text),
                                 double.parse(heartRateController.text),
                                 double.parse(glucoseController.text));
-                            //ค่าที่ print ออกมาคือค่าที่ใช้จริง ด้านล่างค่าจะถูกต้องเมื่อกดปุ่มนี้เพราะมีเงื่อนไขด้านบนมาเช็คตัวแปรบางตัวก่อน
-                            //หรือก็คือสามารถใช้ ค่าที่เป็น $ชื่อตัวแปร ด้านล่างได้เลย ตัวแปรทั้งหมดนี้เป็นแบบ integer
-                            //ส่วนที่ printนี้จะเห็นได้ใน Debug console
-                            print("-----------------------");
-                            print("เพศ = $gender");
-                            print('อายุ = $age');
-                            print('ระดับการศึกษา = $EducationLevel');
-                            print('สูบุหรี่ต่อวัน = $smokeperday');
-                            print('ประวิติสูบหรี่ =  $smoke');
-                            print("-----------------------");
                           },
                           child: Text(
                             'ประเมินความเสี่ยง',

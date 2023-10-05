@@ -5,12 +5,14 @@ import 'package:mobile_app/models/user_advice.dart';
 
 Future<void> postAdviceToFireStore(
   int currentSmoker,
+  int prevalentStroke,
+  int prevalentHyp,
+  int diabetes,
   double Cholesterol,
   double Glucose,
   double Heartrate,
   double BMI,
   double SysBP,
-  double DiaBP,
 ) async {
   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
   User? user = Auth().currentUser;
@@ -18,31 +20,57 @@ Future<void> postAdviceToFireStore(
 
   userAdvice.uid = user!.uid;
   if (currentSmoker == 1) {
-    userAdvice.currentSmoker = "การสูบบุหรี่ไม่ดีต่อสุขภาพของหัวใจ"
-        "ดังนั้นคุณควรลดปริมาณการสูบบุหรี่ลง หากเลิกสูบบุหรี่ได้จะดีมาก";
+    userAdvice.currentSmoker = "1";
+  } else {
+    userAdvice.currentSmoker = "0";
   }
+
+  if (prevalentStroke == 1) {
+    userAdvice.prevalentStroke = "1";
+  } else {
+    userAdvice.prevalentStroke = "0";
+  }
+
+  if (prevalentHyp == 1) {
+    userAdvice.prevalentHyp = "1";
+  } else {
+    userAdvice.prevalentHyp = "0";
+  }
+
+  if (diabetes == 1) {
+    userAdvice.diabetes = "1";
+  } else {
+    userAdvice.diabetes = "0";
+  }
+
   if (Cholesterol >= 150) {
-    userAdvice.totalCholesterol = "คุณมีระดับคอเลสเตอรอลสูงกว่าระดับกว่าปกติ"
-        "ดังนั้นคุณควรงดรับประทานของหวาน ของทอดและของมัน";
+    userAdvice.totalCholesterol = "1";
+  } else {
+    userAdvice.totalCholesterol = "0";
   }
+
   if (Glucose >= 126) {
-    userAdvice.glucose =
-        "ระดับกลูโคสของคุณมีสูงกว่าระดับปกติ ทำให้คุณมีโอกาสสูงที่จะเป็นโรคเบาหวาน";
+    userAdvice.glucose = "1";
+  } else {
+    userAdvice.glucose = "0";
   }
+
   if (Heartrate >= 150) {
-    userAdvice.heartRate =
-        "อัตราการเต้นของหัวใจของคุณสูงกว่าระดับปกติ อาจมีโรคความดันโลหิตสูงหรือโรคหลอดเลือดหัวใจ "
-        "คุณควรออกกำลังกายสัปดาห์ละ 3-5 ครั้ง ครั้งละ 30 นาที";
+    userAdvice.heartRate = "1";
+  } else {
+    userAdvice.heartRate = "0";
   }
+
   if (BMI >= 25) {
-    userAdvice.BMI =
-        "ดัชนีมวลกายของคุณอยู่ในกลุ่มเสี่ยงที่อาจเป็นโรคอ้วน ซึ่งเป็นอาการแทรกซ้อนของโรคหลอดเลือดหัวใจ";
+    userAdvice.BMI = "1";
+  } else {
+    userAdvice.BMI = "0";
   }
+
   if (SysBP >= 140) {
-    userAdvice.sysBP = "หัวใจเต้นแรงทุกวินาที";
-  }
-  if (DiaBP >= 90) {
-    userAdvice.diaBP = "หัวใจเต้นแรงไปนะบางที";
+    userAdvice.sysBP = "1";
+  } else {
+    userAdvice.sysBP = "0";
   }
 
   await firebaseFirestore

@@ -1,5 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
+import 'package:mobile_app/authentication/auth.dart';
+import 'package:mobile_app/models/user_data.dart';
+import 'package:mobile_app/models/user_risk.dart';
+import 'package:mobile_app/routes/assessmentPage.dart';
 import 'dart:convert';
 import 'package:mobile_app/templates/assessmentPage/prediction_dialog.dart';
 
@@ -46,13 +53,40 @@ class ApiService {
       },
     );
 
+    String predictionPercent = '';
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body);
-      String predictionText = data['prediction_text'];
-      String predictionPercent = data['percent'];
+      //String predictionText = data['prediction_text'];
+      predictionPercent = data['percent'];
       PredictionDialog.show(context, predictionPercent);
     } else {
       print('Failed to make request. Error code: ${response.statusCode}');
     }
+
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    User? user = Auth().currentUser;
+    UserRisk userRisk = UserRisk();
+
+    String level = "";
+    double? percent = double.tryParse(predictionPercent);
+    if (percent! >= 0 && percent < 10) {
+      level = "ต่ำ";
+    }
+    if (percent >= 10 && percent < 25) {
+      level = "ปานกลาง";
+    }
+    if (percent >= 25) {
+      level = "สูง";
+    }
+
+    userRisk.uid = user!.uid;
+    userRisk.percent = predictionPercent;
+    userRisk.level = level;
+
+    await firebaseFirestore
+        .collection("UserRisk")
+        .doc(user.uid)
+        .set(userRisk.toMap());
+    Fluttertoast.showToast(msg: "Insert successfully");
   }
 }
