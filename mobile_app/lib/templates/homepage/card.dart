@@ -35,7 +35,7 @@ class CardWidget extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15), // เพิ่มเส้นขอบ
                     ),
-                    color: Color(0xFFEBA37A),
+                    color: Colors.white,
                     child: Column(
                       children: [
                         Padding(
@@ -53,7 +53,7 @@ class CardWidget extends StatelessWidget {
                                       children: [
                                         Image.asset(
                                           imagePath, // Specify the image path here
-                                          width: 45,
+                                          width: 100,
                                           height: 45,
                                         ),
                                         Padding(
@@ -63,7 +63,7 @@ class CardWidget extends StatelessWidget {
                                           child: Text(
                                             text, // Specify the text here
                                             style: TextStyle(
-                                              fontSize: 13,
+                                              fontSize: 16,
                                               fontFamily: 'Kanit',
                                             ),
                                           ),

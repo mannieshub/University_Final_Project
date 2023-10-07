@@ -37,7 +37,7 @@ class _UserInfoCardState extends State<UserInfoCard> {
       style: TextStyle(
         height: 1,
         color: Color.fromARGB(255, 255, 0, 0),
-        fontSize: 65,
+        fontSize: 50,
         fontWeight: FontWeight.bold,
         fontFamily: 'Inter',
       ),

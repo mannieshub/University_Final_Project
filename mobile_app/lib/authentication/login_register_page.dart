@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF24B6A4),
+                  backgroundColor: Color(0xFFEBA37A),
                   padding: EdgeInsetsDirectional.fromSTEB(65, 13, 65, 13),
                   shape: RoundedRectangleBorder(
                     borderRadius:
@@ -119,12 +119,19 @@ class _LoginPageState extends State<LoginPage> {
   //when pressed switch text from Login to Register and Register to Login position under _submitButton
   Widget _loginOrRegisterButton() {
     return TextButton(
-        onPressed: () {
-          setState(() {
-            isLogin = !isLogin;
-          });
-        },
-        child: Text(isLogin ? 'Register instead' : 'Login instead'));
+      onPressed: () {
+        setState(() {
+          isLogin = !isLogin;
+        });
+      },
+      child: Text(
+        isLogin ? 'Register instead' : 'Login instead',
+        style: TextStyle(
+          color: Color(0xFFEBA37A), // Specify your desired color here
+          fontWeight: FontWeight.bold, // Make the text bold
+        ),
+      ),
+    );
   }
 
   //Display text under toggle
@@ -143,7 +150,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        color: Color(0xFF4FD0C1), //4FD0C1
+        color: Color(0xFFFEBE9A), //4FD0C1
         child: Form(
           key: _formKey,
           child: Stack(

@@ -158,18 +158,41 @@ class resultPageState extends State<resultPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Color(0xFF4FCCBD),
+        backgroundColor: Color(0xFFEBA37A),
         title: Container(
           padding: EdgeInsets.all(0),
           margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFFFEBE9A),
+                  textStyle: TextStyle(fontSize: 15),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  'Back',
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
               Text(
                 "ทำไมคุณถึงเสี่ยง",
                 textAlign: TextAlign.center,
-                style:
-                    TextStyle(fontFamily: 'kanit', fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontFamily: 'Kanit',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
+                ),
+              ),
+              Text(
+                "            ",
+                textAlign: TextAlign.center,
               ),
             ],
           ),
@@ -294,42 +317,42 @@ class resultPageState extends State<resultPage> {
                                 "ระดับกลูโคสโดยเฉลี่ยสูง",
                                 "มีความเสี่ยงที่จะเป็นโรคเบาหวาน",
                                 Color(0xFFFD7272)),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Color(0xFF4FCCBD),
+                            // Padding(
+                            //   padding:
+                            //       EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
+                            //   child: Row(
+                            //     mainAxisAlignment: MainAxisAlignment.center,
+                            //     children: <Widget>[
+                            //       ElevatedButton(
+                            //         style: ElevatedButton.styleFrom(
+                            //           backgroundColor: Color(0xFF4FCCBD),
 
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          40, 10, 40, 10),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(
-                                            10), // กำหนดความโค้งของมุมปุ่ม
-                                      ),
+                            //           padding: EdgeInsetsDirectional.fromSTEB(
+                            //               40, 10, 40, 10),
+                            //           shape: RoundedRectangleBorder(
+                            //             borderRadius: BorderRadius.circular(
+                            //                 10), // กำหนดความโค้งของมุมปุ่ม
+                            //           ),
 
-                                      textStyle: TextStyle(
-                                          fontSize:
-                                              15), // เปลี่ยนสีปุ่มเป็นสีแดง
-                                    ),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                      // เอาไว้ลิ้งไปหน้าอื่นอันนี้จะเป็นแบบย้อนกลับไปหน้าก่อนหน้านี้
-                                    },
-                                    child: Text(
-                                      'back',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontFamily: 'Kanit',
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            //           textStyle: TextStyle(
+                            //               fontSize:
+                            //                   15), // เปลี่ยนสีปุ่มเป็นสีแดง
+                            //         ),
+                            //         onPressed: () {
+                            //           Navigator.of(context).pop();
+                            //           // เอาไว้ลิ้งไปหน้าอื่นอันนี้จะเป็นแบบย้อนกลับไปหน้าก่อนหน้านี้
+                            //         },
+                            //         child: Text(
+                            //           'back',
+                            //           style: TextStyle(
+                            //             color: Colors.white,
+                            //             fontFamily: 'Kanit',
+                            //           ),
+                            //         ),
+                            //       ),
+                            //     ],
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),
