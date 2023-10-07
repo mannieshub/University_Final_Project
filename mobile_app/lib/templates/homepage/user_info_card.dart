@@ -18,7 +18,6 @@ class _UserInfoCardState extends State<UserInfoCard> {
   @override
   void initState() {
     super.initState();
-    // เรียกใช้ fetchDataFromFirestore ใน initState เพื่อดึงข้อมูลเมื่อหน้าจอโหลด
     fetchDataFromFirestore();
   }
 
@@ -77,8 +76,19 @@ class _UserInfoCardState extends State<UserInfoCard> {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
       child: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.25),
+              offset: Offset(1, 1),
+              blurRadius: 4,
+              spreadRadius: 0,
+            ),
+          ],
+          borderRadius: BorderRadius.circular(15), // Rounded corners
+        ),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(15),
           child: Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),

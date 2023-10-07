@@ -58,7 +58,7 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: _title(),
           automaticallyImplyLeading: false,
-          backgroundColor: Color(0xFF4FCCBD),
+          backgroundColor: Color(0xFFEBA37A),
           centerTitle: true,
         ),
 

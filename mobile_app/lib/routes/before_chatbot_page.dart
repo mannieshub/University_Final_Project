@@ -13,7 +13,7 @@ class _beforeChatState extends State<beforeChat> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Color(0xFF4FCCBD),
+        backgroundColor: Color(0xFFEBA37A),
         title: Container(
           padding: EdgeInsets.all(0),
           margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
@@ -22,7 +22,7 @@ class _beforeChatState extends State<beforeChat> {
             children: <Widget>[
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF7EDCD1),
+                  backgroundColor: Color(0xFFFEBE9A),
                   textStyle: TextStyle(fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
                 ),
                 onPressed: () {
@@ -69,11 +69,11 @@ class _beforeChatState extends State<beforeChat> {
                 child: Wrap(
                   children: [
                     Text(
-                      "สอบถามสิ่งที่คุณสงสัยเกี่ยวกับโรคหลอดเลือดหัวใจ ?",
+                      "สอบถามเกี่ยวกับโรคหลอดเลือดหัวใจ",
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 24,
+                        fontSize: 23,
                         fontFamily: 'Kanit',
                       ),
                     )
@@ -85,14 +85,59 @@ class _beforeChatState extends State<beforeChat> {
                 child: Wrap(
                   children: <Widget>[
                     Text(
-                      'นี่คือสิ่งที่คุณสามารถสอบถามเราได้ โดยจะตอบกลับโดยแชทบอทที่เราได้สร้างขึ้นมา',
+                      'ตอบคำถามที่คุณสงสัย โดยแชทบอทที่พัฒนาขึ้น สามารถถามคำถามได้ดังต่อไปนี้',
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         fontFamily: 'Kanit',
                         color: Color(0XFF5A5959),
                         fontSize: 17,
                       ),
-                    )
+                    ),
+                    Text(
+                      '     1. ปัจจัยเสี่ยงแต่ละด้านของโรคหลอดเลือดหัวใจ',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontFamily: 'Kanit',
+                        color: Color(0XFF5A5959),
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      '     2. วิธีการดูแลตัวเองเพื่อหลีกเลี่ยงการเกิดโรค',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontFamily: 'Kanit',
+                        color: Color(0XFF5A5959),
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      '     3. อาการของโรคหลอดเลือดหัวใจ',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontFamily: 'Kanit',
+                        color: Color(0XFF5A5959),
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      '     4. โรคหลอดเลือดหัวใจคืออะไร',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontFamily: 'Kanit',
+                        color: Color(0XFF5A5959),
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      '     5. โรคหลอดเลือดหัวใจเกิดจากอะไร',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontFamily: 'Kanit',
+                        color: Color(0XFF5A5959),
+                        fontSize: 16,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -122,7 +167,7 @@ class _beforeChatState extends State<beforeChat> {
                   children: <Widget>[
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF4FCCBD),
+                        backgroundColor: Color(0xFFEBA37A),
                         padding: EdgeInsetsDirectional.fromSTEB(45, 15, 45, 15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(

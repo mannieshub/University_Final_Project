@@ -28,7 +28,7 @@ class _chatUIState extends State<chatUI> {
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Color(0xFF4FCCBD),
+          backgroundColor: Color(0xFFEBA37A),
           title: Container(
             padding: EdgeInsets.all(0),
             margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
@@ -37,7 +37,7 @@ class _chatUIState extends State<chatUI> {
               children: <Widget>[
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF7EDCD1),
+                    backgroundColor: Color(0xFFFEBE9A),
                     textStyle:
                         TextStyle(fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
                   ),

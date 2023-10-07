@@ -251,7 +251,7 @@ class _assessmentPageState extends State<assessmentPage> {
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Color(0xFF4FCCBD),
+          backgroundColor: Color(0xFFEBA37A),
           title: Container(
             padding: EdgeInsets.all(0),
             margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
@@ -260,7 +260,7 @@ class _assessmentPageState extends State<assessmentPage> {
               children: <Widget>[
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF7EDCD1),
+                    backgroundColor: Color(0xFFFEBE9A),
                     textStyle:
                         TextStyle(fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
                   ),
@@ -299,13 +299,13 @@ class _assessmentPageState extends State<assessmentPage> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(25, 0, 0, 10),
                     child: Row(
                       children: [
                         Text(
                           "ข้อมูลด้านประชากร",
                           style: TextStyle(
-                            color: Color(0XFF5A5959),
+                            color: Colors.black,
                             fontFamily: 'Kanit',
                             fontWeight: FontWeight.bold,
                             fontSize: 17,
@@ -612,7 +612,7 @@ class _assessmentPageState extends State<assessmentPage> {
                         Text(
                           "ข้อมูลด้านพฤติกรรม",
                           style: TextStyle(
-                            color: Color(0XFF5A5959),
+                            color: Colors.black,
                             fontFamily: 'Kanit',
                             fontWeight: FontWeight.bold,
                             fontSize: 17,
@@ -2570,7 +2570,7 @@ class _assessmentPageState extends State<assessmentPage> {
                       children: <Widget>[
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF4FCCBD),
+                            backgroundColor: Color(0xFFEBA37A),
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(25, 15, 25, 15),
                             shape: RoundedRectangleBorder(
