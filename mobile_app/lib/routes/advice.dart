@@ -166,7 +166,7 @@ class advicePageState extends State<advicePage> {
                   ),
                   child: IntrinsicHeight(
                     child: Container(
-                      color: Color(0XFFFFEEDD),
+                      color: Color(0XFFFEDBBA),
                       child: Center(
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 60, 0, 60),

@@ -34,8 +34,8 @@ class signOutWidget extends StatelessWidget {
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey.withOpacity(0.25),
-                            spreadRadius: 1,
-                            blurRadius: 4,
+                            spreadRadius: 0,
+                            blurRadius: 6,
                             offset: Offset(1, 1), // X and Y offset
                           ),
                         ],

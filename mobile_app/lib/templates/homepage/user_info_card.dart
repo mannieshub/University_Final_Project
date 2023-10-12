@@ -32,15 +32,22 @@ class _UserInfoCardState extends State<UserInfoCard> {
   }
 
   Widget _showPercent(String percent) {
+    Color levelColor = Color(0xFFFF0000);
+    ;
+    if (percent == "ต่ำ") {
+      levelColor = Color(0xFFFF8888);
+    }
+    if (percent == "ปานกลาง") {
+      levelColor = Color(0xFFFD5F5F);
+    }
+    if (percent == "สูง") {
+      levelColor = Color(0xFFFF0000);
+    }
     return Text(
-      percent,
+      percent, //ใส่ต่าตวามเสี่ยงตรงนี้(ต้องเป็น stringนะ)
+
       style: TextStyle(
-        height: 1,
-        color: Color.fromARGB(255, 255, 0, 0),
-        fontSize: 50,
-        fontWeight: FontWeight.bold,
-        fontFamily: 'Inter',
-      ),
+          height: 0.95, color: levelColor, fontSize: 40, fontFamily: 'kanit'),
     );
   }
 
@@ -75,120 +82,133 @@ class _UserInfoCardState extends State<UserInfoCard> {
     fetchDataFromFirestore();
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-      child: Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.25),
-              offset: Offset(1, 1),
-              blurRadius: 4,
-              spreadRadius: 0,
-            ),
-          ],
-          borderRadius: BorderRadius.circular(15), // Rounded corners
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(15),
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(children: [
+        Container(
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.25),
+                offset: Offset(1, 1),
+                blurRadius: 6,
+                spreadRadius: 0,
+              ),
+            ],
+            borderRadius: BorderRadius.circular(15), // Rounded corners
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(25),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        10, 15, 10, percent == "ตํ่า" ? 10 : 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+                                child: Column(
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "WELCOME BACK",
+                                          style: TextStyle(
+                                              fontSize: 17,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: 'Inter'),
+                                        ),
+                                        _userUid()
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => resultPage(),
+                                        ),
+                                      );
+                                    },
+                                    child: Text(
+                                      "คลิกเพื่อดูรายละเอียด",
+                                      style: TextStyle(
+                                        color: Color(0xFF5A5959),
+                                        fontSize: 14,
+                                        fontFamily: 'Kanit',
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Column(
                           children: [
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               child: Column(
                                 children: [
                                   Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                        CrossAxisAlignment.center,
                                     children: [
-                                      Text(
-                                        "WELCOME BACK",
-                                        style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Inter',
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0,
+                                            0,
+                                            5,
+                                            percent == "ตํ่า" ? 20 : 0),
+                                        child: Text(
+                                          "ระดับความเสี่ยง",
+                                          style: TextStyle(
+                                              height: 1,
+                                              fontSize: 20,
+                                              fontFamily: 'kanit'),
                                         ),
                                       ),
-                                      _userUid(),
+                                      SizedBox(height: 12),
+                                      _showPercent(percent)
                                     ],
                                   ),
                                 ],
                               ),
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => resultPage(),
-                                      ),
-                                    );
-                                  },
-                                  child: Text(
-                                    "คลิกเพื่อดูรายละเอียด",
-                                    style: TextStyle(
-                                      color: Color(0xFF5A5959),
-                                      fontSize: 14,
-                                      fontFamily: 'Kanit',
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
                           ],
                         ),
-                      ),
-                      Column(
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                            child: Column(
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "ความเสี่ยง",
-                                      style: TextStyle(
-                                        height: 1,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: 'kanit',
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          _showPercent(
-                              percent), // ใช้ตัวแปร percent ที่ประกาศในคลาส
-                        ],
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
-      ),
+      ]),
     );
   }
 }

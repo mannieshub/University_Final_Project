@@ -288,2391 +288,2347 @@ class _assessmentPageState extends State<assessmentPage> {
             ),
           ),
         ),
-        body: SingleChildScrollView(
-          //color: Color(0XFFFFEEDD),
-          child: Container(
-            color: Color(0XFFF9CEA5),
-            child: Container(
-              color: Color(0XFFF9CEA5),
-              margin: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 30),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(25, 0, 0, 10),
-                    child: Row(
-                      children: [
-                        Text(
-                          "ข้อมูลด้านประชากร",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Kanit',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17,
-                          ),
-                        )
-                      ],
+        body: LayoutBuilder(
+            builder: (context, constraints) => SingleChildScrollView(
+                child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: constraints.maxHeight,
                     ),
-                  ),
-                  //demographic
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: 350,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(25),
-                            child: Card(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                    25), // กำหนดความโค้งของมุมปุ่ม
+                    child: IntrinsicHeight(
+                      child: Container(
+                        color: Color(0XFFF9CEA5),
+                        child: Container(
+                          color: Color(0XFFF9CEA5),
+                          margin:
+                              EdgeInsetsDirectional.fromSTEB(30, 30, 30, 30),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    25, 0, 0, 10),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "ข้อมูลด้านประชากร",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontFamily: 'Kanit',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 17,
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
-                              child: Column(
-                                children: [
-                                  Padding(
+                              //demographic
+                              Container(
+                                width: constraints.maxWidth * 0.833,
+                                child: FittedBox(
+                                  child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 20, 20, 10),
+                                        0, 0, 0, 10),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.center,
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 0),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 0, 0),
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  //ของใน card เป็น row ๆ ไป
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 0, 0, 10),
-                                                      child: Row(
-                                                        children: [
-                                                          Text(
-                                                            "เพศ:",
-                                                            style: TextStyle(
-                                                                fontFamily:
-                                                                    'Kanit',
-                                                                fontSize: 15),
-                                                          ),
-                                                          Text("        "),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        30,
-                                                                        0,
-                                                                        0,
-                                                                        0),
-                                                            child:
-                                                                ToggleButtons(
-                                                              constraints:
-                                                                  BoxConstraints(
-                                                                      maxWidth:
-                                                                          90,
-                                                                      minWidth:
-                                                                          70,
-                                                                      minHeight:
-                                                                          35,
-                                                                      maxHeight:
-                                                                          35),
-                                                              isSelected:
-                                                                  _Selectgender,
-                                                              children: <Widget>[
-                                                                Container(
-                                                                    width: 20,
-                                                                    child:
-                                                                        new Row(
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .center,
-                                                                      children: <Widget>[
-                                                                        new Icon(
-                                                                          Icons
-                                                                              .male,
-                                                                          size:
-                                                                              20,
-                                                                          color:
-                                                                              Colors.blue,
-                                                                        ),
-                                                                      ],
-                                                                    )),
-                                                                Container(
-                                                                    width: 20,
-                                                                    child:
-                                                                        new Row(
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .center,
-                                                                      children: <Widget>[
-                                                                        new Icon(
-                                                                          Icons
-                                                                              .female,
-                                                                          size:
-                                                                              20.0,
-                                                                          color:
-                                                                              Colors.pink,
-                                                                        ),
-                                                                      ],
-                                                                    )),
-                                                              ],
-                                                              onPressed:
-                                                                  (int index) {
-                                                                setState(() {
-                                                                  for (int i =
-                                                                          0;
-                                                                      i <
-                                                                          _Selectgender
-                                                                              .length;
-                                                                      i++) {
-                                                                    _Selectgender[
-                                                                            i] =
-                                                                        i ==
-                                                                            index;
-                                                                  }
-                                                                  if (_Selectgender[
-                                                                      0]) {
-                                                                    gender = 0;
-                                                                    print(
-                                                                        "ชาย = $gender");
-                                                                  } else {
-                                                                    gender = 1;
-                                                                    print(
-                                                                        "หญิง = $gender");
-                                                                  }
-                                                                });
-                                                              },
-                                                              borderRadius:
-                                                                  const BorderRadius
-                                                                      .all(
-                                                                      Radius.circular(
-                                                                          20)),
-                                                            ),
-                                                          ),
-                                                          Text(
-                                                              "                   "),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 0, 0, 0),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Text(
-                                                            "อายุ",
-                                                            style: TextStyle(
-                                                                fontFamily:
-                                                                    'Kanit',
-                                                                fontSize: 15),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(20, 0,
-                                                                    0, 0),
-                                                        child: Row(
+                                        Container(
+                                          width: 350,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(25),
+                                            child: Card(
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(
+                                                    25), // กำหนดความโค้งของมุมปุ่ม
+                                              ),
+                                              child: Column(
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                20, 20, 20, 10),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(0,
+                                                                      0, 0, 0),
+                                                          child: Column(
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
                                                                     .spaceBetween,
                                                             children: [
-                                                              Column(
-                                                                children: [
-                                                                  Slider(
-                                                                    value:
-                                                                        ageslider,
-                                                                    onChanged:
-                                                                        (newRating) {
-                                                                      setState(
-                                                                        () => ageslider =
-                                                                            newRating, //รับค่าจาก slider มาใน agelider
-                                                                      );
-                                                                      setState(
-                                                                          () {
-                                                                        age = ageslider //เปลี่ยน double เป็น integer เพื่ออะไปใช้ต่อ
-                                                                            .floor();
-
-                                                                        //ค่า age คือค่าใช้จริง
-                                                                      });
-                                                                      setState(
-                                                                          () {
-                                                                        //รับค่าจาก slider มาใน textEditingController ของ textfleid เพื่อแสดงค่าปัจุบันให้ user เห็น
-                                                                        ageController
-                                                                            .text = (newRating
-                                                                                .floor())
-                                                                            .toString();
-                                                                      });
-                                                                    },
-                                                                    min: 0,
-                                                                    max: 100,
-                                                                    divisions:
-                                                                        100,
-                                                                    label:
-                                                                        "$age",
-                                                                  )
-                                                                ],
-                                                              ),
-                                                              Column(
-                                                                children: [
-                                                                  Container(
-                                                                    width:
-                                                                        27, // กำหนดความกว้างที่คุณต้องการ
-                                                                    child:
-                                                                        TextFormField(
-                                                                      validator:
-                                                                          (value) {},
-                                                                      controller:
-                                                                          ageController,
-                                                                      keyboardType:
-                                                                          TextInputType
-                                                                              .number,
-                                                                      decoration:
-                                                                          InputDecoration(
-                                                                        hintText:
-                                                                            "$age",
-                                                                        border:
-                                                                            InputBorder.none,
-
-                                                                        //textEditingControllerAge
-                                                                      ),
-                                                                      // ค่าอื่น ๆ ของ TextField
-                                                                    ),
-                                                                  )
-                                                                ],
-                                                              ),
                                                               Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            10,
+                                                                            0,
                                                                             0,
                                                                             0,
                                                                             0),
                                                                 child: Column(
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  //ของใน card เป็น row ๆ ไป
                                                                   children: [
-                                                                    Text(
-                                                                      "ปี",
-                                                                      style: TextStyle(
-                                                                          fontFamily:
-                                                                              'Kanit',
-                                                                          fontSize:
-                                                                              15),
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              0,
+                                                                              10),
+                                                                      child:
+                                                                          Row(
+                                                                        children: [
+                                                                          Text(
+                                                                            "เพศ:",
+                                                                            style:
+                                                                                TextStyle(fontFamily: 'Kanit', fontSize: 15),
+                                                                          ),
+                                                                          Text(
+                                                                              "        "),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                30,
+                                                                                0,
+                                                                                0,
+                                                                                0),
+                                                                            child:
+                                                                                ToggleButtons(
+                                                                              constraints: BoxConstraints(maxWidth: 90, minWidth: 70, minHeight: 35, maxHeight: 35),
+                                                                              isSelected: _Selectgender,
+                                                                              children: <Widget>[
+                                                                                Container(
+                                                                                    width: 20,
+                                                                                    child: new Row(
+                                                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                                                      children: <Widget>[
+                                                                                        new Icon(
+                                                                                          Icons.male,
+                                                                                          size: 20,
+                                                                                          color: Colors.blue,
+                                                                                        ),
+                                                                                      ],
+                                                                                    )),
+                                                                                Container(
+                                                                                    width: 20,
+                                                                                    child: new Row(
+                                                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                                                      children: <Widget>[
+                                                                                        new Icon(
+                                                                                          Icons.female,
+                                                                                          size: 20.0,
+                                                                                          color: Colors.pink,
+                                                                                        ),
+                                                                                      ],
+                                                                                    )),
+                                                                              ],
+                                                                              onPressed: (int index) {
+                                                                                setState(() {
+                                                                                  for (int i = 0; i < _Selectgender.length; i++) {
+                                                                                    _Selectgender[i] = i == index;
+                                                                                  }
+                                                                                  if (_Selectgender[0]) {
+                                                                                    gender = 0;
+                                                                                    print("ชาย = $gender");
+                                                                                  } else {
+                                                                                    gender = 1;
+                                                                                    print("หญิง = $gender");
+                                                                                  }
+                                                                                });
+                                                                              },
+                                                                              borderRadius: const BorderRadius.all(Radius.circular(20)),
+                                                                            ),
+                                                                          ),
+                                                                          Text(
+                                                                              "                   "),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              0,
+                                                                              0),
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.start,
+                                                                        children: [
+                                                                          Text(
+                                                                            "อายุ",
+                                                                            style:
+                                                                                TextStyle(fontFamily: 'Kanit', fontSize: 15),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            20,
+                                                                            0,
+                                                                            0,
+                                                                            0),
+                                                                        child: Row(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.spaceBetween,
+                                                                            children: [
+                                                                              Column(
+                                                                                children: [
+                                                                                  Slider(
+                                                                                    value: ageslider,
+                                                                                    onChanged: (newRating) {
+                                                                                      setState(
+                                                                                        () => ageslider = newRating, //รับค่าจาก slider มาใน agelider
+                                                                                      );
+                                                                                      setState(() {
+                                                                                        age = ageslider //เปลี่ยน double เป็น integer เพื่ออะไปใช้ต่อ
+                                                                                            .floor();
+
+                                                                                        //ค่า age คือค่าใช้จริง
+                                                                                      });
+                                                                                      setState(() {
+                                                                                        //รับค่าจาก slider มาใน textEditingController ของ textfleid เพื่อแสดงค่าปัจุบันให้ user เห็น
+                                                                                        ageController.text = (newRating.floor()).toString();
+                                                                                      });
+                                                                                    },
+                                                                                    min: 0,
+                                                                                    max: 100,
+                                                                                    divisions: 100,
+                                                                                    label: "$age",
+                                                                                  )
+                                                                                ],
+                                                                              ),
+                                                                              Column(
+                                                                                children: [
+                                                                                  Container(
+                                                                                    width: 27, // กำหนดความกว้างที่คุณต้องการ
+                                                                                    child: TextFormField(
+                                                                                      validator: (value) {},
+                                                                                      controller: ageController,
+                                                                                      keyboardType: TextInputType.number,
+                                                                                      decoration: InputDecoration(
+                                                                                        hintText: "$age",
+                                                                                        border: InputBorder.none,
+
+                                                                                        //textEditingControllerAge
+                                                                                      ),
+                                                                                      // ค่าอื่น ๆ ของ TextField
+                                                                                    ),
+                                                                                  )
+                                                                                ],
+                                                                              ),
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                                                                child: Column(
+                                                                                  children: [
+                                                                                    Text(
+                                                                                      "ปี",
+                                                                                      style: TextStyle(fontFamily: 'Kanit', fontSize: 15),
+                                                                                    )
+                                                                                  ],
+                                                                                ),
+                                                                              )
+                                                                            ]))
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "ข้อมูลด้านพฤติกรรม",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontFamily: 'Kanit',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 17,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              //behavior
+                              Container(
+                                width: constraints.maxWidth * 0.833,
+                                child: FittedBox(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 10, 0, 0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                            width: 350,
+                                            child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                                child: Card(
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              25), // กำหนดความโค้งของมุมปุ่ม
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(10, 10,
+                                                                  10, 10),
+                                                      child: Column(
+                                                        children: [
+                                                          //Padding(padding: EdgeInsetsDirectional.fromSTEB(0, 0,0, 0),)
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10,
+                                                                        0,
+                                                                        0,
+                                                                        0),
+                                                            child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          0,
+                                                                          0,
+                                                                          5), // Add padding here
+                                                                  child: Text(
+                                                                    "ประวัติการศึกษา",
+                                                                    style:
+                                                                        TextStyle(
+                                                                      fontFamily:
+                                                                          'Kanit',
+                                                                      fontSize:
+                                                                          15,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                // SizedBox(height: 10), // You can remove this line
+                                                              ],
+                                                            ),
+                                                          ),
+
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0,
+                                                                        0,
+                                                                        0,
+                                                                        10),
+                                                            child: Column(
+                                                              children: [
+                                                                Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceEvenly,
+                                                                  children: <Widget>[
+                                                                    Container(
+                                                                      height:
+                                                                          24,
+                                                                      child:
+                                                                          Row(
+                                                                        children: [
+                                                                          Radio(
+                                                                            value:
+                                                                                1,
+                                                                            groupValue:
+                                                                                EducationLevel,
+                                                                            onChanged:
+                                                                                (val) {
+                                                                              setState(() {
+                                                                                EducationLevel = val as int;
+                                                                              });
+                                                                              educationController.text = "1"; // Set the text to "1"
+                                                                            },
+                                                                          ),
+                                                                          Text(
+                                                                            "ต่ำกว่าระดับมัธยมตอนต้น",
+                                                                            style:
+                                                                                TextStyle(fontFamily: 'Kanit', fontSize: 12),
+                                                                          ),
+                                                                          Text(
+                                                                              "                                          "),
+                                                                        ],
+                                                                      ),
                                                                     )
                                                                   ],
                                                                 ),
-                                                              )
-                                                            ]))
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
+                                                                Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .start,
+                                                                  children: <Widget>[
+                                                                    Container(
+                                                                      height:
+                                                                          24,
+                                                                      child:
+                                                                          Row(
+                                                                        children: [
+                                                                          Radio(
+                                                                            value:
+                                                                                2,
+                                                                            groupValue:
+                                                                                EducationLevel,
+                                                                            onChanged:
+                                                                                (val) {
+                                                                              setState(() {
+                                                                                EducationLevel = val as int;
+                                                                              });
+                                                                              educationController.text = "2"; // Set the text to "1"
+                                                                            },
+                                                                          ),
+                                                                          Text(
+                                                                            "ระดับมัธยมตอนปลาย",
+                                                                            style:
+                                                                                TextStyle(fontFamily: 'Kanit', fontSize: 12),
+                                                                          ),
+                                                                          Text(
+                                                                              "                                             "),
+                                                                        ],
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                                Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .start,
+                                                                  children: <Widget>[
+                                                                    Container(
+                                                                      height:
+                                                                          24,
+                                                                      child:
+                                                                          Row(
+                                                                        children: [
+                                                                          Radio(
+                                                                            value:
+                                                                                3,
+                                                                            groupValue:
+                                                                                EducationLevel,
+                                                                            onChanged:
+                                                                                (val) {
+                                                                              setState(() {
+                                                                                EducationLevel = val as int;
+                                                                              });
+                                                                              educationController.text = "3"; // Set the text to "1"
+                                                                            },
+                                                                          ),
+                                                                          Text(
+                                                                            "ระดับปริญญาตรี",
+                                                                            style:
+                                                                                TextStyle(fontFamily: 'Kanit', fontSize: 12),
+                                                                          ),
+                                                                          Text(
+                                                                              "                                                 "),
+                                                                        ],
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                                Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .start,
+                                                                  children: <Widget>[
+                                                                    Container(
+                                                                      height:
+                                                                          24,
+                                                                      child:
+                                                                          Row(
+                                                                        children: [
+                                                                          Radio(
+                                                                            value:
+                                                                                4,
+                                                                            groupValue:
+                                                                                EducationLevel,
+                                                                            onChanged:
+                                                                                (val) {
+                                                                              setState(() {
+                                                                                EducationLevel = val as int;
+                                                                              });
+                                                                              educationController.text = "4"; // Set the text to "1"
+                                                                            },
+                                                                          ),
+                                                                          Text(
+                                                                            "สูงกว่าระดับปริญญาตรี",
+                                                                            style:
+                                                                                TextStyle(fontFamily: 'Kanit', fontSize: 12),
+                                                                          ),
+                                                                          Text(
+                                                                              "                                        "),
+                                                                        ],
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0,
+                                                                        0,
+                                                                        0,
+                                                                        10),
+                                                            child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Column(
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              10,
+                                                                              0,
+                                                                              0,
+                                                                              0), // Add padding here
+                                                                      child:
+                                                                          Text(
+                                                                        "ประวัติการสูบบุหรี่",
+                                                                        style:
+                                                                            TextStyle(
+                                                                          fontFamily:
+                                                                              'Kanit',
+                                                                          fontSize:
+                                                                              15,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              10,
+                                                                              0,
+                                                                              0,
+                                                                              0),
+                                                                      child:
+                                                                          Text(
+                                                                        "ถ้าปัจจุบันเลิกสูบบุหรี่แล้วให้เลือก มี",
+                                                                        style:
+                                                                            TextStyle(
+                                                                          fontFamily:
+                                                                              'Kanit',
+                                                                          fontWeight:
+                                                                              FontWeight.bold,
+                                                                          color: Color.fromARGB(
+                                                                              255,
+                                                                              255,
+                                                                              17,
+                                                                              0),
+                                                                          fontSize:
+                                                                              12,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                Column(
+                                                                  children: [
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0,
+                                                                          10,
+                                                                          10,
+                                                                          0), // Add top padding here
+                                                                      child:
+                                                                          ToggleButtons(
+                                                                        constraints:
+                                                                            BoxConstraints(
+                                                                          maxWidth:
+                                                                              55,
+                                                                          minWidth:
+                                                                              50,
+                                                                          minHeight:
+                                                                              35,
+                                                                          maxHeight:
+                                                                              35,
+                                                                        ),
+                                                                        isSelected:
+                                                                            _SelectSmoke,
+                                                                        children: <Widget>[
+                                                                          Container(
+                                                                            width:
+                                                                                20,
+                                                                            child:
+                                                                                new Row(
+                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                              children: <Widget>[
+                                                                                new Text(
+                                                                                  "มี",
+                                                                                  style: TextStyle(
+                                                                                    color: Colors.red,
+                                                                                    fontWeight: FontWeight.bold,
+                                                                                    fontFamily: 'Kanit',
+                                                                                    fontSize: 15,
+                                                                                  ),
+                                                                                )
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                25,
+                                                                            child:
+                                                                                new Row(
+                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                              children: <Widget>[
+                                                                                new Text(
+                                                                                  "ไม่มี",
+                                                                                  style: TextStyle(
+                                                                                    color: Colors.blue,
+                                                                                    fontWeight: FontWeight.bold,
+                                                                                    fontFamily: 'Kanit',
+                                                                                    fontSize: 15,
+                                                                                  ),
+                                                                                )
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                        onPressed:
+                                                                            (int
+                                                                                index) {
+                                                                          setState(
+                                                                              () {
+                                                                            for (int i = 0;
+                                                                                i < _SelectSmoke.length;
+                                                                                i++) {
+                                                                              _SelectSmoke[i] = i == index;
+                                                                            }
+                                                                            if (_SelectSmoke[0]) {
+                                                                              smoke = 1;
+
+                                                                              currentSmokerController.text = "1";
+                                                                              print("มีประวัติสูบบุหรี่ = $smoke");
+                                                                            } else {
+                                                                              smoke = 0;
+                                                                              setState(() {
+                                                                                cigsPerDayController.text = "0";
+                                                                                smokeperday = int.parse(cigsPerDayController.text);
+                                                                                setState(
+                                                                                  () => smokeperdayslider = 0,
+                                                                                );
+                                                                                boolCheckSmokingVisible = true;
+                                                                              });
+                                                                              currentSmokerController.text = "0";
+                                                                              print("ไม่มีมีประวัติสูบบุหรี่ = $smoke");
+                                                                            }
+                                                                          });
+                                                                        },
+                                                                        borderRadius: const BorderRadius
+                                                                            .all(
+                                                                            Radius.circular(20)),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                )
+                                                              ],
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0,
+                                                                        10,
+                                                                        0,
+                                                                        0),
+                                                            child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10,
+                                                                          0,
+                                                                          0,
+                                                                          0),
+                                                                  child: Text(
+                                                                    "ปริมาณบุหรี่ที่สูบต่อวัน",
+                                                                    style: TextStyle(
+                                                                        fontFamily:
+                                                                            'Kanit',
+                                                                        fontSize:
+                                                                            15),
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                    "                                              ")
+                                                              ],
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          0,
+                                                                          0,
+                                                                          0),
+                                                              child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Column(
+                                                                      children: [
+                                                                        Slider(
+                                                                          value:
+                                                                              smokeperdayslider,
+                                                                          onChanged:
+                                                                              (newRating) {
+                                                                            if (smoke ==
+                                                                                0) {
+                                                                              setState(() {
+                                                                                boolCheckSmokingVisible = true;
+                                                                              });
+                                                                              return null;
+                                                                            }
+
+                                                                            setState(
+                                                                              () => smokeperdayslider = newRating, //รับค่าจากslider มาใน agelider
+                                                                            );
+                                                                            setState(() {
+                                                                              smokeperday = smokeperdayslider //เปลี่ยน double เป็น integer เพื่ออะไปใช้ต่อ
+                                                                                  .floor();
+                                                                            });
+                                                                            setState(() {
+                                                                              //รับค่าจาก slider มาใน textEditingController ของ textfleid เพื่อแสดงค่าปัจุบันให้ user เห็น
+                                                                              cigsPerDayController.text = (newRating.floor()).toString();
+                                                                            });
+                                                                          },
+                                                                          min:
+                                                                              0,
+                                                                          max:
+                                                                              100,
+                                                                          divisions:
+                                                                              100,
+                                                                          label:
+                                                                              "$smokeperday",
+                                                                        )
+                                                                      ],
+                                                                    ),
+                                                                    Column(
+                                                                      children: [
+                                                                        Container(
+                                                                          width:
+                                                                              27, // กำหนดความกว้างที่คุณต้องการ
+                                                                          child:
+                                                                              TextFormField(
+                                                                            validator:
+                                                                                (value) {},
+                                                                            readOnly:
+                                                                                boolCheckSmokingVisible,
+                                                                            controller:
+                                                                                cigsPerDayController,
+                                                                            keyboardType:
+                                                                                TextInputType.number,
+                                                                            decoration:
+                                                                                InputDecoration(
+                                                                              hintText: "$smokeperday",
+                                                                              border: InputBorder.none,
+
+                                                                              //textEditingControllerAge
+                                                                            ),
+                                                                            // ค่าอื่น ๆ ของ TextField
+                                                                          ),
+                                                                        )
+                                                                      ],
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              0,
+                                                                              0),
+                                                                      child:
+                                                                          Column(
+                                                                        children: [
+                                                                          Text(
+                                                                            "มวนต่อวัน",
+                                                                            style:
+                                                                                TextStyle(fontFamily: 'Kanit', fontSize: 15),
+                                                                          )
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ]))
+                                                        ],
+                                                      ),
+                                                    ))))
                                       ],
                                     ),
                                   ),
-                                ],
+                                ),
                               ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
 
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                    child: Row(
-                      children: [
-                        Text(
-                          "ข้อมูลด้านพฤติกรรม",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Kanit',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  //behavior
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                            width: 350,
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.circular(30),
-                                child: Card(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(
-                                          25), // กำหนดความโค้งของมุมปุ่ม
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10, 10, 10, 10),
-                                      child: Column(
-                                        children: [
-                                          //Padding(padding: EdgeInsetsDirectional.fromSTEB(0, 0,0, 0),)
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 0, 0),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 0,
-                                                          5), // Add padding here
-                                                  child: Text(
-                                                    "ประวัติการศึกษา",
-                                                    style: TextStyle(
-                                                      fontFamily: 'Kanit',
-                                                      fontSize: 15,
-                                                    ),
-                                                  ),
-                                                ),
-                                                // SizedBox(height: 10), // You can remove this line
-                                              ],
-                                            ),
-                                          ),
-
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 10),
-                                            child: Column(
-                                              children: [
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceEvenly,
-                                                  children: <Widget>[
-                                                    Container(
-                                                      height: 24,
-                                                      child: Row(
-                                                        children: [
-                                                          Radio(
-                                                            value: 1,
-                                                            groupValue:
-                                                                EducationLevel,
-                                                            onChanged: (val) {
-                                                              setState(() {
-                                                                EducationLevel =
-                                                                    val as int;
-                                                              });
-                                                              educationController
-                                                                      .text =
-                                                                  "1"; // Set the text to "1"
-                                                            },
-                                                          ),
-                                                          Text(
-                                                            "ต่ำกว่าระดับมัธยมตอนต้น",
-                                                            style: TextStyle(
-                                                                fontFamily:
-                                                                    'Kanit',
-                                                                fontSize: 12),
-                                                          ),
-                                                          Text(
-                                                              "                                          "),
-                                                        ],
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: <Widget>[
-                                                    Container(
-                                                      height: 24,
-                                                      child: Row(
-                                                        children: [
-                                                          Radio(
-                                                            value: 2,
-                                                            groupValue:
-                                                                EducationLevel,
-                                                            onChanged: (val) {
-                                                              setState(() {
-                                                                EducationLevel =
-                                                                    val as int;
-                                                              });
-                                                              educationController
-                                                                      .text =
-                                                                  "2"; // Set the text to "1"
-                                                            },
-                                                          ),
-                                                          Text(
-                                                            "ระดับมัธยมตอนปลาย",
-                                                            style: TextStyle(
-                                                                fontFamily:
-                                                                    'Kanit',
-                                                                fontSize: 12),
-                                                          ),
-                                                          Text(
-                                                              "                                             "),
-                                                        ],
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: <Widget>[
-                                                    Container(
-                                                      height: 24,
-                                                      child: Row(
-                                                        children: [
-                                                          Radio(
-                                                            value: 3,
-                                                            groupValue:
-                                                                EducationLevel,
-                                                            onChanged: (val) {
-                                                              setState(() {
-                                                                EducationLevel =
-                                                                    val as int;
-                                                              });
-                                                              educationController
-                                                                      .text =
-                                                                  "3"; // Set the text to "1"
-                                                            },
-                                                          ),
-                                                          Text(
-                                                            "ระดับปริญญาตรี",
-                                                            style: TextStyle(
-                                                                fontFamily:
-                                                                    'Kanit',
-                                                                fontSize: 12),
-                                                          ),
-                                                          Text(
-                                                              "                                                 "),
-                                                        ],
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: <Widget>[
-                                                    Container(
-                                                      height: 24,
-                                                      child: Row(
-                                                        children: [
-                                                          Radio(
-                                                            value: 4,
-                                                            groupValue:
-                                                                EducationLevel,
-                                                            onChanged: (val) {
-                                                              setState(() {
-                                                                EducationLevel =
-                                                                    val as int;
-                                                              });
-                                                              educationController
-                                                                      .text =
-                                                                  "4"; // Set the text to "1"
-                                                            },
-                                                          ),
-                                                          Text(
-                                                            "สูงกว่าระดับปริญญาตรี",
-                                                            style: TextStyle(
-                                                                fontFamily:
-                                                                    'Kanit',
-                                                                fontSize: 12),
-                                                          ),
-                                                          Text(
-                                                              "                                        "),
-                                                        ],
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 10),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Padding(
-                                                      padding: EdgeInsetsDirectional
-                                                          .fromSTEB(10, 0, 0,
-                                                              0), // Add padding here
-                                                      child: Text(
-                                                        "ประวัติการสูบบุหรี่",
-                                                        style: TextStyle(
-                                                          fontFamily: 'Kanit',
-                                                          fontSize: 15,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10, 0, 0, 0),
-                                                      child: Text(
-                                                        "ถ้าปัจจุบันเลิกสูบบุหรี่แล้วให้เลือก มี",
-                                                        style: TextStyle(
-                                                          fontFamily: 'Kanit',
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          color: Color.fromARGB(
-                                                              255, 255, 17, 0),
-                                                          fontSize: 12,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Column(
-                                                  children: [
-                                                    Padding(
-                                                      padding: EdgeInsetsDirectional
-                                                          .fromSTEB(0, 10, 10,
-                                                              0), // Add top padding here
-                                                      child: ToggleButtons(
-                                                        constraints:
-                                                            BoxConstraints(
-                                                          maxWidth: 55,
-                                                          minWidth: 50,
-                                                          minHeight: 35,
-                                                          maxHeight: 35,
-                                                        ),
-                                                        isSelected:
-                                                            _SelectSmoke,
-                                                        children: <Widget>[
-                                                          Container(
-                                                            width: 20,
-                                                            child: new Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              children: <Widget>[
-                                                                new Text(
-                                                                  "มี",
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: Colors
-                                                                        .red,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontFamily:
-                                                                        'Kanit',
-                                                                    fontSize:
-                                                                        15,
-                                                                  ),
-                                                                )
-                                                              ],
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            width: 25,
-                                                            child: new Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              children: <Widget>[
-                                                                new Text(
-                                                                  "ไม่มี",
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: Colors
-                                                                        .blue,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontFamily:
-                                                                        'Kanit',
-                                                                    fontSize:
-                                                                        15,
-                                                                  ),
-                                                                )
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ],
-                                                        onPressed: (int index) {
-                                                          setState(() {
-                                                            for (int i = 0;
-                                                                i <
-                                                                    _SelectSmoke
-                                                                        .length;
-                                                                i++) {
-                                                              _SelectSmoke[i] =
-                                                                  i == index;
-                                                            }
-                                                            if (_SelectSmoke[
-                                                                0]) {
-                                                              smoke = 1;
-
-                                                              currentSmokerController
-                                                                  .text = "1";
-                                                              print(
-                                                                  "มีประวัติสูบบุหรี่ = $smoke");
-                                                            } else {
-                                                              smoke = 0;
-                                                              setState(() {
-                                                                cigsPerDayController
-                                                                    .text = "0";
-                                                                smokeperday =
-                                                                    int.parse(
-                                                                        cigsPerDayController
-                                                                            .text);
-                                                                setState(
-                                                                  () =>
-                                                                      smokeperdayslider =
-                                                                          0,
-                                                                );
-                                                                boolCheckSmokingVisible =
-                                                                    true;
-                                                              });
-                                                              currentSmokerController
-                                                                  .text = "0";
-                                                              print(
-                                                                  "ไม่มีมีประวัติสูบบุหรี่ = $smoke");
-                                                            }
-                                                          });
-                                                        },
-                                                        borderRadius:
-                                                            const BorderRadius
-                                                                .all(
-                                                                Radius.circular(
-                                                                    20)),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 10, 0, 0),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(10, 0, 0, 0),
-                                                  child: Text(
-                                                    "ปริมาณบุหรี่ที่สูบต่อวัน",
-                                                    style: TextStyle(
-                                                        fontFamily: 'Kanit',
-                                                        fontSize: 15),
-                                                  ),
-                                                ),
-                                                Text(
-                                                    "                                              ")
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 0),
-                                              child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Column(
-                                                      children: [
-                                                        Slider(
-                                                          value:
-                                                              smokeperdayslider,
-                                                          onChanged:
-                                                              (newRating) {
-                                                            if (smoke == 0) {
-                                                              setState(() {
-                                                                boolCheckSmokingVisible =
-                                                                    true;
-                                                              });
-                                                              return null;
-                                                            }
-
-                                                            setState(
-                                                              () => smokeperdayslider =
-                                                                  newRating, //รับค่าจากslider มาใน agelider
-                                                            );
-                                                            setState(() {
-                                                              smokeperday =
-                                                                  smokeperdayslider //เปลี่ยน double เป็น integer เพื่ออะไปใช้ต่อ
-                                                                      .floor();
-                                                            });
-                                                            setState(() {
-                                                              //รับค่าจาก slider มาใน textEditingController ของ textfleid เพื่อแสดงค่าปัจุบันให้ user เห็น
-                                                              cigsPerDayController
-                                                                  .text = (newRating
-                                                                      .floor())
-                                                                  .toString();
-                                                            });
-                                                          },
-                                                          min: 0,
-                                                          max: 100,
-                                                          divisions: 100,
-                                                          label: "$smokeperday",
-                                                        )
-                                                      ],
-                                                    ),
-                                                    Column(
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              27, // กำหนดความกว้างที่คุณต้องการ
-                                                          child: TextFormField(
-                                                            validator:
-                                                                (value) {},
-                                                            readOnly:
-                                                                boolCheckSmokingVisible,
-                                                            controller:
-                                                                cigsPerDayController,
-                                                            keyboardType:
-                                                                TextInputType
-                                                                    .number,
-                                                            decoration:
-                                                                InputDecoration(
-                                                              hintText:
-                                                                  "$smokeperday",
-                                                              border:
-                                                                  InputBorder
-                                                                      .none,
-
-                                                              //textEditingControllerAge
-                                                            ),
-                                                            // ค่าอื่น ๆ ของ TextField
-                                                          ),
-                                                        )
-                                                      ],
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 0, 0, 0),
-                                                      child: Column(
-                                                        children: [
-                                                          Text(
-                                                            "มวนต่อวัน",
-                                                            style: TextStyle(
-                                                                fontFamily:
-                                                                    'Kanit',
-                                                                fontSize: 15),
-                                                          )
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ]))
-                                        ],
+                              //medical
+                              Padding(
+                                // เริ่ม กล่อง ที่ ปรับเพิ่ม เริ่มตรงนนี้นะ ****
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    20, 10, 0, 0),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "ข้อมูลประวัติการแพทย์",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontFamily: 'Kanit',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 17,
                                       ),
-                                    ))))
-                      ],
-                    ),
-                  ),
-
-                  //medical
-                  Padding(
-                    // เริ่ม กล่อง ที่ ปรับเพิ่ม เริ่มตรงนนี้นะ ****
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 0, 0),
-                    child: Row(
-                      children: [
-                        Text(
-                          "ข้อมูลประวัติการแพทย์",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Kanit',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 350,
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(30),
-                              child: Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(
-                                      25), // กำหนดความโค้งของมุมปุ่ม
+                                    )
+                                  ],
                                 ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10, 10, 10, 10),
-                                  child: Column(
-                                    children: [
-                                      //Padding(padding: EdgeInsetsDirectional.fromSTEB(0, 0,0, 0),)
-
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 5, 10, 0),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  "ประวัติการรับยาลดความดัน",
-                                                  style: TextStyle(
-                                                      fontFamily: 'Kanit',
-                                                      fontSize: 15),
-                                                ),
-                                              ],
-                                            ),
-                                            Column(
-                                              children: [Text("")],
-                                            ),
-                                            Column(
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(30, 0, 0, 0),
-                                                  child: ToggleButtons(
-                                                    constraints: BoxConstraints(
-                                                        maxWidth: 55,
-                                                        minWidth: 50,
-                                                        minHeight: 35,
-                                                        maxHeight: 35),
-                                                    isSelected: _SelectPressure,
-                                                    children: <Widget>[
-                                                      Container(
-                                                          width: 20,
-                                                          child: new Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: <Widget>[
-                                                              new Text(
-                                                                "มี",
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .red,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontFamily:
-                                                                        'Kanit',
-                                                                    fontSize:
-                                                                        15),
-                                                              )
-                                                            ],
-                                                          )),
-                                                      Container(
-                                                          width: 25,
-                                                          child: new Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: <Widget>[
-                                                              new Text(
-                                                                "ไม่มี",
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .blue,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontFamily:
-                                                                        'Kanit',
-                                                                    fontSize:
-                                                                        15),
-                                                              )
-                                                            ],
-                                                          )),
-                                                    ],
-                                                    onPressed: (int index) {
-                                                      setState(() {
-                                                        for (int i = 0;
-                                                            i <
-                                                                _SelectPressure
-                                                                    .length;
-                                                            i++) {
-                                                          _SelectPressure[i] =
-                                                              i == index;
-                                                        }
-                                                        if (_SelectPressure[
-                                                            0]) {
-                                                          PressureMedicine = 1;
-                                                          prevalentHypController
-                                                              .text = "1";
-                                                          print(
-                                                              "มีประวัติความดันโลหิต = $PressureMedicine");
-                                                        } else {
-                                                          PressureMedicine = 0;
-                                                          prevalentHypController
-                                                              .text = "0";
-                                                          print(
-                                                              "ไม่มีมีประวัติความดันโลหิต = $PressureMedicine");
-                                                        }
-                                                      });
-                                                    },
-                                                    borderRadius:
-                                                        const BorderRadius.all(
-                                                            Radius.circular(
-                                                                20)),
-                                                  ),
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 5, 10, 0),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  "ประวัติโรคหลอดเลือดสมอง",
-                                                  style: TextStyle(
-                                                      fontFamily: 'Kanit',
-                                                      fontSize: 15),
-                                                ),
-                                              ],
-                                            ),
-                                            Column(
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(30, 0, 0, 0),
-                                                  child: ToggleButtons(
-                                                    constraints: BoxConstraints(
-                                                        maxWidth: 55,
-                                                        minWidth: 50,
-                                                        minHeight: 35,
-                                                        maxHeight: 35),
-                                                    isSelected: _SelectStroke,
-                                                    children: <Widget>[
-                                                      Container(
-                                                          width: 20,
-                                                          child: new Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: <Widget>[
-                                                              new Text(
-                                                                "มี",
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .red,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontFamily:
-                                                                        'Kanit',
-                                                                    fontSize:
-                                                                        15),
-                                                              )
-                                                            ],
-                                                          )),
-                                                      Container(
-                                                          width: 25,
-                                                          child: new Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: <Widget>[
-                                                              new Text(
-                                                                "ไม่มี",
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .blue,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontFamily:
-                                                                        'Kanit',
-                                                                    fontSize:
-                                                                        15),
-                                                              )
-                                                            ],
-                                                          )),
-                                                    ],
-                                                    onPressed: (int index) {
-                                                      setState(() {
-                                                        for (int i = 0;
-                                                            i <
-                                                                _SelectStroke
-                                                                    .length;
-                                                            i++) {
-                                                          _SelectStroke[i] =
-                                                              i == index;
-                                                        }
-                                                        if (_SelectStroke[0]) {
-                                                          Stroke = 1;
-                                                          prevalentStrokeController
-                                                              .text = "1";
-                                                          print(
-                                                              "มีประวัติโรคหลอดเลือดสมอง = $Stroke");
-                                                        } else {
-                                                          Stroke = 0;
-                                                          prevalentStrokeController
-                                                              .text = "0";
-                                                          print(
-                                                              "ไม่มีมีประวัติโรดหลอดเลือดสมอง = $Stroke");
-                                                        }
-                                                      });
-                                                    },
-                                                    borderRadius:
-                                                        const BorderRadius.all(
-                                                            Radius.circular(
-                                                                20)),
-                                                  ),
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 5, 10, 0),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  "ประวัติโรคความดันโลหิต     ",
-                                                  style: TextStyle(
-                                                      fontFamily: 'Kanit',
-                                                      fontSize: 15),
-                                                ),
-                                              ],
-                                            ),
-                                            Column(
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(30, 0, 0, 0),
-                                                  child: ToggleButtons(
-                                                    constraints: BoxConstraints(
-                                                        maxWidth: 55,
-                                                        minWidth: 50,
-                                                        minHeight: 35,
-                                                        maxHeight: 35),
-                                                    isSelected:
-                                                        _SelectBloodPressure,
-                                                    children: <Widget>[
-                                                      Container(
-                                                          width: 20,
-                                                          child: new Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: <Widget>[
-                                                              new Text(
-                                                                "มี",
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .red,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontFamily:
-                                                                        'Kanit',
-                                                                    fontSize:
-                                                                        15),
-                                                              )
-                                                            ],
-                                                          )),
-                                                      Container(
-                                                          width: 25,
-                                                          child: new Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: <Widget>[
-                                                              new Text(
-                                                                "ไม่มี",
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .blue,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontFamily:
-                                                                        'Kanit',
-                                                                    fontSize:
-                                                                        15),
-                                                              )
-                                                            ],
-                                                          )),
-                                                    ],
-                                                    onPressed: (int index) {
-                                                      setState(() {
-                                                        for (int i = 0;
-                                                            i <
-                                                                _SelectBloodPressure
-                                                                    .length;
-                                                            i++) {
-                                                          _SelectBloodPressure[
-                                                              i] = i == index;
-                                                        }
-                                                        if (_SelectBloodPressure[
-                                                            0]) {
-                                                          BloodPressure = 1;
-                                                          BPMedsController
-                                                              .text = "1";
-                                                          print(
-                                                              "มีประวัติความดันโลหิตสูง = $BloodPressure");
-                                                        } else {
-                                                          BloodPressure = 0;
-                                                          BPMedsController
-                                                              .text = "0";
-                                                          print(
-                                                              "ไม่มีมีประวัติความดันโลหิตสูง = $BloodPressure");
-                                                        }
-                                                      });
-                                                    },
-                                                    borderRadius:
-                                                        const BorderRadius.all(
-                                                            Radius.circular(
-                                                                20)),
-                                                  ),
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 5, 10, 0),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  "ประวัติการเป็นโรคเบาหวาน",
-                                                  style: TextStyle(
-                                                      fontFamily: 'Kanit',
-                                                      fontSize: 15),
-                                                ),
-                                              ],
-                                            ),
-                                            Column(
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(30, 0, 0, 0),
-                                                  child: ToggleButtons(
-                                                    constraints: BoxConstraints(
-                                                        maxWidth: 55,
-                                                        minWidth: 50,
-                                                        minHeight: 35,
-                                                        maxHeight: 35),
-                                                    isSelected: _SelectDiabetes,
-                                                    children: <Widget>[
-                                                      Container(
-                                                          width: 20,
-                                                          child: new Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: <Widget>[
-                                                              new Text(
-                                                                "มี",
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .red,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontFamily:
-                                                                        'Kanit',
-                                                                    fontSize:
-                                                                        15),
-                                                              )
-                                                            ],
-                                                          )),
-                                                      Container(
-                                                          width: 25,
-                                                          child: new Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: <Widget>[
-                                                              new Text(
-                                                                "ไม่มี",
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .blue,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontFamily:
-                                                                        'Kanit',
-                                                                    fontSize:
-                                                                        15),
-                                                              )
-                                                            ],
-                                                          )),
-                                                    ],
-                                                    onPressed: (int index) {
-                                                      setState(() {
-                                                        for (int i = 0;
-                                                            i <
-                                                                _SelectDiabetes
-                                                                    .length;
-                                                            i++) {
-                                                          _SelectDiabetes[i] =
-                                                              i == index;
-                                                        }
-                                                        if (_SelectDiabetes[
-                                                            0]) {
-                                                          Diabetes = 1;
-                                                          diabetesController
-                                                              .text = "1";
-                                                          print(
-                                                              "มีประวัติโรคเบาหวาน = $Diabetes");
-                                                        } else {
-                                                          Diabetes = 0;
-                                                          diabetesController
-                                                              .text = "0";
-                                                          print(
-                                                              "ไม่มีมีประวัติโรคเบาหวาน = $Diabetes");
-                                                        }
-                                                      });
-                                                    },
-                                                    borderRadius:
-                                                        const BorderRadius.all(
-                                                            Radius.circular(
-                                                                20)),
-                                                  ),
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              )),
-                        )
-                      ],
-                    ),
-                  ),
-
-                  //medical history - current
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 10, 0, 0),
-                    child: Row(
-                      children: [
-                        Text(
-                          "ข้อมูลประวัติการแพทย์",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Kanit',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 350,
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(30),
-                              child: Card(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        25), // กำหนดความโค้งของมุมปุ่ม
-                                  ),
+                              ),
+                              Container(
+                                width: constraints.maxWidth * 0.833,
+                                child: FittedBox(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10, 10, 10, 10),
-                                    child: Column(
+                                        0, 10, 0, 0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
-                                        //Padding(padding: EdgeInsetsDirectional.fromSTEB(0, 0,0, 0),)
-
-                                        Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10, 10, 10, 0),
-                                            child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Column(
+                                        Container(
+                                          width: 350,
+                                          child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                              child: Card(
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25), // กำหนดความโค้งของมุมปุ่ม
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(10, 10, 10, 10),
+                                                  child: Column(
                                                     children: [
-                                                      Text(
-                                                        "ระดับคอเลสเตอรอลในเลือด",
-                                                        style: TextStyle(
-                                                            fontFamily: 'Kanit',
-                                                            fontSize: 15),
-                                                      )
-                                                    ],
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10, 0, 10, 0),
-                                                    child: Column(
-                                                      children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      20.0),
-                                                          child: Container(
-                                                              color: Color(
-                                                                  0XFFD9D9D9),
-                                                              height: 39,
-                                                              width:
-                                                                  70, // กำหนดความกว้างที่คุณต้องการ
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            15,
-                                                                            0,
-                                                                            15,
-                                                                            0),
-                                                                child:
-                                                                    TextFormField(
-                                                                  validator:
-                                                                      (value) {
-                                                                    setState(
-                                                                        () {
-                                                                      Cholesterol =
-                                                                          double.parse(
-                                                                              value.toString());
-                                                                    });
-                                                                  },
+                                                      //Padding(padding: EdgeInsetsDirectional.fromSTEB(0, 0,0, 0),)
 
-                                                                  onChanged:
-                                                                      (value) =>
-                                                                          {
-                                                                    if (value == "" ||
-                                                                        value[0] ==
-                                                                            "." ||
-                                                                        value[0] ==
-                                                                            "0")
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckCholesterolVisible =
-                                                                              true;
-                                                                        })
-                                                                      }
-                                                                    else if (double.parse(totCholController.text) >=
-                                                                            100 &&
-                                                                        double.parse(totCholController.text) <=
-                                                                            350)
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckCholesterolVisible =
-                                                                              false;
-                                                                        })
-                                                                      }
-                                                                    else
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckCholesterolVisible =
-                                                                              true;
-                                                                        })
-                                                                      }
-                                                                  },
-                                                                  controller:
-                                                                      totCholController,
-                                                                  keyboardType:
-                                                                      TextInputType
-                                                                          .number,
-                                                                  inputFormatters: <TextInputFormatter>[
-                                                                    FilteringTextInputFormatter
-                                                                        .allow(RegExp(
-                                                                            r'[0-9]')),
-                                                                  ],
-                                                                  decoration:
-                                                                      InputDecoration(
-                                                                    hintText:
-                                                                        "$Cholesterol",
-                                                                    border:
-                                                                        InputBorder
-                                                                            .none,
-
-                                                                    //textEditingControllerAge
-                                                                  ),
-                                                                  // ค่าอื่น ๆ ของ TextField
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(10, 5,
+                                                                    10, 0),
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Text(
+                                                                  "ประวัติการรับยาลดความดัน",
+                                                                  style: TextStyle(
+                                                                      fontFamily:
+                                                                          'Kanit',
+                                                                      fontSize:
+                                                                          15),
                                                                 ),
-                                                              )),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 0),
-                                                    child: Column(
-                                                      children: [
-                                                        Text(
-                                                          "mg/dL",
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Inter',
-                                                              fontSize: 13),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  )
-                                                ])),
-
-                                        Visibility(
-                                            visible:
-                                                boolCheckCholesterolVisible,
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 0, 0, 0),
-                                              child: Row(
-                                                children: [
-                                                  Text(
-                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 100 ถึง 350",
-                                                    style: TextStyle(
-                                                        fontFamily: 'Kanit',
-                                                        fontSize: 15,
-                                                        color: Colors.red),
-                                                  )
-                                                ],
-                                              ),
-                                            )),
-
-                                        Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10, 10, 10, 0),
-                                            child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Column(
-                                                    children: [
-                                                      Text(
-                                                        "ระดับความดันโลหิตตัวบน",
-                                                        style: TextStyle(
-                                                            fontFamily: 'Kanit',
-                                                            fontSize: 15),
-                                                      )
-                                                    ],
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                25, 0, 10, 0),
-                                                    child: Column(
-                                                      children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      20.0),
-                                                          child: Container(
-                                                              color: Color(
-                                                                  0XFFD9D9D9),
-                                                              height: 39,
-                                                              width:
-                                                                  70, // กำหนดความกว้างที่คุณต้องการ
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            15,
-                                                                            0,
-                                                                            15,
-                                                                            0),
-                                                                child:
-                                                                    TextFormField(
-                                                                  validator:
-                                                                      (value) {},
-                                                                  onChanged:
-                                                                      (value) =>
-                                                                          {
-                                                                    if (value == "" ||
-                                                                        value[0] ==
-                                                                            "." ||
-                                                                        value[0] ==
-                                                                            "0")
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckSysVisible =
-                                                                              true;
-                                                                        })
-                                                                      }
-                                                                    else if (double.parse(sysBPController.text) >=
-                                                                            80 &&
-                                                                        double.parse(sysBPController.text) <=
-                                                                            300)
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckSysVisible =
-                                                                              false;
-                                                                        })
-                                                                      }
-                                                                    else
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckSysVisible =
-                                                                              true;
-                                                                        })
-                                                                      }
-                                                                  },
-                                                                  controller:
-                                                                      sysBPController,
-                                                                  keyboardType:
-                                                                      TextInputType
-                                                                          .number,
-                                                                  inputFormatters: <TextInputFormatter>[
-                                                                    FilteringTextInputFormatter
-                                                                        .allow(RegExp(
-                                                                            r'[0-9]')),
-                                                                  ],
-                                                                  decoration:
-                                                                      InputDecoration(
-                                                                    hintText:
-                                                                        "$SysBP",
-                                                                    border:
-                                                                        InputBorder
-                                                                            .none,
-
-                                                                    //textEditingControllerAge
+                                                              ],
+                                                            ),
+                                                            Column(
+                                                              children: [
+                                                                Text("")
+                                                              ],
+                                                            ),
+                                                            Column(
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          30,
+                                                                          0,
+                                                                          0,
+                                                                          0),
+                                                                  child:
+                                                                      ToggleButtons(
+                                                                    constraints: BoxConstraints(
+                                                                        maxWidth:
+                                                                            55,
+                                                                        minWidth:
+                                                                            50,
+                                                                        minHeight:
+                                                                            35,
+                                                                        maxHeight:
+                                                                            35),
+                                                                    isSelected:
+                                                                        _SelectPressure,
+                                                                    children: <Widget>[
+                                                                      Container(
+                                                                          width:
+                                                                              20,
+                                                                          child:
+                                                                              new Row(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            children: <Widget>[
+                                                                              new Text(
+                                                                                "มี",
+                                                                                style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold, fontFamily: 'Kanit', fontSize: 15),
+                                                                              )
+                                                                            ],
+                                                                          )),
+                                                                      Container(
+                                                                          width:
+                                                                              25,
+                                                                          child:
+                                                                              new Row(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            children: <Widget>[
+                                                                              new Text(
+                                                                                "ไม่มี",
+                                                                                style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontFamily: 'Kanit', fontSize: 15),
+                                                                              )
+                                                                            ],
+                                                                          )),
+                                                                    ],
+                                                                    onPressed: (int
+                                                                        index) {
+                                                                      setState(
+                                                                          () {
+                                                                        for (int i =
+                                                                                0;
+                                                                            i < _SelectPressure.length;
+                                                                            i++) {
+                                                                          _SelectPressure[i] =
+                                                                              i == index;
+                                                                        }
+                                                                        if (_SelectPressure[
+                                                                            0]) {
+                                                                          PressureMedicine =
+                                                                              1;
+                                                                          prevalentHypController.text =
+                                                                              "1";
+                                                                          print(
+                                                                              "มีประวัติความดันโลหิต = $PressureMedicine");
+                                                                        } else {
+                                                                          PressureMedicine =
+                                                                              0;
+                                                                          prevalentHypController.text =
+                                                                              "0";
+                                                                          print(
+                                                                              "ไม่มีมีประวัติความดันโลหิต = $PressureMedicine");
+                                                                        }
+                                                                      });
+                                                                    },
+                                                                    borderRadius:
+                                                                        const BorderRadius
+                                                                            .all(
+                                                                            Radius.circular(20)),
                                                                   ),
-                                                                  // ค่าอื่น ๆ ของ TextField
                                                                 ),
-                                                              )),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 0),
-                                                    child: Column(
-                                                      children: [
-                                                        Text(
-                                                          "mmHg",
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Inter',
-                                                              fontSize: 13),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  )
-                                                ])),
-                                        Visibility(
-                                            visible: boolCheckSysVisible,
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 0, 0, 0),
-                                              child: Row(
-                                                children: [
-                                                  Text(
-                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 80 ถึง 300",
-                                                    style: TextStyle(
-                                                        fontFamily: 'Kanit',
-                                                        fontSize: 15,
-                                                        color: Colors.red),
-                                                  )
-                                                ],
-                                              ),
-                                            )),
-
-                                        Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10, 10, 10, 0),
-                                            child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Column(
-                                                    children: [
-                                                      Text(
-                                                        "ระดับความดันโลหิตตัวล่าง",
-                                                        style: TextStyle(
-                                                            fontFamily: 'Kanit',
-                                                            fontSize: 15),
-                                                      )
-                                                    ],
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                20, 0, 10, 0),
-                                                    child: Column(
-                                                      children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      20.0),
-                                                          child: Container(
-                                                              color: Color(
-                                                                  0XFFD9D9D9),
-                                                              height: 39,
-                                                              width:
-                                                                  70, // กำหนดความกว้างที่คุณต้องการ
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            15,
-                                                                            0,
-                                                                            15,
-                                                                            0),
-                                                                child:
-                                                                    TextFormField(
-                                                                  validator:
-                                                                      (value) {},
-                                                                  onChanged:
-                                                                      (value) =>
-                                                                          {
-                                                                    if (value == "" ||
-                                                                        value[0] ==
-                                                                            "." ||
-                                                                        value[0] ==
-                                                                            "0")
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckDiaVisible =
-                                                                              true;
-                                                                        })
-                                                                      }
-                                                                    else if (double.parse(diaBPController.text) >=
-                                                                            40 &&
-                                                                        double.parse(diaBPController.text) <=
-                                                                            150)
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckDiaVisible =
-                                                                              false;
-                                                                        })
-                                                                      }
-                                                                    else
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckDiaVisible =
-                                                                              true;
-                                                                        })
-                                                                      }
-                                                                  },
-                                                                  controller:
-                                                                      diaBPController,
-                                                                  keyboardType:
-                                                                      TextInputType
-                                                                          .number,
-                                                                  inputFormatters: <TextInputFormatter>[
-                                                                    FilteringTextInputFormatter
-                                                                        .allow(RegExp(
-                                                                            r'[0-9]')),
-                                                                  ],
-                                                                  decoration:
-                                                                      InputDecoration(
-                                                                    hintText:
-                                                                        "$DiaBP",
-                                                                    border:
-                                                                        InputBorder
-                                                                            .none,
-
-                                                                    //textEditingControllerAge
+                                                              ],
+                                                            )
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(10, 5,
+                                                                    10, 0),
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Text(
+                                                                  "ประวัติโรคหลอดเลือดสมอง",
+                                                                  style: TextStyle(
+                                                                      fontFamily:
+                                                                          'Kanit',
+                                                                      fontSize:
+                                                                          15),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            Column(
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          30,
+                                                                          0,
+                                                                          0,
+                                                                          0),
+                                                                  child:
+                                                                      ToggleButtons(
+                                                                    constraints: BoxConstraints(
+                                                                        maxWidth:
+                                                                            55,
+                                                                        minWidth:
+                                                                            50,
+                                                                        minHeight:
+                                                                            35,
+                                                                        maxHeight:
+                                                                            35),
+                                                                    isSelected:
+                                                                        _SelectStroke,
+                                                                    children: <Widget>[
+                                                                      Container(
+                                                                          width:
+                                                                              20,
+                                                                          child:
+                                                                              new Row(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            children: <Widget>[
+                                                                              new Text(
+                                                                                "มี",
+                                                                                style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold, fontFamily: 'Kanit', fontSize: 15),
+                                                                              )
+                                                                            ],
+                                                                          )),
+                                                                      Container(
+                                                                          width:
+                                                                              25,
+                                                                          child:
+                                                                              new Row(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            children: <Widget>[
+                                                                              new Text(
+                                                                                "ไม่มี",
+                                                                                style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontFamily: 'Kanit', fontSize: 15),
+                                                                              )
+                                                                            ],
+                                                                          )),
+                                                                    ],
+                                                                    onPressed: (int
+                                                                        index) {
+                                                                      setState(
+                                                                          () {
+                                                                        for (int i =
+                                                                                0;
+                                                                            i < _SelectStroke.length;
+                                                                            i++) {
+                                                                          _SelectStroke[i] =
+                                                                              i == index;
+                                                                        }
+                                                                        if (_SelectStroke[
+                                                                            0]) {
+                                                                          Stroke =
+                                                                              1;
+                                                                          prevalentStrokeController.text =
+                                                                              "1";
+                                                                          print(
+                                                                              "มีประวัติโรคหลอดเลือดสมอง = $Stroke");
+                                                                        } else {
+                                                                          Stroke =
+                                                                              0;
+                                                                          prevalentStrokeController.text =
+                                                                              "0";
+                                                                          print(
+                                                                              "ไม่มีมีประวัติโรดหลอดเลือดสมอง = $Stroke");
+                                                                        }
+                                                                      });
+                                                                    },
+                                                                    borderRadius:
+                                                                        const BorderRadius
+                                                                            .all(
+                                                                            Radius.circular(20)),
                                                                   ),
-                                                                  // ค่าอื่น ๆ ของ TextField
                                                                 ),
-                                                              )),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 0),
-                                                    child: Column(
-                                                      children: [
-                                                        Text(
-                                                          "mmHg",
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Inter',
-                                                              fontSize: 13),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  )
-                                                ])),
-                                        Visibility(
-                                            visible: boolCheckDiaVisible,
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 0, 0, 0),
-                                              child: Row(
-                                                children: [
-                                                  Text(
-                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 40 ถึง 150",
-                                                    style: TextStyle(
-                                                        fontFamily: 'Kanit',
-                                                        fontSize: 15,
-                                                        color: Colors.red),
-                                                  )
-                                                ],
-                                              ),
-                                            )),
-
-                                        Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10, 10, 10, 0),
-                                            child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Column(
-                                                    children: [
-                                                      Text(
-                                                        "ดัชนีมวลกาย (BMI)",
-                                                        style: TextStyle(
-                                                            fontFamily: 'Kanit',
-                                                            fontSize: 15),
-                                                      )
-                                                    ],
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                60, 0, 10, 0),
-                                                    child: Column(
-                                                      children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      20.0),
-                                                          child: Container(
-                                                              color: Color(
-                                                                  0XFFD9D9D9),
-                                                              height: 39,
-                                                              width:
-                                                                  70, // กำหนดความกว้างที่คุณต้องการ
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            15,
-                                                                            0,
-                                                                            15,
-                                                                            0),
-                                                                child:
-                                                                    TextFormField(
-                                                                  validator:
-                                                                      (value) {},
-                                                                  onChanged:
-                                                                      (value) =>
-                                                                          {
-                                                                    if (value == "" ||
-                                                                        value[0] ==
-                                                                            "." ||
-                                                                        value[0] ==
-                                                                            "0")
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckBMIVisible =
-                                                                              true;
-                                                                        })
-                                                                      }
-                                                                    else if (double.parse(BMIController.text) >=
-                                                                            10 &&
-                                                                        double.parse(BMIController.text) <=
-                                                                            40)
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckBMIVisible =
-                                                                              false;
-                                                                        })
-                                                                      }
-                                                                    else
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckBMIVisible =
-                                                                              true;
-                                                                        })
-                                                                      }
-                                                                  },
-                                                                  controller:
-                                                                      BMIController,
-                                                                  keyboardType:
-                                                                      TextInputType
-                                                                          .number,
-                                                                  inputFormatters: <TextInputFormatter>[
-                                                                    FilteringTextInputFormatter
-                                                                        .allow(RegExp(
-                                                                            r'[0-9]')),
-                                                                  ],
-                                                                  decoration:
-                                                                      InputDecoration(
-                                                                    hintText:
-                                                                        "$BMI",
-                                                                    border:
-                                                                        InputBorder
-                                                                            .none,
-
-                                                                    //textEditingControllerAge
+                                                              ],
+                                                            )
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(10, 5,
+                                                                    10, 0),
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Text(
+                                                                  "ประวัติโรคความดันโลหิต     ",
+                                                                  style: TextStyle(
+                                                                      fontFamily:
+                                                                          'Kanit',
+                                                                      fontSize:
+                                                                          15),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            Column(
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          30,
+                                                                          0,
+                                                                          0,
+                                                                          0),
+                                                                  child:
+                                                                      ToggleButtons(
+                                                                    constraints: BoxConstraints(
+                                                                        maxWidth:
+                                                                            55,
+                                                                        minWidth:
+                                                                            50,
+                                                                        minHeight:
+                                                                            35,
+                                                                        maxHeight:
+                                                                            35),
+                                                                    isSelected:
+                                                                        _SelectBloodPressure,
+                                                                    children: <Widget>[
+                                                                      Container(
+                                                                          width:
+                                                                              20,
+                                                                          child:
+                                                                              new Row(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            children: <Widget>[
+                                                                              new Text(
+                                                                                "มี",
+                                                                                style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold, fontFamily: 'Kanit', fontSize: 15),
+                                                                              )
+                                                                            ],
+                                                                          )),
+                                                                      Container(
+                                                                          width:
+                                                                              25,
+                                                                          child:
+                                                                              new Row(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            children: <Widget>[
+                                                                              new Text(
+                                                                                "ไม่มี",
+                                                                                style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontFamily: 'Kanit', fontSize: 15),
+                                                                              )
+                                                                            ],
+                                                                          )),
+                                                                    ],
+                                                                    onPressed: (int
+                                                                        index) {
+                                                                      setState(
+                                                                          () {
+                                                                        for (int i =
+                                                                                0;
+                                                                            i < _SelectBloodPressure.length;
+                                                                            i++) {
+                                                                          _SelectBloodPressure[i] =
+                                                                              i == index;
+                                                                        }
+                                                                        if (_SelectBloodPressure[
+                                                                            0]) {
+                                                                          BloodPressure =
+                                                                              1;
+                                                                          BPMedsController.text =
+                                                                              "1";
+                                                                          print(
+                                                                              "มีประวัติความดันโลหิตสูง = $BloodPressure");
+                                                                        } else {
+                                                                          BloodPressure =
+                                                                              0;
+                                                                          BPMedsController.text =
+                                                                              "0";
+                                                                          print(
+                                                                              "ไม่มีมีประวัติความดันโลหิตสูง = $BloodPressure");
+                                                                        }
+                                                                      });
+                                                                    },
+                                                                    borderRadius:
+                                                                        const BorderRadius
+                                                                            .all(
+                                                                            Radius.circular(20)),
                                                                   ),
-                                                                  // ค่าอื่น ๆ ของ TextField
                                                                 ),
-                                                              )),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 10, 0),
-                                                    child: Column(
-                                                      children: [
-                                                        Text(
-                                                          "Kg/m",
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Inter',
-                                                              fontSize: 13),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  )
-                                                ])),
-                                        Visibility(
-                                            visible: boolCheckBMIVisible,
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 0, 0, 0),
-                                              child: Row(
-                                                children: [
-                                                  Text(
-                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 10 ถึง 40",
-                                                    style: TextStyle(
-                                                        fontFamily: 'Kanit',
-                                                        fontSize: 15,
-                                                        color: Colors.red),
-                                                  )
-                                                ],
-                                              ),
-                                            )),
-
-                                        Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10, 10, 10, 0),
-                                            child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Column(
-                                                    children: [
-                                                      Text(
-                                                        "อัตราการเต้นของหัวใจ",
-                                                        style: TextStyle(
-                                                            fontFamily: 'Kanit',
-                                                            fontSize: 15),
-                                                      )
+                                                              ],
+                                                            )
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(10, 5,
+                                                                    10, 0),
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Text(
+                                                                  "ประวัติการเป็นโรคเบาหวาน",
+                                                                  style: TextStyle(
+                                                                      fontFamily:
+                                                                          'Kanit',
+                                                                      fontSize:
+                                                                          15),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            Column(
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          30,
+                                                                          0,
+                                                                          0,
+                                                                          0),
+                                                                  child:
+                                                                      ToggleButtons(
+                                                                    constraints: BoxConstraints(
+                                                                        maxWidth:
+                                                                            55,
+                                                                        minWidth:
+                                                                            50,
+                                                                        minHeight:
+                                                                            35,
+                                                                        maxHeight:
+                                                                            35),
+                                                                    isSelected:
+                                                                        _SelectDiabetes,
+                                                                    children: <Widget>[
+                                                                      Container(
+                                                                          width:
+                                                                              20,
+                                                                          child:
+                                                                              new Row(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            children: <Widget>[
+                                                                              new Text(
+                                                                                "มี",
+                                                                                style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold, fontFamily: 'Kanit', fontSize: 15),
+                                                                              )
+                                                                            ],
+                                                                          )),
+                                                                      Container(
+                                                                          width:
+                                                                              25,
+                                                                          child:
+                                                                              new Row(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            children: <Widget>[
+                                                                              new Text(
+                                                                                "ไม่มี",
+                                                                                style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontFamily: 'Kanit', fontSize: 15),
+                                                                              )
+                                                                            ],
+                                                                          )),
+                                                                    ],
+                                                                    onPressed: (int
+                                                                        index) {
+                                                                      setState(
+                                                                          () {
+                                                                        for (int i =
+                                                                                0;
+                                                                            i < _SelectDiabetes.length;
+                                                                            i++) {
+                                                                          _SelectDiabetes[i] =
+                                                                              i == index;
+                                                                        }
+                                                                        if (_SelectDiabetes[
+                                                                            0]) {
+                                                                          Diabetes =
+                                                                              1;
+                                                                          diabetesController.text =
+                                                                              "1";
+                                                                          print(
+                                                                              "มีประวัติโรคเบาหวาน = $Diabetes");
+                                                                        } else {
+                                                                          Diabetes =
+                                                                              0;
+                                                                          diabetesController.text =
+                                                                              "0";
+                                                                          print(
+                                                                              "ไม่มีมีประวัติโรคเบาหวาน = $Diabetes");
+                                                                        }
+                                                                      });
+                                                                    },
+                                                                    borderRadius:
+                                                                        const BorderRadius
+                                                                            .all(
+                                                                            Radius.circular(20)),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            )
+                                                          ],
+                                                        ),
+                                                      ),
                                                     ],
                                                   ),
-                                                  Padding(
+                                                ),
+                                              )),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              //medical history - current
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    20, 10, 0, 0),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "ข้อมูลประวัติการแพทย์",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontFamily: 'Kanit',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 17,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                width: constraints.maxWidth * 0.833,
+                                child: FittedBox(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 10, 0, 0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          width: 350,
+                                          child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                              child: Card(
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            25), // กำหนดความโค้งของมุมปุ่ม
+                                                  ),
+                                                  child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(
-                                                                35, 0, 10, 0),
+                                                                10, 10, 10, 10),
                                                     child: Column(
                                                       children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      20.0),
-                                                          child: Container(
-                                                              color: Color(
-                                                                  0XFFD9D9D9),
-                                                              height: 39,
-                                                              width:
-                                                                  70, // กำหนดความกว้างที่คุณต้องการ
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
+                                                        //Padding(padding: EdgeInsetsDirectional.fromSTEB(0, 0,0, 0),)
+
+                                                        Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10,
+                                                                        10,
+                                                                        10,
+                                                                        0),
+                                                            child: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Column(
+                                                                    children: [
+                                                                      Text(
+                                                                        "ระดับคอเลสเตอรอลในเลือด",
+                                                                        style: TextStyle(
+                                                                            fontFamily:
+                                                                                'Kanit',
+                                                                            fontSize:
+                                                                                15),
+                                                                      )
+                                                                    ],
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            15,
+                                                                            10,
                                                                             0,
                                                                             10,
                                                                             0),
-                                                                child:
-                                                                    TextFormField(
-                                                                  validator:
-                                                                      (value) {},
-                                                                  onChanged:
-                                                                      (value) =>
-                                                                          {
-                                                                    if (value == "" ||
-                                                                        value[0] ==
-                                                                            "." ||
-                                                                        value[0] ==
-                                                                            "0")
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckHeartRateVisible =
-                                                                              true;
-                                                                        })
-                                                                      }
-                                                                    else if (double.parse(heartRateController.text) >=
-                                                                            40 &&
-                                                                        double.parse(heartRateController.text) <=
-                                                                            150)
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckHeartRateVisible =
-                                                                              false;
-                                                                        })
-                                                                      }
-                                                                    else
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckHeartRateVisible =
-                                                                              true;
-                                                                        })
-                                                                      }
-                                                                  },
-                                                                  controller:
-                                                                      heartRateController,
-                                                                  keyboardType:
-                                                                      TextInputType
-                                                                          .number,
-                                                                  inputFormatters: <TextInputFormatter>[
-                                                                    FilteringTextInputFormatter
-                                                                        .allow(RegExp(
-                                                                            r'[0-9]')),
-                                                                  ],
-                                                                  decoration:
-                                                                      InputDecoration(
-                                                                    hintText:
-                                                                        "$Heartrate",
-                                                                    border:
-                                                                        InputBorder
-                                                                            .none,
+                                                                    child:
+                                                                        Column(
+                                                                      children: [
+                                                                        ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(20.0),
+                                                                          child: Container(
+                                                                              color: Color(0XFFD9D9D9),
+                                                                              height: 39,
+                                                                              width: 70, // กำหนดความกว้างที่คุณต้องการ
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                                                                                child: TextFormField(
+                                                                                  validator: (value) {
+                                                                                    setState(() {
+                                                                                      Cholesterol = double.parse(value.toString());
+                                                                                    });
+                                                                                  },
 
-                                                                    //textEditingControllerAge
+                                                                                  onChanged: (value) => {
+                                                                                    if (value == "" || value[0] == "." || value[0] == "0")
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckCholesterolVisible = true;
+                                                                                        })
+                                                                                      }
+                                                                                    else if (double.parse(totCholController.text) >= 100 && double.parse(totCholController.text) <= 350)
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckCholesterolVisible = false;
+                                                                                        })
+                                                                                      }
+                                                                                    else
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckCholesterolVisible = true;
+                                                                                        })
+                                                                                      }
+                                                                                  },
+                                                                                  controller: totCholController,
+                                                                                  keyboardType: TextInputType.number,
+                                                                                  inputFormatters: <TextInputFormatter>[
+                                                                                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                                                                                  ],
+                                                                                  decoration: InputDecoration(
+                                                                                    hintText: "$Cholesterol",
+                                                                                    border: InputBorder.none,
+
+                                                                                    //textEditingControllerAge
+                                                                                  ),
+                                                                                  // ค่าอื่น ๆ ของ TextField
+                                                                                ),
+                                                                              )),
+                                                                        )
+                                                                      ],
+                                                                    ),
                                                                   ),
-                                                                  // ค่าอื่น ๆ ของ TextField
-                                                                ),
-                                                              )),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 0),
-                                                    child: Column(
-                                                      children: [
-                                                        Text(
-                                                          "ครั้ง/นาที",
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Kanit',
-                                                              fontSize: 13),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  )
-                                                ])),
-                                        Visibility(
-                                            visible: boolCheckHeartRateVisible,
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 0, 0, 0),
-                                              child: Row(
-                                                children: [
-                                                  Text(
-                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 40 ถึง 150",
-                                                    style: TextStyle(
-                                                        fontFamily: 'Kanit',
-                                                        fontSize: 15,
-                                                        color: Colors.red),
-                                                  )
-                                                ],
-                                              ),
-                                            )),
-
-                                        Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10, 10, 10, 10),
-                                            child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Column(
-                                                    children: [
-                                                      Text(
-                                                        "ปริมาณกลูโคส",
-                                                        style: TextStyle(
-                                                            fontFamily: 'Kanit',
-                                                            fontSize: 15),
-                                                      )
-                                                    ],
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                80, 0, 10, 0),
-                                                    child: Column(
-                                                      children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      20.0),
-                                                          child: Container(
-                                                              color: Color(
-                                                                  0XFFD9D9D9),
-                                                              height: 39,
-                                                              width:
-                                                                  70, // กำหนดความกว้างที่คุณต้องการ
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            15,
                                                                             0,
-                                                                            15,
+                                                                            0,
+                                                                            0,
                                                                             0),
-                                                                child:
-                                                                    TextFormField(
-                                                                  validator:
-                                                                      (value) {},
-                                                                  onChanged:
-                                                                      (value) =>
-                                                                          {
-                                                                    if (value == "" ||
-                                                                        value[0] ==
-                                                                            "." ||
-                                                                        value[0] ==
-                                                                            "0")
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckGlucoseVisible =
-                                                                              true;
-                                                                        })
-                                                                      }
-                                                                    else if (double.parse(glucoseController.text) >=
-                                                                            40 &&
-                                                                        double.parse(glucoseController.text) <=
-                                                                            400)
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckGlucoseVisible =
-                                                                              false;
-                                                                        })
-                                                                      }
-                                                                    else
-                                                                      {
-                                                                        setState(
-                                                                            () {
-                                                                          boolCheckGlucoseVisible =
-                                                                              true;
-                                                                        })
-                                                                      }
-                                                                  },
-                                                                  controller:
-                                                                      glucoseController,
-                                                                  keyboardType:
-                                                                      TextInputType
-                                                                          .number,
-                                                                  inputFormatters: <TextInputFormatter>[
-                                                                    FilteringTextInputFormatter
-                                                                        .allow(RegExp(
-                                                                            r'[0-9]')),
-                                                                  ],
-                                                                  decoration:
-                                                                      InputDecoration(
-                                                                    hintText:
-                                                                        "$Glucose",
-                                                                    border:
-                                                                        InputBorder
-                                                                            .none,
+                                                                    child:
+                                                                        Column(
+                                                                      children: [
+                                                                        Text(
+                                                                          "mg/dL",
+                                                                          style: TextStyle(
+                                                                              fontFamily: 'Inter',
+                                                                              fontSize: 13),
+                                                                        )
+                                                                      ],
+                                                                    ),
+                                                                  )
+                                                                ])),
 
-                                                                    //textEditingControllerAge
+                                                        Visibility(
+                                                            visible:
+                                                                boolCheckCholesterolVisible,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10,
+                                                                          0,
+                                                                          0,
+                                                                          0),
+                                                              child: Row(
+                                                                children: [
+                                                                  Text(
+                                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 100 ถึง 350",
+                                                                    style: TextStyle(
+                                                                        fontFamily:
+                                                                            'Kanit',
+                                                                        fontSize:
+                                                                            15,
+                                                                        color: Colors
+                                                                            .red),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            )),
+
+                                                        Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10,
+                                                                        10,
+                                                                        10,
+                                                                        0),
+                                                            child: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Column(
+                                                                    children: [
+                                                                      Text(
+                                                                        "ระดับความดันโลหิตตัวบน",
+                                                                        style: TextStyle(
+                                                                            fontFamily:
+                                                                                'Kanit',
+                                                                            fontSize:
+                                                                                15),
+                                                                      )
+                                                                    ],
                                                                   ),
-                                                                  // ค่าอื่น ๆ ของ TextField
-                                                                ),
-                                                              )),
-                                                        )
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            25,
+                                                                            0,
+                                                                            10,
+                                                                            0),
+                                                                    child:
+                                                                        Column(
+                                                                      children: [
+                                                                        ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(20.0),
+                                                                          child: Container(
+                                                                              color: Color(0XFFD9D9D9),
+                                                                              height: 39,
+                                                                              width: 70, // กำหนดความกว้างที่คุณต้องการ
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                                                                                child: TextFormField(
+                                                                                  validator: (value) {},
+                                                                                  onChanged: (value) => {
+                                                                                    if (value == "" || value[0] == "." || value[0] == "0")
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckSysVisible = true;
+                                                                                        })
+                                                                                      }
+                                                                                    else if (double.parse(sysBPController.text) >= 80 && double.parse(sysBPController.text) <= 300)
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckSysVisible = false;
+                                                                                        })
+                                                                                      }
+                                                                                    else
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckSysVisible = true;
+                                                                                        })
+                                                                                      }
+                                                                                  },
+                                                                                  controller: sysBPController,
+                                                                                  keyboardType: TextInputType.number,
+                                                                                  inputFormatters: <TextInputFormatter>[
+                                                                                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                                                                                  ],
+                                                                                  decoration: InputDecoration(
+                                                                                    hintText: "$SysBP",
+                                                                                    border: InputBorder.none,
+
+                                                                                    //textEditingControllerAge
+                                                                                  ),
+                                                                                  // ค่าอื่น ๆ ของ TextField
+                                                                                ),
+                                                                              )),
+                                                                        )
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0,
+                                                                            0,
+                                                                            0,
+                                                                            0),
+                                                                    child:
+                                                                        Column(
+                                                                      children: [
+                                                                        Text(
+                                                                          "mmHg",
+                                                                          style: TextStyle(
+                                                                              fontFamily: 'Inter',
+                                                                              fontSize: 13),
+                                                                        )
+                                                                      ],
+                                                                    ),
+                                                                  )
+                                                                ])),
+                                                        Visibility(
+                                                            visible:
+                                                                boolCheckSysVisible,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10,
+                                                                          0,
+                                                                          0,
+                                                                          0),
+                                                              child: Row(
+                                                                children: [
+                                                                  Text(
+                                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 80 ถึง 300",
+                                                                    style: TextStyle(
+                                                                        fontFamily:
+                                                                            'Kanit',
+                                                                        fontSize:
+                                                                            15,
+                                                                        color: Colors
+                                                                            .red),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            )),
+
+                                                        Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10,
+                                                                        10,
+                                                                        10,
+                                                                        0),
+                                                            child: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Column(
+                                                                    children: [
+                                                                      Text(
+                                                                        "ระดับความดันโลหิตตัวล่าง",
+                                                                        style: TextStyle(
+                                                                            fontFamily:
+                                                                                'Kanit',
+                                                                            fontSize:
+                                                                                15),
+                                                                      )
+                                                                    ],
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            20,
+                                                                            0,
+                                                                            10,
+                                                                            0),
+                                                                    child:
+                                                                        Column(
+                                                                      children: [
+                                                                        ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(20.0),
+                                                                          child: Container(
+                                                                              color: Color(0XFFD9D9D9),
+                                                                              height: 39,
+                                                                              width: 70, // กำหนดความกว้างที่คุณต้องการ
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                                                                                child: TextFormField(
+                                                                                  validator: (value) {},
+                                                                                  onChanged: (value) => {
+                                                                                    if (value == "" || value[0] == "." || value[0] == "0")
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckDiaVisible = true;
+                                                                                        })
+                                                                                      }
+                                                                                    else if (double.parse(diaBPController.text) >= 40 && double.parse(diaBPController.text) <= 150)
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckDiaVisible = false;
+                                                                                        })
+                                                                                      }
+                                                                                    else
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckDiaVisible = true;
+                                                                                        })
+                                                                                      }
+                                                                                  },
+                                                                                  controller: diaBPController,
+                                                                                  keyboardType: TextInputType.number,
+                                                                                  inputFormatters: <TextInputFormatter>[
+                                                                                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                                                                                  ],
+                                                                                  decoration: InputDecoration(
+                                                                                    hintText: "$DiaBP",
+                                                                                    border: InputBorder.none,
+
+                                                                                    //textEditingControllerAge
+                                                                                  ),
+                                                                                  // ค่าอื่น ๆ ของ TextField
+                                                                                ),
+                                                                              )),
+                                                                        )
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0,
+                                                                            0,
+                                                                            0,
+                                                                            0),
+                                                                    child:
+                                                                        Column(
+                                                                      children: [
+                                                                        Text(
+                                                                          "mmHg",
+                                                                          style: TextStyle(
+                                                                              fontFamily: 'Inter',
+                                                                              fontSize: 13),
+                                                                        )
+                                                                      ],
+                                                                    ),
+                                                                  )
+                                                                ])),
+                                                        Visibility(
+                                                            visible:
+                                                                boolCheckDiaVisible,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10,
+                                                                          0,
+                                                                          0,
+                                                                          0),
+                                                              child: Row(
+                                                                children: [
+                                                                  Text(
+                                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 40 ถึง 150",
+                                                                    style: TextStyle(
+                                                                        fontFamily:
+                                                                            'Kanit',
+                                                                        fontSize:
+                                                                            15,
+                                                                        color: Colors
+                                                                            .red),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            )),
+
+                                                        Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10,
+                                                                        10,
+                                                                        10,
+                                                                        0),
+                                                            child: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Column(
+                                                                    children: [
+                                                                      Text(
+                                                                        "ดัชนีมวลกาย (BMI)",
+                                                                        style: TextStyle(
+                                                                            fontFamily:
+                                                                                'Kanit',
+                                                                            fontSize:
+                                                                                15),
+                                                                      )
+                                                                    ],
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            60,
+                                                                            0,
+                                                                            10,
+                                                                            0),
+                                                                    child:
+                                                                        Column(
+                                                                      children: [
+                                                                        ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(20.0),
+                                                                          child: Container(
+                                                                              color: Color(0XFFD9D9D9),
+                                                                              height: 39,
+                                                                              width: 70, // กำหนดความกว้างที่คุณต้องการ
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                                                                                child: TextFormField(
+                                                                                  validator: (value) {},
+                                                                                  onChanged: (value) => {
+                                                                                    if (value == "" || value[0] == "." || value[0] == "0")
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckBMIVisible = true;
+                                                                                        })
+                                                                                      }
+                                                                                    else if (double.parse(BMIController.text) >= 10 && double.parse(BMIController.text) <= 40)
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckBMIVisible = false;
+                                                                                        })
+                                                                                      }
+                                                                                    else
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckBMIVisible = true;
+                                                                                        })
+                                                                                      }
+                                                                                  },
+                                                                                  controller: BMIController,
+                                                                                  keyboardType: TextInputType.number,
+                                                                                  inputFormatters: <TextInputFormatter>[
+                                                                                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                                                                                  ],
+                                                                                  decoration: InputDecoration(
+                                                                                    hintText: "$BMI",
+                                                                                    border: InputBorder.none,
+
+                                                                                    //textEditingControllerAge
+                                                                                  ),
+                                                                                  // ค่าอื่น ๆ ของ TextField
+                                                                                ),
+                                                                              )),
+                                                                        )
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0,
+                                                                            0,
+                                                                            10,
+                                                                            0),
+                                                                    child:
+                                                                        Column(
+                                                                      children: [
+                                                                        Text(
+                                                                          "Kg/m",
+                                                                          style: TextStyle(
+                                                                              fontFamily: 'Inter',
+                                                                              fontSize: 13),
+                                                                        )
+                                                                      ],
+                                                                    ),
+                                                                  )
+                                                                ])),
+                                                        Visibility(
+                                                            visible:
+                                                                boolCheckBMIVisible,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10,
+                                                                          0,
+                                                                          0,
+                                                                          0),
+                                                              child: Row(
+                                                                children: [
+                                                                  Text(
+                                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 10 ถึง 40",
+                                                                    style: TextStyle(
+                                                                        fontFamily:
+                                                                            'Kanit',
+                                                                        fontSize:
+                                                                            15,
+                                                                        color: Colors
+                                                                            .red),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            )),
+
+                                                        Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10,
+                                                                        10,
+                                                                        10,
+                                                                        0),
+                                                            child: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Column(
+                                                                    children: [
+                                                                      Text(
+                                                                        "อัตราการเต้นของหัวใจ",
+                                                                        style: TextStyle(
+                                                                            fontFamily:
+                                                                                'Kanit',
+                                                                            fontSize:
+                                                                                15),
+                                                                      )
+                                                                    ],
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            35,
+                                                                            0,
+                                                                            10,
+                                                                            0),
+                                                                    child:
+                                                                        Column(
+                                                                      children: [
+                                                                        ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(20.0),
+                                                                          child: Container(
+                                                                              color: Color(0XFFD9D9D9),
+                                                                              height: 39,
+                                                                              width: 70, // กำหนดความกว้างที่คุณต้องการ
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(15, 0, 10, 0),
+                                                                                child: TextFormField(
+                                                                                  validator: (value) {},
+                                                                                  onChanged: (value) => {
+                                                                                    if (value == "" || value[0] == "." || value[0] == "0")
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckHeartRateVisible = true;
+                                                                                        })
+                                                                                      }
+                                                                                    else if (double.parse(heartRateController.text) >= 40 && double.parse(heartRateController.text) <= 150)
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckHeartRateVisible = false;
+                                                                                        })
+                                                                                      }
+                                                                                    else
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckHeartRateVisible = true;
+                                                                                        })
+                                                                                      }
+                                                                                  },
+                                                                                  controller: heartRateController,
+                                                                                  keyboardType: TextInputType.number,
+                                                                                  inputFormatters: <TextInputFormatter>[
+                                                                                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                                                                                  ],
+                                                                                  decoration: InputDecoration(
+                                                                                    hintText: "$Heartrate",
+                                                                                    border: InputBorder.none,
+
+                                                                                    //textEditingControllerAge
+                                                                                  ),
+                                                                                  // ค่าอื่น ๆ ของ TextField
+                                                                                ),
+                                                                              )),
+                                                                        )
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0,
+                                                                            0,
+                                                                            0,
+                                                                            0),
+                                                                    child:
+                                                                        Column(
+                                                                      children: [
+                                                                        Text(
+                                                                          "ครั้ง/นาที",
+                                                                          style: TextStyle(
+                                                                              fontFamily: 'Kanit',
+                                                                              fontSize: 13),
+                                                                        )
+                                                                      ],
+                                                                    ),
+                                                                  )
+                                                                ])),
+                                                        Visibility(
+                                                            visible:
+                                                                boolCheckHeartRateVisible,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10,
+                                                                          0,
+                                                                          0,
+                                                                          0),
+                                                              child: Row(
+                                                                children: [
+                                                                  Text(
+                                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 40 ถึง 150",
+                                                                    style: TextStyle(
+                                                                        fontFamily:
+                                                                            'Kanit',
+                                                                        fontSize:
+                                                                            15,
+                                                                        color: Colors
+                                                                            .red),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            )),
+
+                                                        Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10,
+                                                                        10,
+                                                                        10,
+                                                                        10),
+                                                            child: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Column(
+                                                                    children: [
+                                                                      Text(
+                                                                        "ปริมาณกลูโคส",
+                                                                        style: TextStyle(
+                                                                            fontFamily:
+                                                                                'Kanit',
+                                                                            fontSize:
+                                                                                15),
+                                                                      )
+                                                                    ],
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            80,
+                                                                            0,
+                                                                            10,
+                                                                            0),
+                                                                    child:
+                                                                        Column(
+                                                                      children: [
+                                                                        ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(20.0),
+                                                                          child: Container(
+                                                                              color: Color(0XFFD9D9D9),
+                                                                              height: 39,
+                                                                              width: 70, // กำหนดความกว้างที่คุณต้องการ
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                                                                                child: TextFormField(
+                                                                                  validator: (value) {},
+                                                                                  onChanged: (value) => {
+                                                                                    if (value == "" || value[0] == "." || value[0] == "0")
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckGlucoseVisible = true;
+                                                                                        })
+                                                                                      }
+                                                                                    else if (double.parse(glucoseController.text) >= 40 && double.parse(glucoseController.text) <= 400)
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckGlucoseVisible = false;
+                                                                                        })
+                                                                                      }
+                                                                                    else
+                                                                                      {
+                                                                                        setState(() {
+                                                                                          boolCheckGlucoseVisible = true;
+                                                                                        })
+                                                                                      }
+                                                                                  },
+                                                                                  controller: glucoseController,
+                                                                                  keyboardType: TextInputType.number,
+                                                                                  inputFormatters: <TextInputFormatter>[
+                                                                                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                                                                                  ],
+                                                                                  decoration: InputDecoration(
+                                                                                    hintText: "$Glucose",
+                                                                                    border: InputBorder.none,
+
+                                                                                    //textEditingControllerAge
+                                                                                  ),
+                                                                                  // ค่าอื่น ๆ ของ TextField
+                                                                                ),
+                                                                              )),
+                                                                        )
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0,
+                                                                            0,
+                                                                            0,
+                                                                            0),
+                                                                    child:
+                                                                        Column(
+                                                                      children: [
+                                                                        Text(
+                                                                          "mg/dL",
+                                                                          style: TextStyle(
+                                                                              fontFamily: 'Inter',
+                                                                              fontSize: 13),
+                                                                        )
+                                                                      ],
+                                                                    ),
+                                                                  )
+                                                                ])),
+                                                        Visibility(
+                                                            visible:
+                                                                boolCheckGlucoseVisible,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10,
+                                                                          0,
+                                                                          0,
+                                                                          0),
+                                                              child: Row(
+                                                                children: [
+                                                                  Text(
+                                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 40 ถึง 400",
+                                                                    style: TextStyle(
+                                                                        fontFamily:
+                                                                            'Kanit',
+                                                                        fontSize:
+                                                                            15,
+                                                                        color: Colors
+                                                                            .red),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            )),
                                                       ],
                                                     ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 0),
-                                                    child: Column(
-                                                      children: [
-                                                        Text(
-                                                          "mg/dL",
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Inter',
-                                                              fontSize: 13),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  )
-                                                ])),
-                                        Visibility(
-                                            visible: boolCheckGlucoseVisible,
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 0, 0, 0),
-                                              child: Row(
-                                                children: [
-                                                  Text(
-                                                    "* กรุณาใส่ข้อมูลให้เลขอยู่ในช่วง 40 ถึง 400",
-                                                    style: TextStyle(
-                                                        fontFamily: 'Kanit',
-                                                        fontSize: 15,
-                                                        color: Colors.red),
-                                                  )
-                                                ],
-                                              ),
-                                            )),
+                                                  ))),
+                                        )
                                       ],
                                     ),
-                                  ))),
-                        )
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFFEBA37A),
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(25, 15, 25, 15),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  20), // กำหนดความโค้งของมุมปุ่ม
-                            ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0, 20, 0, 20),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Color(0xFFEBA37A),
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            25, 15, 25, 15),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                              20), // กำหนดความโค้งของมุมปุ่ม
+                                        ),
 
-                            textStyle: TextStyle(
-                                fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
-                          ),
-                          onPressed: () async {
-                            if (BMIController.text == "0") {
-                              setState(() {
-                                boolCheckBMIVisible = true;
-                              });
-                            }
-                            if (totCholController.text == "0") {
-                              setState(() {
-                                boolCheckCholesterolVisible = true;
-                              });
-                            }
-                            if (diaBPController.text == "0") {
-                              setState(() {
-                                boolCheckDiaVisible = true;
-                              });
-                            }
-                            if (glucoseController.text == "0") {
-                              setState(() {
-                                boolCheckGlucoseVisible = true;
-                              });
-                            }
-                            if (heartRateController.text == "0") {
-                              setState(() {
-                                boolCheckHeartRateVisible = true;
-                              });
-                            }
-                            if (sysBPController.text == "0") {
-                              setState(() {
-                                boolCheckSysVisible = true;
-                              });
-                            }
-                            if (int.parse(ageController.text) != age) {
-                              age = int.parse(ageController.text);
-                            }
-                            if (int.parse(cigsPerDayController.text) !=
-                                smokeperday) {
-                              smokeperday =
-                                  int.parse(cigsPerDayController.text);
-                            }
-                            if (boolCheckBMIVisible ||
-                                boolCheckCholesterolVisible ||
-                                boolCheckDiaVisible ||
-                                boolCheckGlucoseVisible ||
-                                boolCheckHeartRateVisible ||
-                                boolCheckSysVisible) {
-                              _showAlertDialogsErrorSaveData(context);
-                            } else {}
-                            ApiService.postData(
-                              context,
-                              genderController,
-                              ageController,
-                              educationController,
-                              currentSmokerController,
-                              cigsPerDayController,
-                              BPMedsController,
-                              prevalentStrokeController,
-                              prevalentHypController,
-                              diabetesController,
-                              totCholController,
-                              sysBPController,
-                              diaBPController,
-                              BMIController,
-                              heartRateController,
-                              glucoseController,
-                            );
-                            await postDataToFireStore();
-                            await postAdviceToFireStore(
-                                int.parse(currentSmokerController.text),
-                                int.parse(prevalentStrokeController.text),
-                                int.parse(prevalentHypController.text),
-                                int.parse(diabetesController.text),
-                                double.parse(totCholController.text),
-                                double.parse(sysBPController.text),
-                                double.parse(BMIController.text),
-                                double.parse(heartRateController.text),
-                                double.parse(glucoseController.text));
-                          },
-                          child: Text(
-                            'ประเมินความเสี่ยง',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Kanit',
-                            ),
+                                        textStyle: TextStyle(
+                                            fontSize:
+                                                15), // เปลี่ยนสีปุ่มเป็นสีแดง
+                                      ),
+                                      onPressed: () async {
+                                        if (BMIController.text == "0") {
+                                          setState(() {
+                                            boolCheckBMIVisible = true;
+                                          });
+                                        }
+                                        if (totCholController.text == "0") {
+                                          setState(() {
+                                            boolCheckCholesterolVisible = true;
+                                          });
+                                        }
+                                        if (diaBPController.text == "0") {
+                                          setState(() {
+                                            boolCheckDiaVisible = true;
+                                          });
+                                        }
+                                        if (glucoseController.text == "0") {
+                                          setState(() {
+                                            boolCheckGlucoseVisible = true;
+                                          });
+                                        }
+                                        if (heartRateController.text == "0") {
+                                          setState(() {
+                                            boolCheckHeartRateVisible = true;
+                                          });
+                                        }
+                                        if (sysBPController.text == "0") {
+                                          setState(() {
+                                            boolCheckSysVisible = true;
+                                          });
+                                        }
+                                        if (int.parse(ageController.text) !=
+                                            age) {
+                                          age = int.parse(ageController.text);
+                                        }
+                                        if (int.parse(
+                                                cigsPerDayController.text) !=
+                                            smokeperday) {
+                                          smokeperday = int.parse(
+                                              cigsPerDayController.text);
+                                        }
+                                        if (boolCheckBMIVisible ||
+                                            boolCheckCholesterolVisible ||
+                                            boolCheckDiaVisible ||
+                                            boolCheckGlucoseVisible ||
+                                            boolCheckHeartRateVisible ||
+                                            boolCheckSysVisible) {
+                                          _showAlertDialogsErrorSaveData(
+                                              context);
+                                        } else {}
+                                        ApiService.postData(
+                                          context,
+                                          genderController,
+                                          ageController,
+                                          educationController,
+                                          currentSmokerController,
+                                          cigsPerDayController,
+                                          BPMedsController,
+                                          prevalentStrokeController,
+                                          prevalentHypController,
+                                          diabetesController,
+                                          totCholController,
+                                          sysBPController,
+                                          diaBPController,
+                                          BMIController,
+                                          heartRateController,
+                                          glucoseController,
+                                        );
+                                        await postDataToFireStore();
+                                        await postAdviceToFireStore(
+                                            int.parse(
+                                                currentSmokerController.text),
+                                            int.parse(
+                                                prevalentStrokeController.text),
+                                            int.parse(
+                                                prevalentHypController.text),
+                                            int.parse(diabetesController.text),
+                                            double.parse(
+                                                totCholController.text),
+                                            double.parse(sysBPController.text),
+                                            double.parse(BMIController.text),
+                                            double.parse(
+                                                heartRateController.text),
+                                            double.parse(
+                                                glucoseController.text));
+                                      },
+                                      child: Text(
+                                        'ประเมินความเสี่ยง',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Kanit',
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
                           ),
                         ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ));
+                      ),
+                    )))));
   }
 }

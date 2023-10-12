@@ -49,7 +49,7 @@ class NextPageButton extends StatelessWidget {
                 children: [
                   Image.asset(
                     imgPath,
-                    width: 60,
+                    width: 50,
                     height: 60,
                   ),
                   const SizedBox(width: 10),

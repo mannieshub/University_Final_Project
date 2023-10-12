@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobile_app/authentication/auth.dart';
 import 'package:mobile_app/routes/advice.dart';
+import 'package:mobile_app/routes/userManualPage.dart';
 import 'package:mobile_app/templates/homepage/card.dart';
 import 'package:mobile_app/templates/homepage/signOutBTN.dart';
+import 'package:mobile_app/templates/homepage/userManual.dart';
 
 //routes
 import '/routes/before_chatbot_page.dart';
@@ -64,7 +66,7 @@ class HomePage extends StatelessWidget {
 
         //Display Content
         body: Container(
-          color: Color(0XFFFEDBBA),
+          color: Color(0XFFFFEEDD),
           child: Container(
             color: Color(0x000000),
             margin: EdgeInsetsDirectional.fromSTEB(10, 30, 10, 30),
@@ -77,32 +79,16 @@ class HomePage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      // MenuButton(
-                      //     text: 'Result',
-                      //     destination: beforeAs(),
-                      //     imgPath: 'images/Icon_As.png',
-                      //     color: Color(0xFF4FCCBD)),
-                      // MenuButton(
-                      //     text: 'Advice',
-                      //     destination: beforeAs(),
-                      //     imgPath: 'images/Icon_HandHeart.png',
-                      //     color: Color(0xFF4FCCBD)),
-                      // MenuButton(
-                      //     text: 'Profile',
-                      //     destination: beforeAs(),
-                      //     imgPath: 'images/Icon_As.png',
-                      //     color: Color(0xFF4FCCBD)),
-
                       CardWidget(
                         destinationPage: advicePage(),
                         imagePath: 'images/Icon_HandHeart.png',
                         text: 'คำแนะนำ',
                       ),
-                      // CardWidget(
-                      //   destinationPage: YourWidget(),
-                      //   imagePath: 'images/user-icon1.png',
-                      //   text: 'โปรไฟล์',
-                      // ),
+                      userManualWidget(
+                        imagePath: 'images/book2.png',
+                        text: 'คู่มือ',
+                        color: Colors.white,
+                      ),
                       signOutWidget(
                         imagePath: "images/Icon_Exit.png",
                         text: "ออกจากระบบ",
