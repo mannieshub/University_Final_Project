@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_app/authentication/login_register_page.dart';
 
 class signOutWidget extends StatelessWidget {
   final String imagePath;
@@ -11,6 +12,117 @@ class signOutWidget extends StatelessWidget {
 
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
+  }
+
+  void _showAlertDialogExit(BuildContext context) {
+    //ฟังก์ชันแสดงตัวAlert
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return (Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            AlertDialog(
+              backgroundColor: Color(0XFFD9D9D9),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0)),
+              titlePadding: const EdgeInsets.all(0),
+
+              content: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "ต้องการออกจากระบบใช่หรือไม่",
+                            style: TextStyle(fontFamily: 'Kanit', fontSize: 18),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Color(0xFFEBA37A),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(35, 8, 35, 8),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    15), // กำหนดความโค้งของมุมปุ่ม
+                              ),
+
+                              textStyle: TextStyle(
+                                  fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                              // เอาไว้ลิ้งไปหน้าอื่นอันนี้จะเป็นแบบย้อนกลับไปหน้าก่อนหน้านี้
+                            },
+                            child: Text(
+                              'ไม่',
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 255, 255, 255),
+                                fontFamily: 'Kanit',
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Color(0xFFFF0000),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(35, 8, 35, 8),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    15), // กำหนดความโค้งของมุมปุ่ม
+                              ),
+
+                              textStyle: TextStyle(
+                                  fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
+                            ),
+                            onPressed: () {
+                              signOut();
+                              Navigator.of(context).pop();
+                              // เอาไว้ลิ้งไปหน้าอื่นอันนี้จะเป็นแบบย้อนกลับไปหน้าก่อนหน้านี้
+                            },
+                            child: Text(
+                              'ใช่',
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 255, 255, 255),
+                                fontFamily: 'Kanit',
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              /*actions: [
+            TextButton(onPressed: () {}, child: Text("yes")),
+            TextButton(onPressed: () {}, child: Text("no"))
+          ],*/
+
+              //elevation: 24,
+              //backgroundColor: Colors.blue,
+            ),
+          ],
+        ));
+      },
+    );
   }
 
   @override
@@ -25,7 +137,7 @@ class signOutWidget extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      signOut();
+                      _showAlertDialogExit(context);
                     },
                     child: Container(
                       decoration: BoxDecoration(
