@@ -267,13 +267,13 @@ class resultPageState extends State<resultPage> {
                                 isCholesterol,
                                 'images/mitter.png',
                                 "ปริมาณคอเลสเตอรอลสูง",
-                                "ไขมันร้าย(LDL) คือตัวการปิดกั้นหลอดเลือดหัวใจ",
+                                "ไขมันร้าย คือตัวการปิดกั้นหลอดเลือดหัวใจ",
                                 Color(0xFFFD7272)),
                             _showResult(
                                 isHyp,
                                 'images/hypertension.png',
                                 "มีประวัติโรคความดันโลหิตสูง",
-                                "ไขมันร้าย(LDL) คือตัวการปิดกั้นหลอดเลือดหัวใจ",
+                                "ทำให้หัวใจทำงานหนักขึ้น",
                                 Color(0xFFFD7272)),
                             _showResult(
                                 isDiabetes,
