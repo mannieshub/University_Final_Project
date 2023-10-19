@@ -46,6 +46,8 @@ class _assessmentPageState extends State<assessmentPage> {
   int smoke = 1;
   int EducationLevel = 0;
 
+  bool checkInputData = true;
+
   void initState() {
     super.initState();
     EducationLevel = 1;
@@ -55,6 +57,21 @@ class _assessmentPageState extends State<assessmentPage> {
     setState(() {
       EducationLevel = val;
     });
+  }
+
+  void checkData() {
+    if (ageController == "0" ||
+        BPMedsController == "0" ||
+        totCholController == "0" ||
+        sysBPController == "0" ||
+        diaBPController == "0" ||
+        BMIController == "0" ||
+        heartRateController == "0" ||
+        glucoseController == "0") {
+      checkInputData = false;
+    } else {
+      checkInputData = true;
+    }
   }
 
   void _showAlertDialogsErrorSaveData(BuildContext context) {
@@ -2507,6 +2524,7 @@ class _assessmentPageState extends State<assessmentPage> {
                                   ),
                                 ),
                               ),
+
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0, 20, 0, 20),
@@ -2529,6 +2547,7 @@ class _assessmentPageState extends State<assessmentPage> {
                                                 15), // เปลี่ยนสีปุ่มเป็นสีแดง
                                       ),
                                       onPressed: () async {
+                                        checkData();
                                         if (BMIController.text == "0") {
                                           setState(() {
                                             boolCheckBMIVisible = true;
@@ -2575,10 +2594,12 @@ class _assessmentPageState extends State<assessmentPage> {
                                             boolCheckGlucoseVisible ||
                                             boolCheckHeartRateVisible ||
                                             boolCheckSysVisible) {
-                                          _showAlertDialogsErrorSaveData(
-                                              context);
-                                        } else {}
-                                        ApiService.postData(
+                                          if (checkInputData == false) {
+                                            _showAlertDialogsErrorSaveData(
+                                                context);
+                                          }
+                                        } else {
+                                          ApiService.postData(
                                           context,
                                           genderController,
                                           ageController,
@@ -2596,6 +2617,8 @@ class _assessmentPageState extends State<assessmentPage> {
                                           heartRateController,
                                           glucoseController,
                                         );
+                                        }
+                                        
                                         await postDataToFireStore();
                                         await postAdviceToFireStore(
                                             int.parse(
