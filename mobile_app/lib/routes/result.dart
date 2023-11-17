@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../authentication/auth.dart';
 
+//ถ้าไม่มี state ไหนเลย ให้แสดง widget default
 class resultPage extends StatefulWidget {
   @override
   resultPageState createState() => resultPageState();
@@ -12,6 +13,7 @@ class resultPage extends StatefulWidget {
 
 class resultPageState extends State<resultPage> {
   User? user = Auth().currentUser;
+  bool check = true;
   bool isCholesterol = false;
   bool isHyp = false;
   bool isSmoking = false;
@@ -103,6 +105,7 @@ class resultPageState extends State<resultPage> {
           isBMI = false;
           isHeartRate = false;
           isGlucose = false;
+          check = false;
         });
       }
     } catch (e) {
@@ -119,7 +122,7 @@ class resultPageState extends State<resultPage> {
     final Color color,
   ) {
     return isTrue
-        ? reasonWidget(
+        ? ReasonWidget(
             imagePath: imgPath, message1: msg1, message2: msg2, color: color)
         : SizedBox();
   }
@@ -198,168 +201,202 @@ class resultPageState extends State<resultPage> {
           ),
         ),
       ),
-      body: LayoutBuilder(
-          builder: (context, constraints) => SingleChildScrollView(
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minHeight: constraints.maxHeight,
-                  ),
-                  child: IntrinsicHeight(
-                      child: Container(
-                    color: Color(0XFFFFEEDD),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(45, 50, 45, 45),
-                      child: Container(
+      body: check == false
+          ? LayoutBuilder(
+              //เพิ่มเป็นส่วนเปลี่ยนหน้าที่ยังไม่มีผลลัพธ์
+              builder: (context, constraints) => SingleChildScrollView(
+                  child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: constraints.maxHeight,
+                      ),
+                      child: IntrinsicHeight(
+                          child: Container(
                         color: Color(0XFFFFEEDD),
                         child: Column(
-                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(19, 0, 0, 0),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "ความเสี่ยง",
-                                    style: TextStyle(
-                                      height: 1,
-                                      color: Colors.red,
-                                      fontFamily: 'Kanit',
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 19,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                            Wrap(
+                              //mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
-                                  '$percent %',
-                                  style: TextStyle(
-                                    height: 1.1,
-                                    color: Colors.red,
-                                    fontFamily: 'Kanit',
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 70,
-                                  ),
-                                ),
+                                Container(
+                                  width: constraints.maxWidth,
+                                  child: Text(
+                                      "ยังไม่มีผลลัพธ์หรับคุณ กรุณาทำแบบประเมินเพื่อรับผลลัพธ์",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 24,
+                                        fontFamily: 'Kanit',
+                                      )),
+                                )
                               ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "ในการเกิดโรคหลอดเลือดหัวใจใน 10 ปี",
-                                  style: TextStyle(
-                                    height: 1,
-                                    color: Colors.red,
-                                    fontFamily: 'Kanit',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 19,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 10),
-                            _showResult(
-                                isCholesterol,
-                                'images/mitter.png',
-                                "ปริมาณคอเลสเตอรอลสูง",
-                                "ไขมันร้าย คือตัวการปิดกั้นหลอดเลือดหัวใจ",
-                                Color(0xFFFD7272)),
-                            _showResult(
-                                isHyp,
-                                'images/hypertension.png',
-                                "มีประวัติโรคความดันโลหิตสูง",
-                                "ทำให้หัวใจทำงานหนักขึ้น",
-                                Color(0xFFFD7272)),
-                            _showResult(
-                                isDiabetes,
-                                'images/diabetes.png',
-                                "มีประวัติการเป็นโรคเบาหวาน",
-                                "ผนังหลอดเลือดที่หนา ทำให้เลือดไหลเวียนยาก",
-                                Color(0xFFFD7272)),
-                            _showResult(
-                                isSmoking,
-                                'images/cig.png',
-                                "มีประวัติการสูบบุหรี่",
-                                "เป็นปัจจัยเสี่ยงสำคัญที่ทำให้เกิดโรค",
-                                Color(0xFFFD7272)),
-                            _showResult(
-                                isSysBP,
-                                'images/sys.png',
-                                "ความดันโลหิตตัวบนสูง",
-                                "ทำให้หลอดเลือดแดงแข็ง , หลอดเลือดหัวใจตีบ",
-                                Color(0xFFFD7272)),
-                            _showResult(
-                                isDiaBP,
-                                'images/dia.png',
-                                "ความดันโลหิตตัวบนต่ำ",
-                                "อาจส่งผลต่อความเสียหายหัวใจ",
-                                Color(0xFFFD7272)),
-                            _showResult(
-                                isBMI,
-                                'images/bmi.png',
-                                "ดัชนีมวลกาย(BMI) สูงกว่าเกณฑ์ปกติ",
-                                "เสี่ยงเป็นโรคอ้วน เบาหวาน และความดันโลหิตสูง",
-                                Color(0xFFFD7272)),
-                            _showResult(
-                                isHeartRate,
-                                'images/heartrate.png',
-                                "อัตราการเต้นของหัวใจเร็วผิดปกติ",
-                                "อาจมีโรคความดันโลหิตสูง-โรคหลอดเลือดหัวใจ",
-                                Color(0xFFFD7272)),
-                            _showResult(
-                                isGlucose,
-                                'images/mitter.png',
-                                "ระดับกลูโคสโดยเฉลี่ยสูง",
-                                "มีความเสี่ยงที่จะเป็นโรคเบาหวาน",
-                                Color(0xFFFD7272)),
-                            // Padding(
-                            //   padding:
-                            //       EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
-                            //   child: Row(
-                            //     mainAxisAlignment: MainAxisAlignment.center,
-                            //     children: <Widget>[
-                            //       ElevatedButton(
-                            //         style: ElevatedButton.styleFrom(
-                            //           backgroundColor: Color(0xFF4FCCBD),
-
-                            //           padding: EdgeInsetsDirectional.fromSTEB(
-                            //               40, 10, 40, 10),
-                            //           shape: RoundedRectangleBorder(
-                            //             borderRadius: BorderRadius.circular(
-                            //                 10), // กำหนดความโค้งของมุมปุ่ม
-                            //           ),
-
-                            //           textStyle: TextStyle(
-                            //               fontSize:
-                            //                   15), // เปลี่ยนสีปุ่มเป็นสีแดง
-                            //         ),
-                            //         onPressed: () {
-                            //           Navigator.of(context).pop();
-                            //           // เอาไว้ลิ้งไปหน้าอื่นอันนี้จะเป็นแบบย้อนกลับไปหน้าก่อนหน้านี้
-                            //         },
-                            //         child: Text(
-                            //           'back',
-                            //           style: TextStyle(
-                            //             color: Colors.white,
-                            //             fontFamily: 'Kanit',
-                            //           ),
-                            //         ),
-                            //       ),
-                            //     ],
-                            //   ),
-                            // ),
+                            )
                           ],
                         ),
+                      )))))
+          : LayoutBuilder(
+              builder: (context, constraints) => SingleChildScrollView(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: constraints.maxHeight,
                       ),
+                      child: IntrinsicHeight(
+                          child: Container(
+                        color: Color(0XFFFFEEDD),
+                        child: Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(45, 50, 45, 45),
+                          child: Container(
+                            color: Color(0XFFFFEEDD),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      19, 0, 0, 0),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "ความเสี่ยง",
+                                        style: TextStyle(
+                                          height: 1,
+                                          color: Colors.red,
+                                          fontFamily: 'Kanit',
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 19,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      '$percent %',
+                                      style: TextStyle(
+                                        height: 1.1,
+                                        color: Colors.red,
+                                        fontFamily: 'Kanit',
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 70,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "ในการเกิดโรคหลอดเลือดหัวใจใน 10 ปี",
+                                      style: TextStyle(
+                                        height: 1,
+                                        color: Colors.red,
+                                        fontFamily: 'Kanit',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 19,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 10),
+                                _showResult(
+                                    isCholesterol,
+                                    'images/mitter.png',
+                                    "ปริมาณคอเลสเตอรอลสูง",
+                                    "ไขมันร้าย คือตัวการปิดกั้นหลอดเลือดหัวใจ",
+                                    Color(0xFFFD7272)),
+                                _showResult(
+                                    isHyp,
+                                    'images/hypertension.png',
+                                    "มีประวัติโรคความดันโลหิตสูง",
+                                    "ทำให้หัวใจทำงานหนักขึ้น",
+                                    Color(0xFFFD7272)),
+                                _showResult(
+                                    isDiabetes,
+                                    'images/diabetes.png',
+                                    "มีประวัติการเป็นโรคเบาหวาน",
+                                    "ผนังหลอดเลือดหนา ทำให้เลือดไหลเวียนยาก",
+                                    Color(0xFFFD7272)),
+                                _showResult(
+                                    isSmoking,
+                                    'images/cig.png',
+                                    "มีประวัติการสูบบุหรี่",
+                                    "เป็นปัจจัยเสี่ยงสำคัญที่ทำให้เกิดโรค",
+                                    Color(0xFFFD7272)),
+                                _showResult(
+                                    isSysBP,
+                                    'images/sys.png',
+                                    "ความดันโลหิตตัวบนสูง",
+                                    "ทำให้หลอดเลือดแดงแข็ง , หลอดเลือดหัวใจตีบ",
+                                    Color(0xFFFD7272)),
+                                _showResult(
+                                    isDiaBP,
+                                    'images/dia.png',
+                                    "ความดันโลหิตตัวบนต่ำ",
+                                    "อาจส่งผลต่อความเสียหายหัวใจ",
+                                    Color(0xFFFD7272)),
+                                _showResult(
+                                    isBMI,
+                                    'images/bmi.png',
+                                    "ดัชนีมวลกาย(BMI) สูงกว่าเกณฑ์ปกติ",
+                                    "เสี่ยงโรคอ้วน เบาหวาน และความดันโลหิตสูง",
+                                    Color(0xFFFD7272)),
+                                _showResult(
+                                    isHeartRate,
+                                    'images/heartrate.png',
+                                    "อัตราการเต้นของหัวใจเร็วผิดปกติ",
+                                    "อาจมีโรคความดันโลหิตสูง-โรคหลอดเลือดหัวใจ",
+                                    Color(0xFFFD7272)),
+                                _showResult(
+                                    isGlucose,
+                                    'images/mitter.png',
+                                    "ระดับกลูโคสโดยเฉลี่ยสูง",
+                                    "มีความเสี่ยงที่จะเป็นโรคเบาหวาน",
+                                    Color(0xFFFD7272)),
+                                // Padding(
+                                //   padding:
+                                //       EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
+                                //   child: Row(
+                                //     mainAxisAlignment: MainAxisAlignment.center,
+                                //     children: <Widget>[
+                                //       ElevatedButton(
+                                //         style: ElevatedButton.styleFrom(
+                                //           backgroundColor: Color(0xFF4FCCBD),
+
+                                //           padding: EdgeInsetsDirectional.fromSTEB(
+                                //               40, 10, 40, 10),
+                                //           shape: RoundedRectangleBorder(
+                                //             borderRadius: BorderRadius.circular(
+                                //                 10), // กำหนดความโค้งของมุมปุ่ม
+                                //           ),
+
+                                //           textStyle: TextStyle(
+                                //               fontSize:
+                                //                   15), // เปลี่ยนสีปุ่มเป็นสีแดง
+                                //         ),
+                                //         onPressed: () {
+                                //           Navigator.of(context).pop();
+                                //           // เอาไว้ลิ้งไปหน้าอื่นอันนี้จะเป็นแบบย้อนกลับไปหน้าก่อนหน้านี้
+                                //         },
+                                //         child: Text(
+                                //           'back',
+                                //           style: TextStyle(
+                                //             color: Colors.white,
+                                //             fontFamily: 'Kanit',
+                                //           ),
+                                //         ),
+                                //       ),
+                                //     ],
+                                //   ),
+                                // ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      )),
                     ),
                   )),
-                ),
-              )),
     );
   }
 }

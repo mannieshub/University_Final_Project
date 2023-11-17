@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class reasonWidget extends StatelessWidget {
+class ReasonWidget extends StatelessWidget {
   final String imagePath;
   final String message1;
   final String message2;
   final Color color;
 
-  reasonWidget(
+  ReasonWidget(
       {required this.imagePath,
       required this.message1,
       required this.message2,
@@ -14,6 +14,9 @@ class reasonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ดึงขนาดหน้าจอปัจจุบัน
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 10),
       child: Column(
@@ -22,9 +25,9 @@ class reasonWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(25),
             child: Card(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15), // เพิ่มเส้นขอบ
+                borderRadius: BorderRadius.circular(15),
               ),
-              color: color, //0xFFFD7272
+              color: color,
               child: Column(
                 children: [
                   Padding(
@@ -41,14 +44,12 @@ class reasonWidget extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20),
                                 child: Card(
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        10), // เพิ่มเส้นขอบ
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Image.asset(
                                     imagePath,
-                                    // ระบุเส้นทางของไอคอนภาพ
-                                    width: 50, // กำหนดความกว้างของไอคอน
-                                    height: 50, // กำหนดความสูงของไอคอน
+                                    width: screenWidth * 0.125, // กำหนดความกว้างของไอคอนตามขนาดหน้าจอ
+                                    height: screenWidth * 0.13, // กำหนดความสูงของไอคอนตามขนาดหน้าจอ
                                   ),
                                 ),
                               )
@@ -73,7 +74,7 @@ class reasonWidget extends StatelessWidget {
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
                                             fontFamily: 'Kanit',
-                                            fontSize: 13.5,
+                                            fontSize: screenWidth * 0.035, // กำหนดขนาดตัวอักษรตามขนาดหน้าจอ
                                             fontWeight: FontWeight.bold),
                                       ),
                                       const SizedBox(height: 2),
@@ -82,7 +83,7 @@ class reasonWidget extends StatelessWidget {
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
                                           fontFamily: 'Kanit',
-                                          fontSize: 12.5,
+                                          fontSize: screenWidth * 0.032, // กำหนดขนาดตัวอักษรตามขนาดหน้าจอ
                                         ),
                                       ),
                                     ],

@@ -13,6 +13,7 @@ class UserInfoCard extends StatefulWidget {
 
 class _UserInfoCardState extends State<UserInfoCard> {
   final User? user = Auth().currentUser;
+  bool check = false;
   String percent = "";
 
   @override
@@ -33,7 +34,7 @@ class _UserInfoCardState extends State<UserInfoCard> {
 
   Widget _showPercent(String percent) {
     Color levelColor = Color(0xFFFF0000);
-    ;
+    
     if (percent == "ต่ำ") {
       levelColor = Color(0xFFFF8888);
     }
@@ -67,6 +68,7 @@ class _UserInfoCardState extends State<UserInfoCard> {
           if (fetchedPercent != null) {
             setState(() {
               percent = fetchedPercent;
+              check = true;
             });
           }
         }
@@ -128,10 +130,11 @@ class _UserInfoCardState extends State<UserInfoCard> {
                                         Text(
                                           "WELCOME BACK",
                                           style: TextStyle(
-                                              fontSize: 17,
+                                              fontSize: 18,
                                               fontWeight: FontWeight.bold,
                                               fontFamily: 'Inter'),
                                         ),
+                                        const SizedBox(height: 3),
                                         _userUid()
                                       ],
                                     ),
@@ -150,7 +153,8 @@ class _UserInfoCardState extends State<UserInfoCard> {
                                         ),
                                       );
                                     },
-                                    child: Text(
+                                    child:
+                                    Text(
                                       "คลิกเพื่อดูรายละเอียด",
                                       style: TextStyle(
                                         color: Color(0xFF5A5959),
@@ -183,13 +187,19 @@ class _UserInfoCardState extends State<UserInfoCard> {
                                             0,
                                             5,
                                             percent == "ตํ่า" ? 20 : 0),
-                                        child: Text(
+                                      
+                                        child: check == true ?
+                                        Text(
                                           "ระดับความเสี่ยง",
                                           style: TextStyle(
                                               height: 1,
                                               fontSize: 20,
                                               fontFamily: 'kanit'),
-                                        ),
+                                        ):Text('',
+                                        style: TextStyle(
+                                          color: Color(0xFFFF0000),
+                                          fontWeight: FontWeight.bold
+                                        ))
                                       ),
                                       SizedBox(height: 12),
                                       _showPercent(percent)

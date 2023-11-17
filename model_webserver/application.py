@@ -11,11 +11,14 @@ model = pickle.load(open("model.pkl","rb"))
 #mode ="dev"
 
 @application.route("/")
-
 #test on PC
 def Home():
     return render_template("index.html")
 
+@application.route("/restart",methods=["GET"])
+
+def return_json():
+    return jsonify("Server restart")
 
 @application.route("/predict",methods = ["POST"])
 def predict():

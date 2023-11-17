@@ -47,12 +47,6 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                 fontFamily: 'Kanit',
                                 fontWeight: FontWeight.bold),
                           )),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 20),
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage('images/user-icon.png'),
-                        ),
-                      ),
                     ])
                   : Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                       Padding(

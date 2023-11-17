@@ -10,6 +10,7 @@ class advicePage extends StatefulWidget {
 }
 
 class advicePageState extends State<advicePage> {
+  bool check = true;
   User? user = Auth().currentUser;
   //advice 1
   bool isSmoker = false;
@@ -85,6 +86,7 @@ class advicePageState extends State<advicePage> {
           isBMI = BMI;
           isHeartRate = HeartRate;
           isGlucose = Glucose;
+          
         });
       } else {
         // ถ้าไม่พบ document หรือไม่พบค่าใน Firestore
@@ -98,6 +100,7 @@ class advicePageState extends State<advicePage> {
           isBMI = false;
           isHeartRate = false;
           isGlucose = false;
+          check = false;
         });
       }
     } catch (e) {
@@ -116,86 +119,120 @@ class advicePageState extends State<advicePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Color(0xFFEBA37A),
-        title: Container(
-          padding: EdgeInsets.all(0),
-          margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFFFEBE9A),
-                  textStyle: TextStyle(fontSize: 15),
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text(
-                  'Back',
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.bold,
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: Color(0xFFEBA37A),
+          title: Container(
+            padding: EdgeInsets.all(0),
+            margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFFFEBE9A),
+                    textStyle: TextStyle(fontSize: 15),
                   ),
-                ),
-              ),
-              Text(
-                "คำแนะนำ",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Kanit',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22,
-                ),
-              ),
-              Text(
-                "            ",
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ),
-      ),
-      body: LayoutBuilder(
-          builder: (context, constraints) => SingleChildScrollView(
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minHeight: constraints.maxHeight,
-                  ),
-                  child: IntrinsicHeight(
-                    child: Container(
-                      color: Color(0XFFFEDBBA),
-                      child: Center(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 60, 0, 60),
-                          child:
-                              Column(mainAxisSize: MainAxisSize.max, children: [
-                            _showAdvice(isSmoker, 'images/Smook.png',
-                                "ควรลดปริมาณการสูบบุหรี่ หรือถ้าเลิกได้ก็ควรเลิกสูบบุหรี่"),
-                            const SizedBox(height: 10),
-                            _showAdvice(
-                                isDiabetes ||
-                                    isBMI ||
-                                    isGlucose ||
-                                    isStroke ||
-                                    isCholesterol,
-                                'images/healthy-food 1.png',
-                                "งดการกินของทอด ของหวาน และของมัน \n รับประทานแต่อาหารที่มีประโยชน์"),
-                            const SizedBox(height: 10),
-                            // _showAdvice(isStroke || isCholesterol, imgPath, msg),
-                            _showAdvice(
-                                isHyp || isHeartRate,
-                                'images/Exercise.png',
-                                "นอนหลับให้เพียงพอ และออกกำลังกาย 3-5 ครั้งต่อสัปดาห์"),
-                          ]),
-                        ),
-                      ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    'Back',
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-              )),
-    );
+                Text(
+                  "คำแนะนำ",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Kanit',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22,
+                  ),
+                ),
+                Text(
+                  "            ",
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+        body: check == true
+            ? LayoutBuilder(
+                builder: (context, constraints) => SingleChildScrollView(
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minHeight: constraints.maxHeight,
+                        ),
+                        child: IntrinsicHeight(
+                          child: Container(
+                            color: Color(0XFFFEDBBA),
+                            child: Center(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0, 60, 0, 60),
+                                child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      _showAdvice(isSmoker, 'images/Smook.png',
+                                          "ควรลดปริมาณการสูบบุหรี่ หรือถ้าเลิกได้ก็ควรเลิกสูบบุหรี่"),
+                                      const SizedBox(height: 10),
+                                      _showAdvice(
+                                          isDiabetes ||
+                                              isBMI ||
+                                              isGlucose ||
+                                              isStroke ||
+                                              isCholesterol,
+                                          'images/healthy-food 1.png',
+                                          "งดการกินของทอด ของหวาน และของมัน \n รับประทานแต่อาหารที่มีประโยชน์"),
+                                      const SizedBox(height: 10),
+                                      // _showAdvice(isStroke || isCholesterol, imgPath, msg),
+                                      _showAdvice(
+                                          isHyp || isHeartRate,
+                                          'images/Exercise.png',
+                                          "นอนหลับให้เพียงพอ และออกกำลังกาย 3-5 ครั้งต่อสัปดาห์"),
+                                    ]),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
+            : LayoutBuilder(
+                //เพิ่มเป็นส่วนเปลี่ยนหน้าที่ยังไม่มีผลลัพธ์
+                builder: (context, constraints) => SingleChildScrollView(
+                    child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minHeight: constraints.maxHeight,
+                        ),
+                        child: IntrinsicHeight(
+                            child: Container(
+                          color: Color(0XFFFFEEDD),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Wrap(
+                                //mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    width: constraints.maxWidth,
+                                    child:
+                                        Text("กรุณาทำแบบประเมินเพื่อรับผลลัพธ์",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 24,
+                                              fontFamily: 'Kanit',
+                                            )),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        ))))));
   }
 }

@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
 
   Widget _title() {
     return const Text(
-      'Mobile Assessing for likelihood of CHD',
+      'HeartRisk Assessment',
       style: TextStyle(
         color: Colors.white, // กำหนดสีของ Text เป็นสีขาว
       ),
