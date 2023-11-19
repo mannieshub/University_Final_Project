@@ -127,76 +127,43 @@ class signOutWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  GestureDetector(
+    var constraints;
+    return Container(
+        //เพิ่มนะ
+        width: constraints.maxWidth * 0.7,
+        child: FittedBox(
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(5, 10, 0, 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  "ต้องการออกจากระบบ? ",
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    fontFamily: 'Kanit',
+                  ),
+                ),
+                GestureDetector(
                     onTap: () {
                       _showAlertDialogExit(context);
                     },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius:
-                            BorderRadius.circular(15), // Rounded corners
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.25),
-                            spreadRadius: 0,
-                            blurRadius: 6,
-                            offset: Offset(1, 1), // X and Y offset
-                          ),
-                        ],
+                    child: Text(
+                      "ออกจากระบบ",
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontFamily: 'Kanit',
+                        decoration: TextDecoration.underline, // เพิ่มเส้นใต้
+                        decorationColor:
+                            Colors.red, // เปลี่ยนสีของเส้นใต้เป็นสีแดง
+                        decorationThickness: 1.5, // กำหนดความหนาของเส้นใต้
                       ),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        color: Color(0xFFFF4D4D),
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  30, 17.5, 30, 17.5),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 0),
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Image.asset(
-                                              'images/Icon_Exit.png',
-                                              width: 25,
-                                              height: 25,
-                                            ),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ],
+                    )),
+              ],
+            ),
           ),
-        ),
-      ],
-    );
+        ));
 
     // return Column(
     //   children: [

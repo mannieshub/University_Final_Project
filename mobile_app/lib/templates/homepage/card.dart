@@ -65,7 +65,7 @@ class CardWidget extends StatelessWidget {
                                         children: [
                                           Image.asset(
                                             imagePath, // Specify the image path here
-                                            width: 65,
+                                            width: 70,
                                             height: 45,
                                           ),
                                           Padding(
