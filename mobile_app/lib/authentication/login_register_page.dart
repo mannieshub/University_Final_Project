@@ -147,75 +147,87 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Container(
-        color: Color(0xFFFEBE9A), //4FD0C1
-        child: Form(
-          key: _formKey,
-          child: Stack(
-            children: [
-              Container(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                margin: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 30),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
+    return LayoutBuilder(
+      builder: (context, constraints) => SingleChildScrollView( 
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+                      minHeight: constraints.maxHeight * 1.1,
+                      //minWidth: constraints.maxWidth,
                     ),
-                  ],
-                ),
-              ),
-              Appname(description: 'HeartRisk Assessment'),
-              Positioned(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(30, 140, 30, 0),
-                  child: Column(
+          child: IntrinsicHeight(
+            child: Scaffold(
+              resizeToAvoidBottomInset: false,
+              body: Container(
+                color: Color(0xFFFEBE9A), //4FD0C1
+                child: Form(
+                  key: _formKey,
+                  child: Stack(
                     children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(25),
-                                child: Card(
-                                  color: Color.fromARGB(
-                                      255, 235, 236, 233), // สีนี้ FFFBFB
-                                  elevation:
-                                      4, // เพิ่มค่า elevation เพื่อเพิ่ม drop shadow
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        25), // กำหนดความโค้งของมุมปุ่ม
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(20.0),
-                                    child: Column(
-                                      children: [
-                                        _createOrSignInText(),
-                                        Input('Email', _controllerEmail),
-                                        PasswordInput(
-                                            'Password', _controllerPassword),
-                                        SizedBox(height: 10),
-                                        _errorMessage(),
-                                        SizedBox(height: 10),
-                                        _submitButton(),
-                                        _loginOrRegisterButton(),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
+                      Container(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                        margin: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 30),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: <Widget>[
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
                             ),
                           ],
+                        ),
+                      ),
+                      Appname(description: 'HeartRisk Assessment'),
+                      Positioned(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(30, 140, 30, 0),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(25),
+                                        child: Card(
+                                          color: Color.fromARGB(
+                                              255, 235, 236, 233), // สีนี้ FFFBFB
+                                          elevation:
+                                              4, // เพิ่มค่า elevation เพื่อเพิ่ม drop shadow
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                                25), // กำหนดความโค้งของมุมปุ่ม
+                                          ),
+                                          child: Padding(
+                                            padding: EdgeInsets.all(20.0),
+                                            child: Column(
+                                              children: [
+                                                _createOrSignInText(),
+                                                Input('Email', _controllerEmail),
+                                                PasswordInput(
+                                                    'Password', _controllerPassword),
+                                                SizedBox(height: 10),
+                                                _errorMessage(),
+                                                SizedBox(height: 10),
+                                                _submitButton(),
+                                                _loginOrRegisterButton(),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
-            ],
+            ),
           ),
         ),
       ),
