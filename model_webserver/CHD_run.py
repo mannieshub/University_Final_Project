@@ -2,24 +2,26 @@ import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 
-df = pd.read_csv("ThaiTest.csv")
-X = df.drop("TenYearCHD",axis=1).values
+# อ่านข้อมูลจากไฟล์ CSV
+df = pd.read_csv("selected_copy.csv")
+X = df.drop("TenYearCHD", axis=1).values
 y = df["TenYearCHD"].values
 
-X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2, random_state=0)
+# แบ่งข้อมูลเป็นชุดฝึกและชุดทดสอบ
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
+# สร้างและฝึกโมเดล Logistic Regression
 model = LogisticRegression()
-
 model.fit(X_train, y_train)
 
-y_pred = model.predict(X_test)
+# ทำนายผลลัพธ์สำหรับทุกระเบียนในไฟล์
+df["predicted_probabilities"] = model.predict_proba(X)[:, 1] * 100
 
-p_data=[[1,63,3,0,0,1,0,0,1,129,75,25.47,90,120]]
-probabilities = model.predict_proba(p_data)
+# เพิ่ม column "level" ตามเงื่อนไขที่ระบุ
+df["level"] = pd.cut(df["predicted_probabilities"], bins=[0, 10, 25, 100], labels=["l", "m", "h"])
 
-probabilities_percent = probabilities * 100
+# เขียนข้อมูลทั้งหมดลงในไฟล์ CSV ใหม่
+df.to_csv("PSW_Test.csv", index=False)
 
-accuracy = model.score(X_test, y_test)
-print("Predicted probabilities (in percent):", probabilities_percent[0]) #class 0 1
-print("You are more likely to have coronary heart disease(CHD) in tenyears with : ",probabilities_percent[0][1]," %")
-print("Accuracy:", accuracy*100)
+# แสดงผลลัพธ์
+print("Predictions and levels have been added to ThaiTest_with_predictions.csv")

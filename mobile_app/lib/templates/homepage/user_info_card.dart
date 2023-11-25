@@ -28,6 +28,7 @@ class _UserInfoCardState extends State<UserInfoCard> {
       style: TextStyle(
         fontFamily: 'Kanit',
         fontSize: 17,
+        fontWeight: FontWeight.w200
       ),
     );
   }
@@ -35,20 +36,20 @@ class _UserInfoCardState extends State<UserInfoCard> {
   Widget _showPercent(String percent) {
     Color levelColor = Color(0xFFFF0000);
     
-    if (percent == "ต่ำ") {
-      levelColor = Color(0xFFFF8888);
-    }
-    if (percent == "ปานกลาง") {
-      levelColor = Color(0xFFFD5F5F);
-    }
-    if (percent == "สูง") {
-      levelColor = Color(0xFFFF0000);
-    }
+    // if (percent == "ต่ำ") {
+    //   levelColor = Color(0xFFFF8888);
+    // }
+    // if (percent == "ปานกลาง") {
+    //   levelColor = Color(0xFFFD5F5F);
+    // }
+    // if (percent == "สูง") {
+    //   levelColor = Color(0xFFFF0000);
+    // }
     return Text(
-      percent, //ใส่ต่าตวามเสี่ยงตรงนี้(ต้องเป็น stringนะ)
+      percent+" %", //ใส่ต่าตวามเสี่ยงตรงนี้(ต้องเป็น stringนะ)
 
       style: TextStyle(
-          height: 0.95, color: levelColor, fontSize: 40, fontFamily: 'kanit'),
+          height: 0.95, color: levelColor, fontSize: 45, fontFamily: 'kanit'),
     );
   }
 
@@ -64,7 +65,7 @@ class _UserInfoCardState extends State<UserInfoCard> {
         final data = snapshot.data();
         print('$data');
         if (data != null) {
-          final fetchedPercent = data['level'];
+          final fetchedPercent = data['percent'];
           if (fetchedPercent != null) {
             setState(() {
               percent = fetchedPercent;
@@ -130,8 +131,8 @@ class _UserInfoCardState extends State<UserInfoCard> {
                                         Text(
                                           "WELCOME BACK",
                                           style: TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w900,
                                               fontFamily: 'Inter'),
                                         ),
                                         const SizedBox(height: 3),
@@ -190,18 +191,18 @@ class _UserInfoCardState extends State<UserInfoCard> {
                                       
                                         child: check == true ?
                                         Text(
-                                          "ระดับความเสี่ยง",
+                                          "โอกาสเป็นโรคหลอดเลือดหัวใจ",
                                           style: TextStyle(
                                               height: 1,
-                                              fontSize: 20,
-                                              fontFamily: 'kanit'),
+                                              fontSize: 14,
+                                              fontFamily: 'kanit',color: Color(0xFF5A5959)),
                                         ):Text('',
                                         style: TextStyle(
-                                          color: Color(0xFFFF0000),
+                                          color: Color(0xFF5A5959),
                                           fontWeight: FontWeight.bold
                                         ))
                                       ),
-                                      SizedBox(height: 12),
+                                      SizedBox(height: 20),
                                       _showPercent(percent)
                                     ],
                                   ),

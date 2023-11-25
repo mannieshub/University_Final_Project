@@ -275,6 +275,22 @@ class _BMI_PageState extends State<BMI_Page> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFFFEBE9A),
+                    textStyle:
+                        TextStyle(fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    // รหัสที่ต้องการให้ทำเมื่อปุ่มถูกกด
+                  },
+                  child: Text(
+                    'Back',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, fontFamily: 'Inter'),
+                  ),
+                ),
                 Text(
                   "คำนวนดัชนีมวลกาย (BMI)",
                   textAlign: TextAlign.center,
