@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:toggle_switch/toggle_switch.dart'; //ต้อง
+import 'package:flutter/services.dart';
 
 class BMI_Page extends StatefulWidget {
   @override
@@ -36,7 +38,9 @@ class _BMI_PageState extends State<BMI_Page> {
   bool BoolCheckCholesterolVisible = false;
 
   bool BoolCheckSYSVisible = false;
-
+  Color colorAlertBMI = Colors.green;
+  Color colorAlertTextTitleBMI = Colors.white;
+  String textBMI = "ปกติ";
   //---------------------------------------------------------------------------------------------------------------------------
   @override
   void initState() {
@@ -55,6 +59,36 @@ class _BMI_PageState extends State<BMI_Page> {
 
   double calculateBMI(double weight, double height) {
     return weight / ((height / 100) * (height / 100));
+  }
+
+  void checkColorBmiAlert(double BMI) {
+    Color max = Colors.green;
+    if (BMI < 18.5) {
+      setState(() {
+        colorAlertBMI = Color.fromARGB(255, 193, 123, 243);
+        textBMI = "ตํ่ากว่าเกณฑ์";
+      });
+    } else if (18.5 <= BMI && BMI < 23.0) {
+      setState(() {
+        colorAlertBMI = Colors.green;
+        textBMI = "ปกติ";
+      });
+    } else if (23.0 <= BMI && BMI < 25) {
+      setState(() {
+        colorAlertBMI = Color.fromARGB(255, 255, 171, 26);
+        textBMI = "เกินมาตราฐาน";
+      });
+    } else if (25.0 <= BMI && BMI < 30) {
+      setState(() {
+        colorAlertBMI = Colors.red;
+        textBMI = "อ้วน";
+      });
+    } else {
+      setState(() {
+        colorAlertBMI = Color.fromARGB(255, 175, 89, 76);
+        textBMI = "อ้วนมาก";
+      });
+    }
   }
 
   void _showAlertDialogsErrorSaveData(BuildContext context) {
@@ -161,40 +195,45 @@ class _BMI_PageState extends State<BMI_Page> {
   }
 
   void _showAlertDialogsResultData(BuildContext context) {
-    //ฟังก์ชันแสดงตัวAlert
+    // ฟังก์ชันแสดงตัวAlert
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return (Column(
+        Color titleBackgroundColor = colorAlertBMI;
+        Color textcolor = colorAlertTextTitleBMI;
+        return Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AlertDialog(
               backgroundColor: Color(0XFFD9D9D9),
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0)),
+                borderRadius: BorderRadius.circular(20.0),
+              ),
               titlePadding: const EdgeInsets.all(0),
               title: Container(
-                  padding: EdgeInsets.fromLTRB(10, 15, 10, 15),
-                  decoration: const BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20.0),
-                      topRight: Radius.circular(20.0),
-                    ),
+                padding: EdgeInsets.fromLTRB(10, 15, 10, 15),
+                decoration: BoxDecoration(
+                  color: titleBackgroundColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20.0),
+                    topRight: Radius.circular(20.0),
                   ),
-                  child: Column(
-                    children: [
-                      Text(
-                        "ผลการคำนวณ (BMI)", //ส่วนของ ข้อความ title ที่พิ้นหลังสีแดงๆ
-                        style: TextStyle(
-                            fontFamily: 'kanit',
-                            fontSize: 17,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  )),
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      "ผลการคำนวณ (BMI)",
+                      style: TextStyle(
+                        fontFamily: 'kanit',
+                        fontSize: 17,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ],
+                ),
+              ),
               content: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
                 child: Column(
@@ -203,27 +242,32 @@ class _BMI_PageState extends State<BMI_Page> {
                     Wrap(
                       children: <Widget>[
                         Text(
-                          "ผลการคำนวณค่าดัชนีมวลกายของท่านคือ $bmi",
-                          textAlign: TextAlign
-                              .center, //ส่วนของ ข้อความ title ที่พิ้นหลังสีแดงๆ
+                          "ผลการคำนวณค่าดัชนีมวลกายของคุณคือ $bmi ",
+                          textAlign: TextAlign.center,
                           style: TextStyle(
-                              fontFamily: 'kanit',
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold),
+                            fontFamily: 'kanit',
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Wrap(
+                      children: <Widget>[
+                        Text(
+                          "ระดับของ bmi ของคุณคือ $textBMI",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'kanit',
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     ),
                   ],
                 ),
               ),
-
-              /*actions: [
-            TextButton(onPressed: () {}, child: Text("yes")),
-            TextButton(onPressed: () {}, child: Text("no"))
-          ],*/
-
-              //elevation: 24,
-              //backgroundColor: Colors.blue,
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
@@ -235,16 +279,15 @@ class _BMI_PageState extends State<BMI_Page> {
                       backgroundColor: Color(0xFFD9D9D9),
                       padding: EdgeInsetsDirectional.fromSTEB(35, 10, 35, 10),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                            20), // กำหนดความโค้งของมุมปุ่ม
+                        borderRadius: BorderRadius.circular(20),
                       ),
-
-                      textStyle:
-                          TextStyle(fontSize: 15), // เปลี่ยนสีปุ่มเป็นสีแดง
+                      textStyle: TextStyle(
+                        fontSize: 15,
+                        color: titleBackgroundColor,
+                      ),
                     ),
                     onPressed: () {
                       Navigator.of(context).pop();
-                      // เอาไว้ลิ้งไปหน้าอื่นอันนี้จะเป็นแบบย้อนกลับไปหน้าก่อนหน้านี้
                     },
                     child: Text(
                       'OK',
@@ -258,7 +301,7 @@ class _BMI_PageState extends State<BMI_Page> {
               ),
             ),
           ],
-        ));
+        );
       },
     );
   }
@@ -273,9 +316,9 @@ class _BMI_PageState extends State<BMI_Page> {
             padding: EdgeInsets.all(0),
             margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                 ElevatedButton(
+                ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFFFEBE9A),
                     textStyle:
@@ -283,7 +326,6 @@ class _BMI_PageState extends State<BMI_Page> {
                   ),
                   onPressed: () {
                     Navigator.pop(context);
-                    // รหัสที่ต้องการให้ทำเมื่อปุ่มถูกกด
                   },
                   child: Text(
                     'Back',
@@ -292,13 +334,13 @@ class _BMI_PageState extends State<BMI_Page> {
                   ),
                 ),
                 Text(
-                  "คำนวนดัชนีมวลกาย (BMI)",
+                  "ดำนวนดัชนีมวลกาย",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, fontFamily: 'Kanit'),
+                      fontWeight: FontWeight.bold, fontFamily: 'Inter'),
                 ),
                 Text(
-                  "",
+                  "     ",
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -640,6 +682,8 @@ class _BMI_PageState extends State<BMI_Page> {
                                                                   bmi = double
                                                                       .parse(
                                                                           formattedNumber);
+                                                                  checkColorBmiAlert(
+                                                                      bmi);
                                                                 });
                                                                 _showAlertDialogsResultData(
                                                                     context);

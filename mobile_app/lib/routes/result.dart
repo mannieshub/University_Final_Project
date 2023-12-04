@@ -328,7 +328,7 @@ class resultPageState extends State<resultPage> {
                                     isSysBP,
                                     'images/sys.png',
                                     "ความดันโลหิตตัวบนสูง",
-                                    "ทำให้หลอดเลือดแดงแข็ง , หลอดเลือดหัวใจตีบ",
+                                    "ทำให้หลอดเลือดแดงแข็ง-หลอดเลือดหัวใจตีบ",
                                     Color(0xFFFD7272)),
                                 _showResult(
                                     isDiaBP,
